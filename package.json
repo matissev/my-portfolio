@@ -1,0 +1,19 @@
+{
+  "name": "my-portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cd cms && npm run develop & cd front && npm run develop"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matissev/my-portfolio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matissev/my-portfolio/issues"
+  },
+  "homepage": "https://github.com/matissev/my-portfolio#readme"
+}
