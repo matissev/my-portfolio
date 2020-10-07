@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_infos_socials",
+  "info": {
+    "name": "social",
+    "icon": "share-alt"
+  },
+  "options": {},
+  "attributes": {
+    "media_name": {
+      "type": "string",
+      "unique": false,
+      "maxLength": 25
+    },
+    "intro": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "outro": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "url": {
+      "type": "string",
+      "regex": "(https?:\\/\\/(?:www\\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|www\\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|https?:\\/\\/(?:www\\.|(?!www))[a-zA-Z0-9]+\\.[^\\s]{2,}|www\\.[a-zA-Z0-9]+\\.[^\\s]{2,})",
+      "required": true
+    }
+  }
+}

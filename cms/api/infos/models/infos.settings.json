@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "infos",
+  "info": {
+    "name": "infos"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "bio": {
+      "type": "richtext"
+    },
+    "social": {
+      "type": "component",
+      "repeatable": true,
+      "component": "infos.social"
+    }
+  }
+}
