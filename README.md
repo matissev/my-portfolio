@@ -13,6 +13,11 @@ I am just following this tutorial
 
 [https://styled-components.com/docs/advanced#theming](https://styled-components.com/docs/advanced#theming)
 
+# i18n
+
+[https://www.gatsbyjs.com/blog/2020-02-19-how-to-build-multilingual-sites-with-gatsby/](https://www.gatsbyjs.com/blog/2020-02-19-how-to-build-multilingual-sites-with-gatsby/)
+https://dev.to/louisbertin/multilingual-website-with-gatsby-and-contentful-part-2-25pf
+
 ## Hiding mailto from bots
 
 [https://dev.to/hkievet/react-protecting-an-email-address-3cp0](https://dev.to/hkievet/react-protecting-an-email-address-3cp0)
@@ -21,3 +26,8 @@ I am just following this tutorial
 
 
 (https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})
+
+## Todo
+
+- Redirect /fr to / with the new version of "gatsby-plugin-intl"
+- True data localization with the upcoming strapi feature : right now query both languages and interpolate locale variable names in the javascript part OR conditional queries based on locale.

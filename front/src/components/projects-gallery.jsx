@@ -1,20 +1,7 @@
 import React from "react"
 import ProjectPreview from "./project-preview"
-import { useStaticQuery, graphql } from "gatsby"
 
-const ProjectsGallery = () => {
-  const projects = useStaticQuery(graphql`
-      query {
-        allStrapiProject(filter: {published: {eq: true}}) {
-          nodes {
-            strapiId
-            title,
-            slug
-          }
-        }
-      }
-  `).allStrapiProject.nodes
-
+const ProjectsGallery = ({ projects }) => {
   return (
     <section>
       {projects.map((project, i) => {

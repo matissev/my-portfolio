@@ -11,18 +11,30 @@
       "unique": false,
       "maxLength": 25
     },
-    "intro": {
+    "intro_fr": {
       "type": "string",
       "maxLength": 50
     },
-    "outro": {
+    "outro_fr": {
       "type": "string",
       "maxLength": 50
     },
-    "url": {
+    "url_fr": {
       "type": "string",
       "regex": "(https?:\\/\\/(?:www\\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|www\\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|https?:\\/\\/(?:www\\.|(?!www))[a-zA-Z0-9]+\\.[^\\s]{2,}|www\\.[a-zA-Z0-9]+\\.[^\\s]{2,})",
       "required": true
+    },
+    "intro_en": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "outro_en": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "url_en": {
+      "type": "string",
+      "regex": "(https?:\\/\\/(?:www\\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|www\\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|https?:\\/\\/(?:www\\.|(?!www))[a-zA-Z0-9]+\\.[^\\s]{2,}|www\\.[a-zA-Z0-9]+\\.[^\\s]{2,})"
     }
   }
 }

@@ -24,16 +24,28 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-strapi",
+      resolve: "gatsby-source-graphql",
       options: {
-        apiURL: process.env.API_URL || "http://localhost:1337",
-        contentTypes: [
-          // List of the Content Types you want to be able to request from Gatsby.
-          "project",
-          "info"
-          // "category",
-        ],
-        queryLimit: 1000,
+        // Arbitrary name for the remote schema Query type
+        typeName: "Strapi",
+        // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
+        fieldName: "strapi",
+        // Url to query from
+        // apiURL: process.env.API_URL || "http://localhost:1337/graphql",
+        url: "http://localhost:8031/graphql",
+      },
+    },
+    {
+      resolve: `gatsby-plugin-intl`,
+      options: {
+        // language JSON resource path
+        path: `${__dirname}/src/intl`,
+        // supported language
+        languages: [`fr`, `en`],
+        // language file path
+        defaultLanguage: `fr`,
+        // option to redirect to `/ko` when connecting `/`
+        redirect: true
       },
     },
     "gatsby-transformer-sharp",

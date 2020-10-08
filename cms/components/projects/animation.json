@@ -1,8 +1,8 @@
 {
-  "collectionName": "components_projects_images",
+  "collectionName": "components_projects_animations",
   "info": {
-    "name": "image",
-    "icon": "image"
+    "name": "animation",
+    "icon": "star"
   },
   "options": {},
   "attributes": {
@@ -10,14 +10,9 @@
       "model": "file",
       "via": "related",
       "allowedTypes": [
-        "images"
+        "videos"
       ],
       "plugin": "upload",
-      "required": true
-    },
-    "alt_fr": {
-      "type": "string",
-      "maxLength": 125,
       "required": true
     },
     "caption_fr": {
@@ -25,11 +20,6 @@
     },
     "caption_en": {
       "type": "string"
-    },
-    "alt_en": {
-      "type": "string",
-      "maxLength": 125,
-      "required": true
     }
   }
 }

@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_projects_layouts",
+  "info": {
+    "name": "layout",
+    "icon": "layer-group"
+  },
+  "options": {},
+  "attributes": {
+    "position": {
+      "type": "integer",
+      "required": false
+    },
+    "width": {
+      "type": "integer",
+      "min": 1,
+      "max": 12
+    },
+    "first_column": {
+      "type": "integer",
+      "max": 12,
+      "min": 1
+    }
+  }
+}

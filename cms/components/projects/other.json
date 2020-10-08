@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_projects_others",
+  "info": {
+    "name": "other",
+    "icon": "tag"
+  },
+  "options": {},
+  "attributes": {
+    "label_fr": {
+      "type": "string",
+      "required": true
+    },
+    "entry_fr": {
+      "type": "string",
+      "required": true
+    },
+    "label_en": {
+      "type": "string",
+      "required": true
+    },
+    "entry_en": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_projects_previews",
+  "info": {
+    "name": "preview",
+    "icon": "eye"
+  },
+  "options": {},
+  "attributes": {
+    "alt": {
+      "type": "string",
+      "required": true,
+      "maxLength": 125
+    },
+    "visual": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": true
+    }
+  }
+}

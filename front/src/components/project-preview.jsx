@@ -1,9 +1,9 @@
 import React from "react"
-import { Link, graphql } from 'gatsby'
+import { Link, navigate } from "gatsby-plugin-intl";
 
-const ProjectPreview = ({project}) => {
+const ProjectPreview = ({ project }) => {
   return (
-    <Link to={project.slug}>
+    <Link to={`/` + project.slug}>
       <article>
         <h2>{project.title}</h2>
         <p>{project.content}</p>

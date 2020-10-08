@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 import React from "react"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby-plugin-intl";
 import styled from 'styled-components'
 
 const StyledHeader = styled.header`
@@ -46,26 +46,28 @@ const MainNav = styled.nav`
   }
 `
 
-const Header = () => {
-  const pathname = typeof window !== 'undefined' ? window.location.pathname : '';
+const Header = ({ formerPage }) => {
+  let pathname = typeof window !== 'undefined' ? window.location.pathname : '';
+  pathname = pathname.split("/");
+  pathname = "/" + pathname[pathname.length - 1];
 
   const goBack = () => {
-    window.history.back();
+    navigate(formerPage)
   }
 
   return (
     <StyledHeader>
-        <WebsiteHeading>
-          <Link to="/"><p>Matisse V</p></Link>
-          <JobIndicator>compositeur & designer</JobIndicator>
-        </WebsiteHeading>
-        <button>Audio Off</button>
-        <MainNav>
-          {pathname === "/infos"
-            ? <button onClick={goBack}>X</button>
-            : <Link to="/infos">Infos</Link>
-          }
-        </MainNav>
+      <WebsiteHeading>
+        <Link to="/"><p>Matisse V</p></Link>
+        <JobIndicator>compositeur & designer</JobIndicator>
+      </WebsiteHeading>
+      <button>Audio Off</button>
+      <MainNav>
+        {pathname === "/infos"
+          ? <button onClick={goBack}>X</button>
+          : <Link to="/infos" state={{ formerPage: pathname }}>Infos</Link>
+        }
+      </MainNav>
     </StyledHeader>
   )
 }

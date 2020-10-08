@@ -9,13 +9,16 @@
     "timestamps": true
   },
   "attributes": {
-    "bio": {
+    "bio_en": {
       "type": "richtext"
     },
     "social": {
       "type": "component",
       "repeatable": true,
       "component": "infos.social"
+    },
+    "bio_fr": {
+      "type": "richtext"
     }
   }
 }

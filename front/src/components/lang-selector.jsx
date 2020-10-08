@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { IntlContextConsumer, changeLocale } from "gatsby-plugin-intl"
 import styled from 'styled-components'
 
 const StyledLangSelector = styled.nav`
@@ -7,18 +7,39 @@ const StyledLangSelector = styled.nav`
     bottom: var(--layout-margin);
     right: var(--layout-margin);
 
-    .lng {
+    a {
+      text-decoration: none;
       margin-left: 10px;
     }
 `
+const languageName = {
+  fr: "FR",
+  en: "EN"
+}
 
 const LangSelector = () => {
-    return(
-      <StyledLangSelector>
-        <Link className="lng" to="/"><abbr>FR</abbr></Link>
-        <Link className="lng" to="/en"><abbr>EN</abbr></Link>
-      </StyledLangSelector>
-    )
+  return (
+    <StyledLangSelector>
+      <IntlContextConsumer>
+        {({ languages, language: currentLocale }) =>
+          languages.map(language => (
+            <a
+              key={language}
+              onClick={() => changeLocale(language)}
+              className={currentLocale !== language ? `underline` : `none`}
+              style={{
+                textDecoration: currentLocale !== language ? `underline` : `none`,
+                margin: 10,
+                cursor: `pointer`,
+              }}
+            >
+              <abbr>{languageName[language]}</abbr>
+            </a>
+          ))
+        }
+      </IntlContextConsumer>
+    </StyledLangSelector>
+  )
 }
 
 export default LangSelector

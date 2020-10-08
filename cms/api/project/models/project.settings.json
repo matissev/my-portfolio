@@ -9,41 +9,69 @@
     "timestamps": true
   },
   "attributes": {
-    "title": {
+    "title_fr": {
       "type": "string",
       "required": true
     },
-    "preview": {
-      "model": "file",
-      "via": "related",
-      "allowedTypes": [
-        "images",
-        "videos"
-      ],
-      "plugin": "upload",
-      "required": false
-    },
     "slug": {
-      "type": "uid",
-      "targetField": "title"
+      "type": "uid"
     },
     "published": {
       "type": "boolean",
       "required": true,
       "default": true
     },
-    "description": {
-      "type": "richtext",
-      "maxLength": 600
+    "description_fr": {
+      "type": "richtext"
     },
     "main_media": {
       "type": "dynamiczone",
       "components": [
         "projects.video",
-        "projects.image"
+        "projects.image",
+        "projects.animation"
       ],
       "required": false,
       "max": 1
+    },
+    "description_en": {
+      "type": "richtext"
+    },
+    "title_en": {
+      "type": "string",
+      "required": true
+    },
+    "brief_fr": {
+      "type": "text",
+      "maxLength": 158
+    },
+    "brief_en": {
+      "type": "text",
+      "maxLength": 158
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "projects.animation",
+        "projects.image",
+        "projects.video",
+        "projects.text"
+      ]
+    },
+    "tags": {
+      "type": "component",
+      "repeatable": false,
+      "component": "projects.tags"
+    },
+    "preview": {
+      "type": "component",
+      "repeatable": false,
+      "component": "projects.preview"
+    },
+    "layout": {
+      "type": "component",
+      "repeatable": false,
+      "component": "projects.layout"
     }
   }
 }
