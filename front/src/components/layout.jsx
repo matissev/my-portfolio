@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const Layout = ({ children, formerPage }) => {
+const Layout = ({ children, isPageInfos }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -40,7 +40,7 @@ const Layout = ({ children, formerPage }) => {
   return (
     <>
       <GlobalStyle />
-      <Header formerPage={formerPage} siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <Header isPageInfos={isPageInfos} siteTitle={data.site.siteMetadata?.title || `Title`} />
       <LangSelector />
       <main>{children}</main>
     </>

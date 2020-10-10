@@ -1,7 +1,8 @@
 import PropTypes from "prop-types"
-import React from "react"
+import React, { useContext } from "react"
 import { Link, navigate } from "gatsby-plugin-intl";
 import styled from 'styled-components'
+import { GlobalDispatchContext, GlobalStateContext } from '../context/global-context'
 
 const StyledHeader = styled.header`
   position: fixed;
@@ -46,14 +47,25 @@ const MainNav = styled.nav`
   }
 `
 
-const Header = ({ formerPage }) => {
-  let pathname = typeof window !== 'undefined' ? window.location.pathname : '';
-  pathname = pathname.split("/");
-  pathname = "/" + pathname[pathname.length - 1];
 
-  const goBack = () => {
-    navigate(formerPage)
+const Header = ({ isPageInfos }) => {
+  const dispatch = useContext(GlobalDispatchContext)
+  const state = useContext(GlobalStateContext)
+
+  const getLocation = () => {
+    let pathname = typeof window !== 'undefined' ? window.location.pathname : ''
+    pathname = pathname.split("/")
+    pathname = pathname[pathname.length - 1]
+    console.log("from component : " + pathname)
+    return "/" + pathname
   }
+
+  const closeInfos = (e, returnPage) => {
+    e.preventDefault()
+    navigate(returnPage)
+  }
+
+  // let previousPage = formerPage !== undefined ? formerPage : previousPage;
 
   return (
     <StyledHeader>
@@ -63,9 +75,15 @@ const Header = ({ formerPage }) => {
       </WebsiteHeading>
       <button>Audio Off</button>
       <MainNav>
-        {pathname === "/infos"
-          ? <button onClick={goBack}>X</button>
-          : <Link to="/infos" state={{ formerPage: pathname }}>Infos</Link>
+        {state.infosReturnPage}
+        {isPageInfos === true
+          ? <Link to="/" onClick={(e) => closeInfos(e, state.infosReturnPage)}>X</Link>
+          : <Link to="/infos" onClick={() => {
+            dispatch({
+              type: 'CHANGE_INFOS_RETURN_PAGE',
+              returnPage: getLocation()
+            })
+          }}>Infos</Link>
         }
       </MainNav>
     </StyledHeader>

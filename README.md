@@ -31,3 +31,4 @@ https://dev.to/louisbertin/multilingual-website-with-gatsby-and-contentful-part-
 
 - Redirect /fr to / with the new version of "gatsby-plugin-intl"
 - True data localization with the upcoming strapi feature : right now query both languages and interpolate locale variable names in the javascript part OR conditional queries based on locale.
+- The location state should be updated in a hook and shared across the components that need it

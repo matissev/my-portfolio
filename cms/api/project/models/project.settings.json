@@ -72,6 +72,9 @@
       "type": "component",
       "repeatable": false,
       "component": "projects.layout"
+    },
+    "position": {
+      "type": "integer"
     }
   }
 }

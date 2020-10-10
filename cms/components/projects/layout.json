@@ -6,10 +6,6 @@
   },
   "options": {},
   "attributes": {
-    "position": {
-      "type": "integer",
-      "required": false
-    },
     "width": {
       "type": "integer",
       "min": 1,

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "cd cms && npm run develop & cd front && npm run develop",
-    "prod": "cd cms && npm run start & cd front && npm run build"
+    "prod": "cd cms && npm run start & cd front && npm run build && npm run serve"
   },
   "repository": {
     "type": "git",

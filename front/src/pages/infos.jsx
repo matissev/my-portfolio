@@ -6,11 +6,11 @@ import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 
-const InfosPage = ({ data, pageContext, location}) => {
+const InfosPage = ({ data, pageContext }) => {
   const infos = FilterInfosLocale(data.strapi.info, pageContext.locale)
 
   return (
-    <Layout formerPage={location.state && location.state.formerPage ? location.state.formerPage : "/"}>
+    <Layout isPageInfos={true}>
       <p>{infos.bio}</p>
       {infos.social.map((link) => {
         return (

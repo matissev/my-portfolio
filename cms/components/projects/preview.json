@@ -6,7 +6,7 @@
   },
   "options": {},
   "attributes": {
-    "alt": {
+    "alt_fr": {
       "type": "string",
       "required": true,
       "maxLength": 125
@@ -20,6 +20,11 @@
       ],
       "plugin": "upload",
       "required": true
+    },
+    "alt_en": {
+      "type": "string",
+      "required": true,
+      "maxLength": 125
     }
   }
 }
