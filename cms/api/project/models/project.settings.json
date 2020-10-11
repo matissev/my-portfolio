@@ -14,7 +14,8 @@
       "required": true
     },
     "slug": {
-      "type": "uid"
+      "type": "uid",
+      "required": true
     },
     "published": {
       "type": "boolean",
@@ -22,7 +23,8 @@
       "default": true
     },
     "description_fr": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": false
     },
     "main_media": {
       "type": "dynamiczone",
@@ -31,11 +33,13 @@
         "projects.image",
         "projects.animation"
       ],
-      "required": false,
-      "max": 1
+      "required": true,
+      "max": 1,
+      "min": 1
     },
     "description_en": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": false
     },
     "title_en": {
       "type": "string",
@@ -43,11 +47,13 @@
     },
     "brief_fr": {
       "type": "text",
-      "maxLength": 158
+      "maxLength": 158,
+      "required": true
     },
     "brief_en": {
       "type": "text",
-      "maxLength": 158
+      "maxLength": 158,
+      "required": true
     },
     "content": {
       "type": "dynamiczone",
@@ -66,7 +72,8 @@
     "preview": {
       "type": "component",
       "repeatable": false,
-      "component": "projects.preview"
+      "component": "projects.preview",
+      "required": true
     },
     "layout": {
       "type": "component",

@@ -75,7 +75,6 @@ const Header = ({ isPageInfos }) => {
       </WebsiteHeading>
       <button>Audio Off</button>
       <MainNav>
-        {state.infosReturnPage}
         {isPageInfos === true
           ? <Link to="/" onClick={(e) => closeInfos(e, state.infosReturnPage)}>X</Link>
           : <Link to="/infos" onClick={() => {

@@ -4,11 +4,12 @@ import styled from 'styled-components'
 
 import Layout from "../components/layout"
 import ProjectsGallery from "../components/projects-gallery"
-import Image from "../components/image"
+import Img from "gatsby-image"
 import SEO from "../components/seo"
+import FilterLocale from "../utils/FilterLocale"
 
 const IndexPage = ({ data, pageContext }) => {
-  const projects = FilterProjectsLocale(data.strapi.projects, pageContext.locale)
+  const projects = FilterLocale(data.strapi.projects, pageContext.locale, pageContext.intl.languages)
 
   return (
     <Layout>

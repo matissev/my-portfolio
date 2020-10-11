@@ -3,11 +3,14 @@ import styled from 'styled-components'
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
+import Img from "gatsby-image"
 import SEO from "../components/seo"
+import FilterLocale from "../utils/FilterLocale"
 
 const InfosPage = ({ data, pageContext }) => {
-  const infos = FilterInfosLocale(data.strapi.info, pageContext.locale)
+  const infos = FilterLocale(data.strapi.info, pageContext.locale, pageContext.intl.languages)
+
+  console.log(infos)
 
   return (
     <Layout isPageInfos={true}>
@@ -50,23 +53,5 @@ export const query = graphql`
     }
   }
 `
-
-const FilterInfosLocale = (infosSuffixed, locale) => {
-  const infos = {
-    bio: infosSuffixed["bio_" + locale],
-    social: []
-  }
-
-  for (let i = 0; i < infosSuffixed.social.length; i++) {
-    infos.social[i] = {
-      intro: infosSuffixed.social[i]["intro_" + locale],
-      media_name: infosSuffixed.social[i].media_name,
-      outro: infosSuffixed.social[i]["outro_" + locale],
-      url: infosSuffixed.social[i]["url_" + locale],
-    }
-  }
-
-  return infos
-}
 
 export default InfosPage
