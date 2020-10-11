@@ -22,6 +22,10 @@ https://dev.to/louisbertin/multilingual-website-with-gatsby-and-contentful-part-
 
 [https://dev.to/hkievet/react-protecting-an-email-address-3cp0](https://dev.to/hkievet/react-protecting-an-email-address-3cp0)
 
+## Image Sharp support with strapi & gatsby-source-graphql
+
+[https://levelup.gitconnected.com/strapi-dynamic-zone-and-gatbsy-image-6f29b6bb0f0](https://levelup.gitconnected.com/strapi-dynamic-zone-and-gatbsy-image-6f29b6bb0f0)
+
 
 
 
@@ -31,4 +35,3 @@ https://dev.to/louisbertin/multilingual-website-with-gatsby-and-contentful-part-
 
 - Redirect /fr to / with the new version of "gatsby-plugin-intl"
 - True data localization with the upcoming strapi feature : right now query both languages and interpolate locale variable names in the javascript part OR conditional queries based on locale.
-- The location state should be updated in a hook and shared across the components that need it

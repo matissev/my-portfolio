@@ -26,6 +26,20 @@ export const query = graphql`
         title_fr
         title_en
         slug
+        preview {
+          alt_en
+          alt_fr
+          visual {
+            url
+            imageFile {
+              childImageSharp {
+                fluid(maxWidth: 500, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

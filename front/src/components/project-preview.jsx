@@ -1,13 +1,25 @@
 import React from "react"
 import { Link, navigate } from "gatsby-plugin-intl";
+import styled from "styled-components"
+import Img from "gatsby-image"
+
+const Preview = styled.article`
+  display: inline-block;
+  margin-right: 20px;
+
+  .Img {
+    max-width: 200px;
+  }
+`
+
 
 const ProjectPreview = ({ project }) => {
   return (
     <Link to={`/` + project.slug}>
-      <article>
+      <Preview>
+        <Img className='Img' fluid={project.preview.visual.imageFile.childImageSharp.fluid}/>
         <h2>{project.title}</h2>
-        <p>{project.content}</p>
-      </article>
+      </Preview>
     </Link>
   )
 }

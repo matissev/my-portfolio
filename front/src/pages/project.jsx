@@ -1,21 +1,30 @@
 import React from "react"
-import Link from "gatsby-plugin-intl"
+import { Link } from "gatsby-plugin-intl"
 import styled from "styled-components"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import Img from "gatsby-image"
 import SEO from "../components/seo"
+import Tags from "../components/project/tags"
+import MainMedia from "../components/project/main-media"
+
 import FilterLocale from "../utils/FilterLocale"
 
 const ProjectPage = ({ data, pageContext }) => {
   const project = FilterLocale(data.strapi.projects[0], pageContext.locale, pageContext.intl.languages)
 
+  console.log(project)
+
   return (
     <Layout>
+      <Link to="/"><p>Back</p></Link>
       <h1>{project.title}</h1>
-      <Img fixed={project.preview.visual.imageFile.childImageSharp.fixed}/>
+      <MainMedia main_media={project.main_media[0]}/>
       <p>{project.brief}</p>
+      <div>
+        <p>{project.description}</p>
+        <Tags tags={project.tags}/>
+      </div>
     </Layout>
   )
 }
@@ -28,20 +37,6 @@ export const query = graphql`
         id
         title_en
         title_fr
-        preview {
-          alt_en
-          alt_fr
-          visual {
-            url
-            imageFile {
-              childImageSharp {
-                fixed(width: 125, height: 125) {
-                  ...GatsbyImageSharpFixed
-                }
-              }
-            }
-          }
-        }
         main_media {
           ... on Strapi_ComponentProjectsVideo {
             caption_en
@@ -55,6 +50,13 @@ export const query = graphql`
             caption_fr
             file {
               url
+              imageFile {
+                childImageSharp {
+                  fluid(maxWidth: 500, quality: 100) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
             }
           }
           ... on Strapi_ComponentProjectsAnimation {

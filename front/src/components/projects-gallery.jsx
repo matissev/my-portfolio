@@ -1,4 +1,6 @@
 import React from "react"
+import styled from "styled-components"
+
 import ProjectPreview from "./project-preview"
 
 const ProjectsGallery = ({ projects }) => {

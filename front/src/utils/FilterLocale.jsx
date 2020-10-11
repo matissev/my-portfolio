@@ -1,7 +1,6 @@
 
 const FilterLocale = (toFilter, locale, locales) => {
     const otherLocales = locales.filter(entry => entry !== locale)
-    console.log(otherLocales)
     const localeRgx = localeToRegex(locale)
     const otherLocalesRgx = localeToRegex(otherLocales)
     return FilterSuffixe(toFilter, localeRgx, otherLocalesRgx)
