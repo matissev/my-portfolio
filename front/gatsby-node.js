@@ -5,8 +5,13 @@
  */
 
 const path = require(`path`)
+const { createRemoteFileNode } = require(`gatsby-source-filesystem`)
 
-// pages locale
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
+// Create : Pages locales.
 exports.onCreatePage = ({ page, actions }) => {
   const { createPage, deletePage } = actions
   deletePage(page)
@@ -20,6 +25,7 @@ exports.onCreatePage = ({ page, actions }) => {
   })
 }
 
+// Create : Portfolio project pages.
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const result = await graphql(
@@ -38,7 +44,6 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors
   }
 
-  // Create portfolio project pages.
   const projects = result.data.strapi.projects
   projects.forEach((project, index) => {
     createPage({
@@ -48,5 +53,37 @@ exports.createPages = async ({ graphql, actions }) => {
         slug: project.slug,
       },
     })
+  })
+}
+
+
+// Add support for ImageSharp to the gatsby-source-graphql plugin
+exports.createResolvers = async ({
+  actions,
+  cache,
+  createNodeId,
+  createResolvers,
+  store,
+  reporter,
+}) => {
+  const { createNode } = actions
+
+  await createResolvers({
+    Strapi_UploadFile: {
+      imageFile: {
+        type: 'File',
+        async resolve(source) {
+          let sourceUrl = `${process.env.API_URL}${source.url}`
+          return await createRemoteFileNode({
+            url: sourceUrl,
+            store,
+            cache,
+            createNode,
+            createNodeId,
+            reporter,
+          })
+        }
+      }
+    }
   })
 }

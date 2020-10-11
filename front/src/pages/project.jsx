@@ -11,12 +11,10 @@ import FilterLocale from "../utils/FilterLocale"
 const ProjectPage = ({ data, pageContext }) => {
   const project = FilterLocale(data.strapi.projects[0], pageContext.locale, pageContext.intl.languages)
 
-  console.log(project)
-
   return (
     <Layout>
       <h1>{project.title}</h1>
-      <Img fluid={project.preview.visual.url}/>
+      <Img fixed={project.preview.visual.imageFile.childImageSharp.fixed}/>
       <p>{project.brief}</p>
     </Layout>
   )
@@ -35,6 +33,13 @@ export const query = graphql`
           alt_fr
           visual {
             url
+            imageFile {
+              childImageSharp {
+                fixed(width: 125, height: 125) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
           }
         }
         main_media {
