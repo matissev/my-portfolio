@@ -1,5 +1,5 @@
 import React from "react"
-import { IntlContextConsumer, changeLocale } from "gatsby-plugin-intl"
+import { IntlContextConsumer, changeLocale } from "gatsby-plugin-react-intl"
 import styled from 'styled-components'
 
 const StyledLangSelector = styled.nav`

@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, navigate } from "gatsby-plugin-intl";
+import { Link, navigate } from "gatsby-plugin-react-intl";
 import styled from "styled-components"
 import Img from "gatsby-image"
 

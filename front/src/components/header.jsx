@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 import React, { useContext } from "react"
-import { Link, navigate } from "gatsby-plugin-intl";
+import { Link, navigate } from "gatsby-plugin-react-intl";
 import styled from 'styled-components'
 import { GlobalDispatchContext, GlobalStateContext } from '../context/global-context'
 
