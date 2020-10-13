@@ -1,3 +1,18 @@
 {
-    
+    "localesAbbr": {
+        "fr": "Français",
+        "en": "Anglais"
+    },
+    "infos": {
+        "contactHeader": "Me contacter"
+    },
+    "project": {
+        "tags": {
+            "type": "Type",
+            "location": "Lieu",
+            "date": "Date",
+            "backer": "Commanditaire",
+            "press": "Presse"
+        }
+    }
 }

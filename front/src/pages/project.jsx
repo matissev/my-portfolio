@@ -2,18 +2,18 @@ import React from "react"
 import { Link } from "gatsby-plugin-react-intl"
 import styled from "styled-components"
 import { graphql } from "gatsby"
+import ReactMarkdown from 'react-markdown'
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from "../components/global/layout"
+import SEO from "../components/global/seo"
 import Tags from "../components/project/tags"
 import MainMedia from "../components/project/main-media"
+import Content from "../components/project/content"
 
 import FilterLocale from "../utils/FilterLocale"
 
 const ProjectPage = ({ data, pageContext }) => {
   const project = FilterLocale(data.strapi.projects[0], pageContext.locale, pageContext.intl.languages)
-
-  console.log(project)
 
   return (
     <Layout>
@@ -21,8 +21,9 @@ const ProjectPage = ({ data, pageContext }) => {
       <h1>{project.title}</h1>
       <MainMedia main_media={project.main_media[0]}/>
       <p>{project.brief}</p>
+      <Content/>
       <div>
-        <p>{project.description}</p>
+        <ReactMarkdown source={project.description} />
         <Tags tags={project.tags}/>
       </div>
     </Layout>

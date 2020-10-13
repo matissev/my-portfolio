@@ -1,3 +1,18 @@
 {
-    
+    "localesAbbr": {
+        "fr": "French",
+        "en": "English"
+    },
+    "infos": {
+        "contactHeader": "Get in touch" 
+    },
+    "project": {
+        "tags": {
+            "type": "Type",
+            "location": "Location",
+            "date": "Date",
+            "backer": "Backer",
+            "press": "Press"
+        }
+    }
 }

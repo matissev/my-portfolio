@@ -8,22 +8,24 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import { createGlobalStyle } from "styled-components"
+import styled from "styled-components"
+
+import GlobalStyle from "../../context/global-styles"
 
 import Header from "./header"
 import LangSelector from "./lang-selector"
 
-const GlobalStyle = createGlobalStyle`
-  :root {
-    --layout-margin: 2rem;
-  }
+const StyleBlendMode = `
+  mix-blend-mode: difference;
+  color: white;
+`
 
-  body {
-    font-family: sans-serif;
-    margin: 0 var(--layout-margin);
-    display: grid;
-    padding-top: 200px;
-  }
+const StyledHeader = styled.div`
+  ${StyleBlendMode}
+`
+
+const StyledLangSelector = styled.div`
+  ${StyleBlendMode}
 `
 
 const Layout = ({ children, isPageInfos }) => {
@@ -40,8 +42,8 @@ const Layout = ({ children, isPageInfos }) => {
   return (
     <>
       <GlobalStyle />
-      <Header isPageInfos={isPageInfos} siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <LangSelector />
+      <StyledHeader as={Header} passedStyles={StyleBlendMode} isPageInfos={isPageInfos} siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <StyledLangSelector as={LangSelector} />
       <main>{children}</main>
     </>
   )

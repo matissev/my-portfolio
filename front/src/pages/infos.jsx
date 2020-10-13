@@ -2,15 +2,12 @@ import React from "react"
 import styled from 'styled-components'
 import { graphql } from "gatsby"
 
-import Layout from "../components/layout"
-import Img from "gatsby-image"
-import SEO from "../components/seo"
+import Layout from "../components/global/layout"
+import SEO from "../components/global/seo"
 import FilterLocale from "../utils/FilterLocale"
 
 const InfosPage = ({ data, pageContext }) => {
   const infos = FilterLocale(data.strapi.info, pageContext.locale, pageContext.intl.languages)
-
-  console.log(infos)
 
   return (
     <Layout isPageInfos={true}>

@@ -2,10 +2,10 @@ import React from "react"
 import { graphql } from "gatsby"
 import styled from 'styled-components'
 
-import Layout from "../components/layout"
-import ProjectsGallery from "../components/projects-gallery"
+import Layout from "../components/global/layout"
+import ProjectsGallery from "../components/index/projects-gallery"
 import Img from "gatsby-image"
-import SEO from "../components/seo"
+import SEO from "../components/global/seo"
 import FilterLocale from "../utils/FilterLocale"
 
 const IndexPage = ({ data, pageContext }) => {

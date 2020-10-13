@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "websites",
+  "info": {
+    "name": "website"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "heading_en": {
+      "type": "string",
+      "required": true
+    },
+    "job_en": {
+      "type": "string",
+      "required": true
+    },
+    "heading_fr": {
+      "type": "string",
+      "required": true
+    },
+    "job_fr": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
