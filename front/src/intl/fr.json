@@ -4,7 +4,8 @@
         "en": "Anglais"
     },
     "infos": {
-        "contactHeader": "Me contacter"
+        "contactHeader": "Me contacter",
+        "contactButtonLabel": "M’envoyer un email"
     },
     "project": {
         "tags": {

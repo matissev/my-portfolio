@@ -73,6 +73,7 @@ exports.createResolvers = async ({
       imageFile: {
         type: 'File',
         async resolve(source) {
+          console.log(process.env.API_URL);
           let sourceUrl = `${process.env.API_URL}${source.url}`
           return await createRemoteFileNode({
             url: sourceUrl,

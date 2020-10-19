@@ -5,6 +5,8 @@ export const GlobalDispatchContext = React.createContext()
 
 const initialState = {
   infosReturnPage: "/",
+  mute: true,
+  audioContext : typeof window !== `undefined` ? new(window.AudioContext||window.webkitAudioContext)() : null
 }
 
 function reducer(state, action) {
@@ -12,7 +14,20 @@ function reducer(state, action) {
     case "CHANGE_INFOS_RETURN_PAGE": {
       return {
         ...state,
-        infosReturnPage: action.returnPage,
+        infosReturnPage: action.returnPage
+      }
+    }
+    case "CHANGE_AUDIO_STATUS": {
+      return {
+        ...state,
+        mute: action.mute
+      }
+    }
+    case "LOAD_AUDIO_CONTEXT": {
+      console.log(action.audioContext)
+      return {
+        ...state,
+        audioContext: action.audioContext
       }
     }
     default:
@@ -22,6 +37,7 @@ function reducer(state, action) {
 
 const GlobalContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
+
   return (
     <GlobalStateContext.Provider value={state}>
       <GlobalDispatchContext.Provider value={dispatch}>

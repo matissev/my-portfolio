@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_projects_image_contents",
+  "info": {
+    "name": "image content",
+    "icon": "file-image"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "component",
+      "repeatable": false,
+      "component": "projects.image",
+      "required": true
+    },
+    "image_size": {
+      "type": "enumeration",
+      "enum": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "required": true,
+      "default": "M",
+      "enumName": "image_size"
+    }
+  }
+}

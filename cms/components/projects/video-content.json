@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_projects_video_contents",
+  "info": {
+    "name": "video content",
+    "icon": "file-video"
+  },
+  "options": {},
+  "attributes": {
+    "video": {
+      "type": "component",
+      "repeatable": false,
+      "component": "projects.video"
+    },
+    "video_size": {
+      "type": "enumeration",
+      "enum": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "default": "M",
+      "required": true,
+      "enumName": "video_size"
+    }
+  }
+}

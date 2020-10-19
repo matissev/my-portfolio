@@ -1,33 +1,20 @@
 import React from "react"
-import styled from 'styled-components'
 import { graphql } from "gatsby"
 
-import Layout from "../components/global/layout"
-import SEO from "../components/global/seo"
-import FilterLocale from "../utils/FilterLocale"
+import Bio from "#components/infos/bio"
+import Social from "#components/infos/social"
+import ContactButton from "#components/infos/contact-button"
+import FilterLocale from "#utils/FilterLocale"
 
 const InfosPage = ({ data, pageContext }) => {
   const infos = FilterLocale(data.strapi.info, pageContext.locale, pageContext.intl.languages)
 
   return (
-    <Layout isPageInfos={true}>
-      <p>{infos.bio}</p>
-      {infos.social.map((link) => {
-        return (
-          <p key={link.media_name}>
-            {link.intro.length > 0 &&
-              link.intro + ` `
-            }
-            <a href={link.url} target="_blank">
-              {link.media_name}
-            </a>
-            {link.outro != null &&
-              ` ` + link.outro
-            }
-          </p>
-        )
-      })}
-    </Layout>
+    <>
+      <Bio bio={infos.bio}/>
+      <ContactButton />
+      <Social social={infos.social}/>
+    </>
   )
 }
 

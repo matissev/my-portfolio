@@ -1,31 +1,21 @@
 import React from 'react'
-import Img from "gatsby-image"
+
+import Video from './video'
+import Image from './image'
+import Animation from './animation'
 
 const MainMedia = ({ main_media }) => {
     switch (main_media.__typename) {
         case "Strapi_ComponentProjectsImage":
-            return(
-                <figure>
-                    <Img fluid={main_media.file.imageFile.childImageSharp.fluid} alt={main_media.alt}/>
-                    {main_media.caption &&
-                        <figcaption>{main_media.caption}</figcaption>
-                    }
-                </figure>
-            )
+            return <Image size="full" image={main_media} />
 
         case "Strapi_ComponentProjectsVideo":
-            return(
-                <>
-                    <p>Video</p>
-                </>
-            )
+            return <Video size="full" video={main_media} />
 
         case "Strapi_ComponentProjectsAnimation":
-            return(
-                <>
-                    <p>Animation</p>
-                </>
-            )
+            return <Animation size="full" animation={main_media} />
+        default:
+            return null
     }
 }
 

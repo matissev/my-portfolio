@@ -1,0 +1,171 @@
+
+    @font-face {
+        font-family: 'Nitti Grotesk';
+        src: url("NittiGrotesk-BoldItalic.woff2") format('woff2'),
+            url("NittiGrotesk-BoldItalic.woff") format('woff');
+        font-weight: bold;
+        font-style: italic;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Nitti Grotesk';
+        src: url("NittiGrotesk-BlackItalic.woff2") format('woff2'),
+            url("NittiGrotesk-BlackItalic.woff") format('woff');
+        font-weight: 900;
+        font-style: italic;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Nitti Grotesk';
+        src: url("NittiGrotesk-Black.woff2") format('woff2'),
+            url("NittiGrotesk-Black.woff") format('woff');
+        font-weight: 900;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Nitti Grotesk';
+        src: url("NittiGrotesk-Bold.woff2") format('woff2'),
+            url("NittiGrotesk-Bold.woff") format('woff');
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Nitti Grotesk';
+        src: url("NittiGrotesk-ExtraBoldItalic.woff2") format('woff2'),
+            url("NittiGrotesk-ExtraBoldItalic.woff") format('woff');
+        font-weight: 800;
+        font-style: italic;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Nitti Grotesk';
+        src: url("NittiGrotesk-ExtraBlack.woff2") format('woff2'),
+            url("NittiGrotesk-ExtraBlack.woff") format('woff');
+        font-weight: 900;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Nitti Grotesk';
+        src: url("NittiGrotesk-ExtraBold.woff2") format('woff2'),
+            url("NittiGrotesk-ExtraBold.woff") format('woff');
+        font-weight: 800;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Nitti Grotesk';
+        src: url("NittiGrotesk-ExtraLight.woff2") format('woff2'),
+            url("NittiGrotesk-ExtraLight.woff") format('woff');
+        font-weight: 200;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Nitti Grotesk';
+        src: url("NittiGrotesk-Hairline.woff2") format('woff2'),
+            url("NittiGrotesk-Hairline.woff") format('woff');
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Nitti Grotesk';
+        src: url("NittiGrotesk-LightItalic.woff2") format('woff2'),
+            url("NittiGrotesk-LightItalic.woff") format('woff');
+        font-weight: 300;
+        font-style: italic;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Nitti Grotesk';
+        src: url("NittiGrotesk-Light.woff2") format('woff2'),
+            url("NittiGrotesk-Light.woff") format('woff');
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Nitti Grotesk';
+        src: url("NittiGrotesk-MediumItalic.woff2") format('woff2'),
+            url("NittiGrotesk-MediumItalic.woff") format('woff');
+        font-weight: 500;
+        font-style: italic;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Nitti Grotesk';
+        src: url("NittiGrotesk-Medium.woff2") format('woff2'),
+            url("NittiGrotesk-Medium.woff") format('woff');
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Nitti Grotesk';
+        src: url("NittiGrotesk-NormalItalic.woff2") format('woff2'),
+            url("NittiGrotesk-NormalItalic.woff") format('woff');
+        font-weight: normal;
+        font-style: italic;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Nitti Grotesk';
+        src: url("NittiGrotesk-Normal.woff2") format('woff2'),
+            url("NittiGrotesk-Normal.woff") format('woff');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Nitti Grotesk';
+        src: url("NittiGrotesk-SemiLight.woff2") format('woff2'),
+            url("NittiGrotesk-SemiLight.woff") format('woff');
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Nitti Grotesk';
+        src: url("NittiGrotesk-SemiLightItalic.woff2") format('woff2'),
+            url("NittiGrotesk-SemiLightItalic.woff") format('woff');
+        font-weight: 300;
+        font-style: italic;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Nitti Grotesk';
+        src: url("NittiGrotesk-Thin.woff2") format('woff2'),
+            url("NittiGrotesk-Thin.woff") format('woff');
+        font-weight: 100;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Nitti Grotesk';
+        src: url("NittiGrotesk-Ultra.woff2") format('woff2'),
+            url("NittiGrotesk-Ultra.woff") format('woff');
+        font-weight: 900;
+        font-style: normal;
+        font-display: swap;
+    }

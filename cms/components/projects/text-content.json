@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_projects_texts",
+  "collectionName": "components_projects_text_contents",
   "info": {
-    "name": "text",
+    "name": "text content",
     "icon": "align-justify"
   },
   "options": {},

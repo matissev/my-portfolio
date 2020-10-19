@@ -4,32 +4,137 @@ import styled from "styled-components"
 import { graphql } from "gatsby"
 import ReactMarkdown from 'react-markdown'
 
-import Layout from "../components/global/layout"
-import SEO from "../components/global/seo"
-import Tags from "../components/project/tags"
-import MainMedia from "../components/project/main-media"
-import Content from "../components/project/content"
+import Tags from "#components/project/tags"
+import MainMedia from "#components/project/main-media"
+import Content from "#components/project/content"
+import Social from "#components/infos/social"
+import ContactButton from "#components/infos/contact-button"
 
-import FilterLocale from "../utils/FilterLocale"
+import FilterLocale from "#utils/FilterLocale"
+
+const H1 = styled.h1`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  line-height: 100vh;
+  text-align: center;
+  font-size: var(--fs-l);
+  font-weight: 500;
+  margin: 0;
+  animation: popin 1s cubic-bezier(0.16, 1, 0.3, 1);
+`
+
+const StyledLink = styled(Link)`
+  padding: 0 var(--l-rh0_5);
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 1;
+  line-height: calc(var(--l-rh) + var(--l-rh0_25));
+  margin-left: calc(-1* var(--l-rh0_5));
+
+  &:before {
+    content:"◂ ";
+    position: relative;
+    top: -1px;
+  }
+`
+
+const Brief = styled.div`
+  margin-top: calc(var(--l-rh5) + var(--l-rh0_125) - var(--l-rh0_25));
+  transform: translateY(15px);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-gap: var(--l-gw);
+  grid-column: 2 / span 4;
+  font-size: var(--fs-xl);
+  line-height: var(--fs-xl);
+
+  &:before {
+    grid-column: 1 / span 3;
+    content: "";
+    border-top: 1px solid var(--c-txt1);
+  }
+
+  p {
+    margin-top: calc(var(--l-rh2) + var(--l-rh0_5));
+    margin-bottom: 0;
+    line-height: calc(var(--l-rh2));
+    grid-column: 1 / span 4;
+  }
+`
+
+const ProjectFooter = styled.div`
+  margin-top: calc(var(--l-brh) + var(--l-rh) + var(--l-rh0_25) + var(--l-rh0_125));
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-gap: var(--l-gw);
+  position: relative;
+  grid-column: 1 / span 12;
+  color: var(--c-stxt1);
+  background: var(--c-sbg);
+  transform: translateY(5px);
+
+  &:before, &:after {
+    position: absolute;
+    background: var(--c-sbg);
+    content:"";
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: calc(-1 * var(--l-m));
+    width: var(--l-m);
+  }
+
+  &:after {
+    left: auto;
+    right: calc(-1 * var(--l-m));
+  }
+`
+const MarkDown = styled.div`
+  margin-top: calc(var(--l-brh) + var(--l-rh) + var(--l-rh0_5) + var(--l-rh0_125));
+  grid-column: 4 / span 6;
+  line-height: var(--l-rh3);
+  font-size: var(--fs-l);
+
+  p:first-of-type {
+    margin-top: 0;
+  }
+
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+`
+
+const StyledContactButton = styled.button`
+  margin-top: calc(var(--l-rh4));
+  grid-column: span 2;
+`
 
 const ProjectPage = ({ data, pageContext }) => {
   const project = FilterLocale(data.strapi.projects[0], pageContext.locale, pageContext.intl.languages)
+  const infos = FilterLocale(data.strapi.info, pageContext.locale, pageContext.intl.languages)
 
   return (
-    <Layout>
-      <Link to="/"><p>Back</p></Link>
-      <h1>{project.title}</h1>
+    <>
+      <StyledLink to="/">Back</StyledLink>
+      <H1>{project.title}</H1>
       <MainMedia main_media={project.main_media[0]}/>
-      <p>{project.brief}</p>
-      <Content/>
-      <div>
-        <ReactMarkdown source={project.description} />
+      <Brief><p>{project.brief}</p></Brief>
+      <Content components={project.content} />
+      <ProjectFooter>
+        <MarkDown>
+          <ReactMarkdown source={project.description} />
+        </MarkDown>
         <Tags tags={project.tags}/>
-      </div>
-    </Layout>
+      </ProjectFooter>
+      <Social as={Social} social={infos.social}>
+        <StyledContactButton as={ContactButton}/>
+      </Social>
+    </>
   )
 }
-// https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Object/entries
 
 export const query = graphql`
   query Project($slug: String) {
@@ -71,28 +176,48 @@ export const query = graphql`
         brief_fr
         brief_en
         content {
-          ... on Strapi_ComponentProjectsAnimation {
-            caption_en
-            caption_fr
-            file {
+          ... on Strapi_ComponentProjectsAnimationContent {
+            animation {
+              id
+              caption_en
+              caption_fr
+              file {
+                url
+              }
+            }
+            animation_size
+          }
+          ... on Strapi_ComponentProjectsImageContent {
+            image {
+              id
+              alt_en
+              alt_fr
+              caption_en
+              caption_fr
+              file {
+                url
+                imageFile {
+                  childImageSharp {
+                    fluid(maxWidth: 500, quality: 100) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+              }
+            }
+            image_size
+          }
+          ... on Strapi_ComponentProjectsVideoContent {
+            video {
+              id
+              caption_en
+              caption_fr
               url
             }
+            video_size
           }
-          ... on Strapi_ComponentProjectsImage {
-            alt_en
-            alt_fr
-            caption_en
-            caption_fr
-            file {
-              url
-            }
-          }
-          ... on Strapi_ComponentProjectsVideo {
-            caption_en
-            caption_fr
-            url
-          }
-          ... on Strapi_ComponentProjectsText {
+          ... on Strapi_ComponentProjectsTextContent {
+            id
             content_en
             content_fr
           }
@@ -118,6 +243,17 @@ export const query = graphql`
           }
           type_en
           type_fr
+        }
+      }
+      info {
+        social {
+          intro_fr
+          intro_en
+          media_name
+          outro_fr
+          outro_en
+          url_fr
+          url_en
         }
       }
     }

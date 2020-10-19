@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_projects_animation_contents",
+  "info": {
+    "name": "animation content",
+    "icon": "star-half-alt"
+  },
+  "options": {},
+  "attributes": {
+    "animation": {
+      "type": "component",
+      "repeatable": false,
+      "component": "projects.animation",
+      "required": true
+    },
+    "animation_size": {
+      "type": "enumeration",
+      "enum": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "default": "M",
+      "required": true,
+      "enumName": "animation_size"
+    }
+  }
+}

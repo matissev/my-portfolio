@@ -1,6 +1,7 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
+const path = require('path')
 
 module.exports = {
   siteMetadata: {
@@ -8,20 +9,37 @@ module.exports = {
     description: "Gatsby blog with Strapi",
     author: "Strapi team",
   },
+  proxy: {
+    prefix: '/uploads',
+    url: process.env.API_URL || "http://localhost:1337"
+  },
   plugins: [
     "gatsby-plugin-react-helmet",
+    `gatsby-plugin-styled-components`,
     {
-      resolve: `gatsby-plugin-styled-components`,
+      resolve: `gatsby-plugin-layout`,
       options: {
-        // Add any options here
+        component: path.resolve(__dirname, `src/components/global/layout`),
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
-      },
+        path: `${__dirname}/src/images`
+      }
+    },
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          "#components": path.resolve(__dirname, 'src/components'),
+          "#context": path.resolve(__dirname, 'src/context'),
+          "#utils": path.resolve(__dirname, 'src/utils'),
+          "#static": path.resolve(__dirname, 'static')
+        },
+        extensions: ["jsx"]
+      }
     },
     {
       resolve: "gatsby-source-graphql",
@@ -31,8 +49,7 @@ module.exports = {
         // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
         fieldName: "strapi",
         // Url to query from
-        // apiURL: process.env.API_URL || "http://localhost:1337/graphql",
-        url: "http://localhost:8031/graphql",
+        url: process.env.API_URL + "/graphql" || "http://localhost:1337/graphql"
       },
     },
     {
@@ -51,6 +68,7 @@ module.exports = {
     },
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
+    `gatsby-transformer-ffmpeg`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

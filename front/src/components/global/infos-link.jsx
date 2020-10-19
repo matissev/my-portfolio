@@ -1,8 +1,7 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import { Link, navigate } from "gatsby-plugin-react-intl";
 
-import { GlobalDispatchContext, GlobalStateContext } from '../../context/global-context'
-
+import { GlobalDispatchContext, GlobalStateContext } from '#context/global-context'
 
 const InfosLink = ({ isPageInfos }) => {
     const dispatch = useContext(GlobalDispatchContext)
@@ -19,6 +18,10 @@ const InfosLink = ({ isPageInfos }) => {
       e.preventDefault()
       navigate(returnPage)
     }
+
+    useEffect(() => {
+        isPageInfos ? document.body.classList.add('openInfos') : document.body.classList.remove('openInfos');
+    })
 
     return (
         <>

@@ -6,45 +6,40 @@
  */
 
 import React from "react"
+import styled from 'styled-components'
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-import styled from "styled-components"
 
-import GlobalStyle from "../../context/global-styles"
+import GlobalStyle from "#context/global-styles"
+import "#static/fonts/basier/font-face.css"
+import "#static/fonts/maison-neue/font-face.css"
+import "#static/fonts/nitti-grotesk/font-face.css"
 
 import Header from "./header"
 import LangSelector from "./lang-selector"
+import Grid from "#components/utils/grid"
+import Transition from "#components/global/transition"
 
-const StyleBlendMode = `
-  mix-blend-mode: difference;
-  color: white;
+const Main = styled.main`
+  display: grid;
+  grid-template-columns: repeat(var(--l-c), minmax(0, 1fr));
+  grid-gap: var(--l-gw);
+  right: var(--l-m);
+  left: var(--l-m);
 `
 
-const StyledHeader = styled.div`
-  ${StyleBlendMode}
-`
-
-const StyledLangSelector = styled.div`
-  ${StyleBlendMode}
-`
-
-const Layout = ({ children, isPageInfos }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+const Layout = ({ children, location }) => {
+  const regex = RegExp('/infos');
+  const isPageInfos = regex.test(location.pathname);
 
   return (
     <>
+      <Grid />
       <GlobalStyle />
-      <StyledHeader as={Header} passedStyles={StyleBlendMode} isPageInfos={isPageInfos} siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <StyledLangSelector as={LangSelector} />
-      <main>{children}</main>
+      <Header isPageInfos={isPageInfos} />
+      <LangSelector />
+      <Transition location={location}>
+        <Main>{children}</Main>
+      </Transition>
     </>
   )
 }

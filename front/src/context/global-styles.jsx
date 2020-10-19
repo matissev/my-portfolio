@@ -1,15 +1,119 @@
 import { createGlobalStyle } from "styled-components"
 
 const GlobalStyle = createGlobalStyle`
+
     :root {
-    --layout-margin: 2rem;
+        // ------------ Settings
+        // ---------------------
+
+        // Layout
+        --layout-margin: 2rem;
+        --layout-columns: 12;
+        --layout-gutter-width: 1rem;
+        --layout-row-height: 1rem; //0.9rem
+        --layout-n-of-rows-in-bigrow: 7;
+
+        // Colors
+        --color-primary-text: white;
+        --color-secondary-text: #575656; //7F7F7F
+        --color-background: #F4AB7A; //F4AB7A
+        --color-section-primary-text: white;
+        --color-section-secondary-text: #575656;
+        --color-section-background: #909091; //lightblue
+
+        // Fonts
+        --font-family-body: "Basier Circle", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+        --fs-xs: 0.8rem;
+        --fs-s: 0.9rem;
+        --fs-m: 1rem;
+        --fs-l: 1.25rem;
+        --fs-xl: 1.7rem;
+    }
+
+    .openInfos {
+        // --------- Infos Theme
+        // ---------------------
+
+        // Colors
+        --color-primary-text: white;
+        --color-secondary-text: #7F7F7F;
+        --color-background: #262626;
+    }
+
+    :root, .openInfos {
+        // ----- Alias & Helpers
+        // ---------------------
+
+        // Layout
+        --l-c: var(--layout-columns);
+        --l-m: var(--layout-margin);
+        --l-gw: var(--layout-gutter-width);
+        --l-rh0_125: calc(var(--layout-row-height)*0.125);
+        --l-rh0_25: calc(var(--layout-row-height)*0.25);
+        --l-rh0_5: calc(var(--layout-row-height)*0.5);
+        --l-rh: var(--layout-row-height);
+        --l-rh1_5: calc(var(--layout-row-height)*1.5);
+        --l-rh2: calc(var(--layout-row-height)*2);
+        --l-rh3: calc(var(--layout-row-height)*3);
+        --l-rh4: calc(var(--layout-row-height)*4);
+        --l-rh5: calc(var(--layout-row-height)*5);
+        --l-rh6: calc(var(--layout-row-height)*6);
+        --layout-bigrow-height: calc(var(--l-rh) * var(--layout-n-of-rows-in-bigrow));
+        --l-brh: var(--layout-bigrow-height);
+        --l-brh2: calc(var(--layout-bigrow-height)*2);
+        --l-brh3: calc(var(--layout-bigrow-height)*3);
+        --l-brh4: calc(var(--layout-bigrow-height)*4);
+
+        // Colors
+        --c-txt1: var(--color-primary-text);
+        --c-txt2: var(--color-secondary-text);
+        --c-bg: var(--color-background);
+        --c-stxt1: var(--color-section-primary-text);
+        --c-stxt2: var(--color-section-secondary-text);
+        --c-sbg: var(--color-section-background);
+
+        // Fonts
+        --ff-body: "Basier Circle", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     }
 
     body {
-    font-family: sans-serif;
-    margin: 0 var(--layout-margin);
-    display: grid;
-    padding-top: 200px;
+        font-family: var(--ff-body);
+        margin: 0 var(--l-m);
+        display: grid;
+        padding-top: calc(var(--l-brh) + var(--l-rh2));
+        background: var(--c-bg);
+        color: var(--c-txt1);
+        line-height: var(--l-rh);
+        font-size: var(--fs-m);
+
+        transition: background 0.2s ease-out, color 0.2s ease-out;
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--c-txt1)
+    }
+
+    @keyframes slidein {
+        from {
+            opacity: 0;
+            transform: translate3d(0,100px,0);
+        }
+        to {
+            opacity: 1;
+            transform: translate3d(0,0,0);
+        }
+    }
+
+    @keyframes popin {
+        from {
+            opacity: 0;
+            transform: scale3d(0.8,0.8,1) translate3d(0,30px,0);
+        }
+        to {
+            opacity: 1;
+            transform: scale3d(1,1,1) translate3d(0,0,0);
+        }
     }
 `
 
