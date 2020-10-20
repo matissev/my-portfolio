@@ -4,14 +4,17 @@ import styled from 'styled-components'
 
 const StyledLangSelector = styled.nav`
     position: fixed;
-    z-index: 2;
-    bottom: var(--layout-margin);
-    right: var(--layout-margin);
+    z-index: 3;
+    bottom: var(--l-m);
+    right: var(--l-m);
 
-    color: var(--nav-primary-color);
-
-    a {
-      margin-left: 10px;
+    button {
+      color: var(--c-txt1);
+      font-size: var(--fs-m);
+      background: transparent;
+      border: none;
+      padding: 0;
+      margin: 0 0 0 10px;
 
       &.active {
         text-decoration: underline;

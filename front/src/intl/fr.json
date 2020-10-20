@@ -1,4 +1,12 @@
 {
+    "loading": "chargement...",
+    "header": {
+        "audioButton": {
+            "start": "L'audio est coupé",
+            "off": "Audio Off",
+            "on": "Audio On"
+        }
+    },
     "localesAbbr": {
         "fr": "Français",
         "en": "Anglais"

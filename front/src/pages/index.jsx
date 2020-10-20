@@ -15,11 +15,16 @@ const IndexPage = ({ data, pageContext }) => {
 export const query = graphql`
   query Projects {
     strapi {
-      projects(where: {published: true}) {
+      projects(where: {published: true}, sort: "position") {
         id
         title_fr
         title_en
         slug
+        layout {
+          first_column
+          width
+          top_offset
+        }
         preview {
           alt_en
           alt_fr

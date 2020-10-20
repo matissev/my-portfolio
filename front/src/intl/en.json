@@ -1,4 +1,12 @@
 {
+    "loading": "loading...",
+    "header": {
+        "audioButton": {
+            "start": "Audio is muted",
+            "off": "Audio Off",
+            "on": "Audio On"
+        }
+    },
     "localesAbbr": {
         "fr": "French",
         "en": "English"

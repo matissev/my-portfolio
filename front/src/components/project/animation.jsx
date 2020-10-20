@@ -53,7 +53,7 @@ const AnimationFigure = styled.figure`
 `
 
 function Animation({ animation, size }) {
-    const state = useContext(GlobalStateContext)
+    // const state = useContext(GlobalStateContext)
     // const dispatch = useContext(GlobalDispatchContext)
     const videoRef = useRef()
 

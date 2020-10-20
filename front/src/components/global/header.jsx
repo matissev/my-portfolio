@@ -17,7 +17,6 @@ const StyledHeader = styled.header`
 `
 
 const StyleHeaderElements = `
-  // background: var(--c-bg);
   line-height: calc(var(--l-rh2) + var(--l-rh0_25));
 `
 
@@ -34,7 +33,6 @@ const StyledWebsiteHeading = styled.p`
 
 const StyledMuteButton = styled.p`
   ${StyleHeaderElements}
-  color: red;
 `
 
 const StyledNav = styled.nav`

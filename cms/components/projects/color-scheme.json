@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_projects_color_schemes",
+  "info": {
+    "name": "color scheme",
+    "icon": "paint-brush"
+  },
+  "options": {},
+  "attributes": {
+    "primary_text": {
+      "type": "string",
+      "regex": "#\\b[0-9A-F]{6}\\b",
+      "required": false
+    },
+    "secondary_text": {
+      "type": "string",
+      "regex": "#\\b[0-9A-F]{6}\\b"
+    },
+    "background": {
+      "type": "string",
+      "regex": "#\\b[0-9A-F]{6}\\b"
+    },
+    "section_primary_text": {
+      "type": "string",
+      "regex": "#\\b[0-9A-F]{6}\\b"
+    },
+    "section_secondary_text": {
+      "type": "string",
+      "regex": "#\\b[0-9A-F]{6}\\b"
+    },
+    "section_background": {
+      "type": "string",
+      "regex": "#\\b[0-9A-F]{6}\\b"
+    }
+  }
+}

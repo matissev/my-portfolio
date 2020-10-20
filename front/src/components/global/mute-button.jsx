@@ -1,5 +1,6 @@
-import React, { useContext } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import styled, { keyframes } from 'styled-components'
+import { IntlContextConsumer, changeLocale, useIntl } from "gatsby-plugin-react-intl"
 
 import { GlobalDispatchContext, GlobalStateContext } from '#context/global-context'
 
@@ -22,15 +23,27 @@ const StyledMuteButton = styled.button`
     height: 100%;
     margin: 0 auto;
     display: block;
-    color: var(--c-txt2);
-    background: transparent;
-    transition: background 0.2s ease;
+    color: var(--c-bg);
+    background: var(--c-audio-btn-start);
+    transition: background 0.2s ease-out, color 0.2s ease-out;
+    animation: blink 2s ease-in-out forwards 1s;
 
-    &:hover {
-        background: var(--c-bg);
+    &.on {
+        background: transparent;
+        color: var(--c-txt1);
     }
 
-    &:after {
+    &.off {
+        background: transparent;
+        color: var(--c-txt2);
+    }
+
+    &:hover {
+        background: var(--c-txt1);
+        color: var(--c-bg);
+    }
+
+    /* &:after {
         content: "";
         position: absolute;
         top: 0;
@@ -42,21 +55,33 @@ const StyledMuteButton = styled.button`
         border-radius: 5px;
         opacity: 0;
         animation: ${rotate} 2s ease-in-out forwards;
-    }
+    } */
 `
 
 const MuteButton = ({ className }) => {
+    const intlFormat = useIntl().formatMessage
     const dispatch = useContext(GlobalDispatchContext)
     const state = useContext(GlobalStateContext)
+    const audioButton = useRef(null);
+    const [buttonState, setButtonState] = useState("start");
     
-    const unmute = (params) => {
+    const unmute = () => {
+        if(!state.mute) {
+            setButtonState("off")
+            audioButton.current.classList.add('off')
+            audioButton.current.classList.remove('on')
+        } else {
+            setButtonState("on")
+            audioButton.current.classList.add('on')
+            audioButton.current.classList.remove('off')      
+        }
         dispatch({ type: "CHANGE_AUDIO_STATUS", mute: !state.mute })
         state.audioContext.resume()
     }
 
     return (
-        <StyledMuteButton className={className} onClick={() => unmute()}>
-            { state.mute ? "Audio Off" : "Audio On"}
+        <StyledMuteButton ref={audioButton} className={className} onClick={() => unmute()}>
+            {intlFormat({ id: "header.audioButton." + buttonState })}
         </StyledMuteButton>
     )
 }

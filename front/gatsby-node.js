@@ -4,7 +4,6 @@
  * See: https://www.gatsbyjs.com/docs/node-apis/
  */
 
-const path = require(`path`)
 const { createRemoteFileNode } = require(`gatsby-source-filesystem`)
 
 require("dotenv").config({

@@ -1,7 +1,6 @@
 import { createGlobalStyle } from "styled-components"
 
 const GlobalStyle = createGlobalStyle`
-
     :root {
         // ------------ Settings
         // ---------------------
@@ -14,12 +13,14 @@ const GlobalStyle = createGlobalStyle`
         --layout-n-of-rows-in-bigrow: 7;
 
         // Colors
-        --color-primary-text: white;
-        --color-secondary-text: #575656; //7F7F7F
-        --color-background: #F4AB7A; //F4AB7A
+        --color-primary-text: black; // white
+        --color-secondary-text: #7F7F7F; //575656
+        --color-background: white; //F4AB7A
         --color-section-primary-text: white;
         --color-section-secondary-text: #575656;
         --color-section-background: #909091; //lightblue
+
+        --c-audio-btn-start: var(--color-primary-text);
 
         // Fonts
         --font-family-body: "Basier Circle", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
@@ -38,9 +39,10 @@ const GlobalStyle = createGlobalStyle`
         --color-primary-text: white;
         --color-secondary-text: #7F7F7F;
         --color-background: #262626;
+        --c-audio-btn-start: white;
     }
 
-    :root, .openInfos {
+    :root, .openInfos, .openProject {
         // ----- Alias & Helpers
         // ---------------------
 
@@ -72,8 +74,10 @@ const GlobalStyle = createGlobalStyle`
         --c-stxt2: var(--color-section-secondary-text);
         --c-sbg: var(--color-section-background);
 
+        --c-audio-btn-start: var(--color-primary-text);
+
         // Fonts
-        --ff-body: "Basier Circle", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+        --ff-body: var(--font-family-body);
     }
 
     body {
@@ -85,8 +89,7 @@ const GlobalStyle = createGlobalStyle`
         color: var(--c-txt1);
         line-height: var(--l-rh);
         font-size: var(--fs-m);
-
-        transition: background 0.2s ease-out, color 0.2s ease-out;
+        transition: background 0.3s ease-out, color 0.5s ease-out;
     }
 
     a {
@@ -94,10 +97,19 @@ const GlobalStyle = createGlobalStyle`
         color: var(--c-txt1)
     }
 
+    @keyframes scaleFromLeft {
+        from {
+            transform: scale3d(1,0,1);
+        }
+        to {
+            transform: scale3d(1,1,1);
+        }
+    }
+
     @keyframes slidein {
         from {
             opacity: 0;
-            transform: translate3d(0,100px,0);
+            transform: translate3d(0,200px,0);
         }
         to {
             opacity: 1;
@@ -108,12 +120,22 @@ const GlobalStyle = createGlobalStyle`
     @keyframes popin {
         from {
             opacity: 0;
-            transform: scale3d(0.8,0.8,1) translate3d(0,30px,0);
+            transform: translate3d(0,-40px,0);
         }
         to {
             opacity: 1;
-            transform: scale3d(1,1,1) translate3d(0,0,0);
+            transform: translate3d(0,0,0);
         }
+    }
+
+    @keyframes blink {
+        0% { opacity: 1 }
+        15% { opacity: 0 }
+        30% { opacity: 1 }
+        45% { opacity: 0 }
+        60% { opacity: 1 }
+        75% { opacity: 0 }
+        100% { opacity: 1 }
     }
 `
 

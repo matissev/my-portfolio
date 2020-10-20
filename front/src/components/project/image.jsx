@@ -6,7 +6,7 @@ const ImageFigure = styled.figure`
     margin: 0;
     margin-top: calc(var(--l-brh) + var(--l-rh) + var(--l-rh0_25) + var(--l-rh0_125));
     z-index: 2;
-    animation: slidein 1s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: slidein 1.5s cubic-bezier(0.16, 1, 0.3, 1);
 
     img {
         filter: grayscale();
@@ -24,12 +24,16 @@ const ImageFigure = styled.figure`
                     display: grid;
                     grid-template-columns: repeat(var(--l-c), minmax(0, 1fr));
                     grid-gap: var(--l-gw);
-                    position: relative;
-                    top: calc(-1 * (var(--l-brh) + var(--l-rh2)));
+                    /* position: relative; */
+                    /* top: calc(-1 * (var(--l-brh) + var(--l-rh2))); */
                     grid-column: 1 / span 12;
-                    margin-top: 65vh;
+                    /* margin-top: 65vh; */
+                    margin-top: calc(var(--l-brh) + var(--l-rh) + var(--l-rh0_5));
                     .gatsby-image-wrapper {
                         grid-column: 1 / span 12;
+                        position: relative;
+                        right: var(--l-m);
+                        width: calc((var(--l-m) * 2) + 100%);
                     }
                     figcaption {
                         grid-column: 2 / span 10;

@@ -28,12 +28,12 @@ const Main = styled.main`
 `
 
 const Layout = ({ children, location }) => {
-  const regex = RegExp('/infos');
-  const isPageInfos = regex.test(location.pathname);
+  const regex = RegExp('/infos')
+  const isPageInfos = regex.test(location.pathname)
 
   return (
     <>
-      <Grid />
+      {/* <Grid /> */}
       <GlobalStyle />
       <Header isPageInfos={isPageInfos} />
       <LangSelector />

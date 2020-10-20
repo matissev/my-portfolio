@@ -1,6 +1,6 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Link } from "gatsby-plugin-react-intl"
-import styled from "styled-components"
+import styled, { createGlobalStyle, css } from "styled-components"
 import { graphql } from "gatsby"
 import ReactMarkdown from 'react-markdown'
 
@@ -12,18 +12,47 @@ import ContactButton from "#components/infos/contact-button"
 
 import FilterLocale from "#utils/FilterLocale"
 
+const ColorScheme = createGlobalStyle`
+  .openProject {
+    ${props => props.colorscheme && props.colorscheme.primary_text && css`
+      --color-primary-text: ${props => props.colorscheme.primary_text};
+    `}
+    ${props => props.colorscheme && props.colorscheme.secondary_text && css`
+      --color-secondary-text: ${props => props.colorscheme.secondary_text};
+    `}
+    ${props => props.colorscheme && props.colorscheme.background && css`
+      --color-background: ${props => props.colorscheme.background};
+    `}
+    ${props => props.colorscheme && props.colorscheme.section_primary_text && css`
+      --color-section-primary-text: ${props => props.colorscheme.section_primary_text};
+    `}
+    ${props => props.colorscheme && props.colorscheme.section_secondary_text && css`
+      --color-section-secondary-text: ${props => props.colorscheme.section_secondary_text};
+    `}
+    ${props => props.colorscheme && props.colorscheme.section_background && css`
+      --color-section-background: ${props => props.colorscheme.section_background};
+    `}
+  }
+`
+
 const H1 = styled.h1`
-  position: absolute;
+  /* position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  line-height: 100vh;
+  bottom: 0; */
+  /* line-height: 100vh; */
+  grid-column: 1 / span 12;
+  /* text-align: left; */
   text-align: center;
-  font-size: var(--fs-l);
-  font-weight: 500;
+  font-size: var(--fs-xl);
+  font-weight: 600;
   margin: 0;
-  animation: popin 1s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-bottom: var(--l-rh2);
+  margin-top: var(--l-brh2);
+  transform: translate3d(0,-40px,0);
+  opacity: 0;
+  animation: popin 1s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
 `
 
 const StyledLink = styled(Link)`
@@ -53,11 +82,17 @@ const Brief = styled.div`
 
   &:before {
     grid-column: 1 / span 3;
+    transform-origin: left center;
+    animation: scaleFromLeft 1s cubic-bezier(0.76, 0, 0.24, 1) 0.75s forwards;
+    transform: scale3d(1,0,1);
     content: "";
     border-top: 1px solid var(--c-txt1);
   }
 
   p {
+    animation: popin 1s ease 0.5s forwards;
+    opacity: 0;
+    transform: translate3d(0,-40px,0);
     margin-top: calc(var(--l-rh2) + var(--l-rh0_5));
     margin-bottom: 0;
     line-height: calc(var(--l-rh2));
@@ -116,12 +151,20 @@ const ProjectPage = ({ data, pageContext }) => {
   const project = FilterLocale(data.strapi.projects[0], pageContext.locale, pageContext.intl.languages)
   const infos = FilterLocale(data.strapi.info, pageContext.locale, pageContext.intl.languages)
 
+  useEffect(() => {
+    document.body.classList.add('openProject')
+    // return (
+    //   document.body.classList.remove('project-color-scheme')
+    // )
+  }, [])
+
   return (
     <>
+      <ColorScheme colorscheme={project.color_scheme}/>
       <StyledLink to="/">Back</StyledLink>
       <H1>{project.title}</H1>
-      <MainMedia main_media={project.main_media[0]}/>
       <Brief><p>{project.brief}</p></Brief>
+      <MainMedia main_media={project.main_media[0]}/>
       <Content components={project.content} />
       <ProjectFooter>
         <MarkDown>
@@ -143,6 +186,14 @@ export const query = graphql`
         id
         title_en
         title_fr
+        color_scheme {
+          background
+          primary_text
+          secondary_text
+          section_background
+          section_primary_text
+          section_secondary_text
+        }
         main_media {
           ... on Strapi_ComponentProjectsVideo {
             caption_en
@@ -159,7 +210,7 @@ export const query = graphql`
               imageFile {
                 childImageSharp {
                   fluid(maxWidth: 500, quality: 100) {
-                    ...GatsbyImageSharpFluid
+                    ...GatsbyImageSharpFluid_withWebp_noBase64
                   }
                 }
               }
@@ -199,7 +250,7 @@ export const query = graphql`
                 imageFile {
                   childImageSharp {
                     fluid(maxWidth: 500, quality: 100) {
-                      ...GatsbyImageSharpFluid
+                      ...GatsbyImageSharpFluid_withWebp_noBase64
                     }
                   }
                 }

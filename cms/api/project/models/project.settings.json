@@ -82,6 +82,12 @@
     },
     "position": {
       "type": "integer"
+    },
+    "color_scheme": {
+      "type": "component",
+      "repeatable": false,
+      "component": "projects.color-scheme",
+      "required": false
     }
   }
 }
