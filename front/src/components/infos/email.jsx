@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useStaticQuery, graphql } from "gatsby"
 
 import Button from '#components/global/button'
 
@@ -20,9 +21,25 @@ const StyledEmail = styled(Button)`
 `
 
 function Email({ className }) {
+    const email = useEmail();
     return (
-        <StyledEmail as="a" href={"mailto:" + process.env.GATSBY_CONTACT_EMAIL} className={className}>{process.env.GATSBY_CONTACT_EMAIL}</StyledEmail>
+        <StyledEmail as="a" href={"mailto:" + email} className={className}>{email}</StyledEmail>
     )
 }
+
+const useEmail = () => {
+    const metadatas = useStaticQuery(
+      graphql`
+        query {
+          strapi {
+            website {
+              contact_email
+            }
+          }
+        }
+      `
+    )
+    return metadatas.strapi.website.contact_email
+  }
 
 export default Email

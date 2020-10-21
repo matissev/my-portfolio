@@ -11,8 +11,10 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import FilterLocale from "#utils/FilterLocale"
 
-const Head = ({ location, language, languages, noLangPath, defaultLanguage }) => {
+const Head = ({ language, languages, noLangPath, defaultLanguage }) => {
   const metadatas = FilterLocale(useMetadatas(), language, languages)
+
+  const location = process.env.GATSBY_HOST_NAME + (language === defaultLanguage ? "" : "/" + language) + noLangPath
 
   const alternateLanguages = languages.filter((locale) =>
     language !== locale
@@ -28,10 +30,10 @@ const Head = ({ location, language, languages, noLangPath, defaultLanguage }) =>
       {/* Languages */}
       <meta name="og:locale" content={language}/>
       {alternateLanguages.map((language) =>
-        <meta property="og:locale:alternate" content={language.locale}/>
+        <meta property="og:locale:alternate" key={language.locale} content={language.locale}/>
       )}
       {alternateLanguages.map((language) =>
-        <link rel="alternate" href={location.origin + language.route + noLangPath} hreflang={language.locale}/>
+        <link rel="alternate" key={language.locale} href={process.env.GATSBY_HOST_NAME + language.route + noLangPath} hreflang={language.locale}/>
       )}
 
       {/* Author */}
@@ -39,8 +41,8 @@ const Head = ({ location, language, languages, noLangPath, defaultLanguage }) =>
       <meta name="twitter:creator" content={metadatas.author}/>
 
       {/* Href */}
-      <meta property="og:url" content={location.href}/>
-      <meta name="twitter:url" content={location.href}/>
+      <meta property="og:url" content={location}/>
+      <meta name="twitter:url" content={location}/>
 
     </Helmet>
   )

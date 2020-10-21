@@ -38,7 +38,7 @@ const Layout = ({ children, location }) => {
       {/* <Grid /> */}
       <IntlContextConsumer>
         {({ languages, language, originalPath, defaultLanguage }) => 
-          <Head language={language} languages={languages} location={location} noLangPath={originalPath} defaultLanguage={defaultLanguage}/>
+          <Head language={language} languages={languages} noLangPath={originalPath} defaultLanguage={defaultLanguage}/>
         }
       </IntlContextConsumer>
       <GlobalStyle />

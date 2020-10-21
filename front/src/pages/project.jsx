@@ -46,6 +46,8 @@ const ProjectPage = ({ data, pageContext }) => {
   const project = FilterLocale(data.strapi.projects[0], pageContext.locale, pageContext.intl.languages)
   const infos = FilterLocale(data.strapi.info, pageContext.locale, pageContext.intl.languages)
 
+  console.log(pageContext);
+
   useEffect(() => {
     document.body.classList.add('openProject')
   }, [])
@@ -55,7 +57,7 @@ const ProjectPage = ({ data, pageContext }) => {
       <SEO
         title={project.title}
         description={project.brief}
-        type="project"
+        isProject={true}
         languages={pageContext.intl.languages}
         language={pageContext.locale}
         image={{

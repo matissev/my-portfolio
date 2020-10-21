@@ -30,6 +30,10 @@
       "repeatable": false,
       "component": "website.metadatas",
       "required": true
+    },
+    "contact_email": {
+      "type": "email",
+      "required": true
     }
   }
 }

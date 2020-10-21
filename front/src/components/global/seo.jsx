@@ -11,7 +11,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import FilterLocale from "#utils/FilterLocale"
 
-const SEO = ({ description, title, image, type, language, languages }) => {
+const SEO = ({ description, title, image, isProject, language, languages }) => {
   const metadatas = FilterLocale(useMetadatas(), language, languages)
 
   const socialImage = {}
@@ -23,23 +23,25 @@ const SEO = ({ description, title, image, type, language, languages }) => {
     socialImage.alt = metadatas.social_image.alt ? metadatas.social_image.alt : ""
   }
 
-  return (
-    <Helmet titleTemplate="Matisse V | %s">
-      <title>{title}</title>
-      <meta name='description' content={description}/>
+  const pageTitle = metadatas.title + (title ? " | " + title : "")
 
-      <meta property="og:title" content={title}/>
-      <meta property="og:description" content={description}/>
-      <meta property="og:type" content={type === "project" ? `article` : 'website'}/>
-      {type === "project" &&
+  return (
+    <Helmet>
+      <title>{pageTitle}</title>
+      <meta name='description' content={description || metadatas.description}/>
+
+      <meta property="og:title" content={pageTitle}/>
+      <meta property="og:description" content={description || metadatas.description}/>
+      <meta property="og:type" content={isProject ? `article` : 'website'}/>
+      {isProject &&
         <meta property="article:author" content={metadatas.author}/>
       }
-      <meta property="og:image" content={socialImage.url}/>
+      <meta property="og:image" content={process.env.GATSBY_HOST_NAME + socialImage.url}/>
 
       <meta name="twitter:card" content="summary"/>
-      <meta name="twitter:title" content={title}/>
-      <meta name="twitter:description" content={description}/>
-      <meta name="twitter:image" content={socialImage.url}/>
+      <meta name="twitter:title" content={pageTitle}/>
+      <meta name="twitter:description" content={description || metadatas.description}/>
+      <meta name="twitter:image" content={process.env.GATSBY_HOST_NAME + socialImage.url}/>
       {socialImage.alt &&
         <meta name="twitter:image:alt" content={socialImage.alt}/>
       }
