@@ -7,7 +7,6 @@ const StyledNav = styled.nav`
 
   a {
     display: block;
-    height: 100%;
   }
 `
 

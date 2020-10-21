@@ -20,7 +20,6 @@ const getTransitionStyles = {
 
 
 function Transition({ children, location }) {
-    console.log(location);
     return (
         <TransitionGroup>
             <ReactTransition key={location.pathname} timeout={{enter: timeout, exit: timeout}}>

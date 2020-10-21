@@ -35,7 +35,6 @@ const Preview = styled.article`
 
 
 const ProjectPreview = ({ project }) => {
-  console.log(project.layout);
   return (
     <Row offset={project.layout.top_offset}>
       <StyledLink to={`/` + project.slug} layout={project.layout}>

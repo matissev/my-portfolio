@@ -1,6 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
+function Button({ className, children, onClick }) {
+    return (
+        <button onClick={onClick} className={className}>
+            {children}
+        </button>
+    )
+}
 
 const StyledButton = styled(Button)`
     background: rgba(255,255,255,0.2);
@@ -29,13 +36,5 @@ const StyledButton = styled(Button)`
         opacity: 0.5;
     }
 `
-
-function Button({ className, children, onClick }) {
-    return (
-        <button onClick={onClick} className={className}>
-            {children}
-        </button>
-    )
-}
 
 export default StyledButton

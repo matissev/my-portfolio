@@ -1,16 +1,18 @@
 import React, { useEffect } from "react"
-import { Link } from "gatsby-plugin-react-intl"
 import styled, { createGlobalStyle, css } from "styled-components"
 import { graphql } from "gatsby"
-import ReactMarkdown from 'react-markdown'
-
-import Tags from "#components/project/tags"
-import MainMedia from "#components/project/main-media"
-import Content from "#components/project/content"
-import Social from "#components/infos/social"
-import ContactButton from "#components/infos/contact-button"
 
 import FilterLocale from "#utils/FilterLocale"
+
+import SEO from "#components/global/seo"
+import Heading from "#components/project/heading"
+import BackButton from "#components/project/back-button"
+import Brief from "#components/project/brief"
+import MainMedia from "#components/project/main-media"
+import Content from "#components/project/content"
+import Footer from "#components/project/footer"
+import Social from "#components/infos/social"
+import ContactButton from "#components/infos/contact-button"
 
 const ColorScheme = createGlobalStyle`
   .openProject {
@@ -35,114 +37,7 @@ const ColorScheme = createGlobalStyle`
   }
 `
 
-const H1 = styled.h1`
-  /* position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0; */
-  /* line-height: 100vh; */
-  grid-column: 1 / span 12;
-  /* text-align: left; */
-  text-align: center;
-  font-size: var(--fs-xl);
-  font-weight: 600;
-  margin: 0;
-  margin-bottom: var(--l-rh2);
-  margin-top: var(--l-brh2);
-  transform: translate3d(0,-40px,0);
-  opacity: 0;
-  animation: popin 1s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
-`
-
-const StyledLink = styled(Link)`
-  padding: 0 var(--l-rh0_5);
-  box-sizing: border-box;
-  position: fixed;
-  z-index: 1;
-  line-height: calc(var(--l-rh) + var(--l-rh0_25));
-  margin-left: calc(-1* var(--l-rh0_5));
-
-  &:before {
-    content:"◂ ";
-    position: relative;
-    top: -1px;
-  }
-`
-
-const Brief = styled.div`
-  margin-top: calc(var(--l-rh5) + var(--l-rh0_125) - var(--l-rh0_25));
-  transform: translateY(15px);
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-gap: var(--l-gw);
-  grid-column: 2 / span 4;
-  font-size: var(--fs-xl);
-  line-height: var(--fs-xl);
-
-  &:before {
-    grid-column: 1 / span 3;
-    transform-origin: left center;
-    animation: scaleFromLeft 1s cubic-bezier(0.76, 0, 0.24, 1) 0.75s forwards;
-    transform: scale3d(1,0,1);
-    content: "";
-    border-top: 1px solid var(--c-txt1);
-  }
-
-  p {
-    animation: popin 1s ease 0.5s forwards;
-    opacity: 0;
-    transform: translate3d(0,-40px,0);
-    margin-top: calc(var(--l-rh2) + var(--l-rh0_5));
-    margin-bottom: 0;
-    line-height: calc(var(--l-rh2));
-    grid-column: 1 / span 4;
-  }
-`
-
-const ProjectFooter = styled.div`
-  margin-top: calc(var(--l-brh) + var(--l-rh) + var(--l-rh0_25) + var(--l-rh0_125));
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  grid-gap: var(--l-gw);
-  position: relative;
-  grid-column: 1 / span 12;
-  color: var(--c-stxt1);
-  background: var(--c-sbg);
-  transform: translateY(5px);
-
-  &:before, &:after {
-    position: absolute;
-    background: var(--c-sbg);
-    content:"";
-    display: block;
-    top: 0;
-    bottom: 0;
-    left: calc(-1 * var(--l-m));
-    width: var(--l-m);
-  }
-
-  &:after {
-    left: auto;
-    right: calc(-1 * var(--l-m));
-  }
-`
-const MarkDown = styled.div`
-  margin-top: calc(var(--l-brh) + var(--l-rh) + var(--l-rh0_5) + var(--l-rh0_125));
-  grid-column: 4 / span 6;
-  line-height: var(--l-rh3);
-  font-size: var(--fs-l);
-
-  p:first-of-type {
-    margin-top: 0;
-  }
-
-  p:last-of-type {
-    margin-bottom: 0;
-  }
-`
-
-const StyledContactButton = styled.button`
+const StyledContactButton = styled(ContactButton)`
   margin-top: calc(var(--l-rh4));
   grid-column: span 2;
 `
@@ -153,27 +48,31 @@ const ProjectPage = ({ data, pageContext }) => {
 
   useEffect(() => {
     document.body.classList.add('openProject')
-    // return (
-    //   document.body.classList.remove('project-color-scheme')
-    // )
   }, [])
 
   return (
     <>
+      <SEO
+        title={project.title}
+        description={project.brief}
+        type="project"
+        languages={pageContext.intl.languages}
+        language={pageContext.locale}
+        image={{
+          url: project.preview.social_image.imageFile.publicURL,
+          alt: project.preview.alt
+        }}
+      />
+
       <ColorScheme colorscheme={project.color_scheme}/>
-      <StyledLink to="/">Back</StyledLink>
-      <H1>{project.title}</H1>
-      <Brief><p>{project.brief}</p></Brief>
+      <Heading title={project.title}/>
+      <BackButton route="/"/>
+      <Brief text={project.brief}/>
       <MainMedia main_media={project.main_media[0]}/>
       <Content components={project.content} />
-      <ProjectFooter>
-        <MarkDown>
-          <ReactMarkdown source={project.description} />
-        </MarkDown>
-        <Tags tags={project.tags}/>
-      </ProjectFooter>
+      <Footer description={project.description} tags={project.tags}/>
       <Social as={Social} social={infos.social}>
-        <StyledContactButton as={ContactButton}/>
+        <StyledContactButton/>
       </Social>
     </>
   )
@@ -194,6 +93,16 @@ export const query = graphql`
           section_primary_text
           section_secondary_text
         }
+        preview {
+          alt_en,
+          alt_fr
+          social_image {
+            url
+            imageFile {
+              publicURL
+            }
+          }
+        }
         main_media {
           ... on Strapi_ComponentProjectsVideo {
             caption_en
@@ -209,7 +118,7 @@ export const query = graphql`
               url
               imageFile {
                 childImageSharp {
-                  fluid(maxWidth: 500, quality: 100) {
+                  fluid(quality: 70) {
                     ...GatsbyImageSharpFluid_withWebp_noBase64
                   }
                 }
@@ -249,7 +158,7 @@ export const query = graphql`
                 url
                 imageFile {
                   childImageSharp {
-                    fluid(maxWidth: 500, quality: 100) {
+                    fluid(quality: 70) {
                       ...GatsbyImageSharpFluid_withWebp_noBase64
                     }
                   }

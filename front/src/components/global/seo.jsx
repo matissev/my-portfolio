@@ -6,84 +6,76 @@
  */
 
 import React from "react"
-import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, title }) {
-  const { site } = useStaticQuery(
+import FilterLocale from "#utils/FilterLocale"
+
+const SEO = ({ description, title, image, type, language, languages }) => {
+  const metadatas = FilterLocale(useMetadatas(), language, languages)
+
+  const socialImage = {}
+  if(image && image.url) {
+    socialImage.url = image.url;
+    socialImage.alt = image.alt ? image.alt : ""
+  } else if (metadatas.social_image.file) {
+    socialImage.url = metadatas.social_image.file.imageFile.publicURL;
+    socialImage.alt = metadatas.social_image.alt ? metadatas.social_image.alt : ""
+  }
+
+  return (
+    <Helmet titleTemplate="Matisse V | %s">
+      <title>{title}</title>
+      <meta name='description' content={description}/>
+
+      <meta property="og:title" content={title}/>
+      <meta property="og:description" content={description}/>
+      <meta property="og:type" content={type === "project" ? `article` : 'website'}/>
+      {type === "project" &&
+        <meta property="article:author" content={metadatas.author}/>
+      }
+      <meta property="og:image" content={socialImage.url}/>
+
+      <meta name="twitter:card" content="summary"/>
+      <meta name="twitter:title" content={title}/>
+      <meta name="twitter:description" content={description}/>
+      <meta name="twitter:image" content={socialImage.url}/>
+      {socialImage.alt &&
+        <meta name="twitter:image:alt" content={socialImage.alt}/>
+      }
+    </Helmet>
+  )
+}
+
+const useMetadatas = () => {
+  const metadatas = useStaticQuery(
     graphql`
       query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
+        strapi {
+          website {
+            metadatas {
+              author
+              title_en
+              title_fr
+              description_en
+              description_fr
+              social_image {
+                alt_en
+                alt_fr
+                file {
+                  url
+                  imageFile {
+                    publicURL
+                  }
+                }
+              }
+            }
           }
         }
       }
     `
   )
-
-  const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
-
-  return (
-    <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata?.author || ``,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
-    />
-  )
-}
-
-SEO.defaultProps = {
-  lang: `en`,
-  meta: [],
-  description: ``,
-}
-
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
+  return metadatas.strapi.website.metadatas
 }
 
 export default SEO

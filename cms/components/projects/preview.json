@@ -25,6 +25,15 @@
       "type": "string",
       "required": true,
       "maxLength": 125
+    },
+    "social_image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
     }
   }
 }

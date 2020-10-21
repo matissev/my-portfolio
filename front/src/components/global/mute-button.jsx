@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useState } from 'react'
 import styled, { keyframes } from 'styled-components'
-import { IntlContextConsumer, changeLocale, useIntl } from "gatsby-plugin-react-intl"
+import { useIntl } from "gatsby-plugin-react-intl"
 
 import { GlobalDispatchContext, GlobalStateContext } from '#context/global-context'
 

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
 import { useIntl } from "gatsby-plugin-react-intl"
 import Button from '#components/global/button'
 

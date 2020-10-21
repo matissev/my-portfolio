@@ -8,6 +8,7 @@
 import React from "react"
 import styled from 'styled-components'
 import PropTypes from "prop-types"
+import { IntlContextConsumer } from "gatsby-plugin-react-intl"
 
 import GlobalStyle from "#context/global-styles"
 import "#static/fonts/basier/font-face.css"
@@ -16,6 +17,7 @@ import "#static/fonts/nitti-grotesk/font-face.css"
 
 import Header from "./header"
 import LangSelector from "./lang-selector"
+import Head from "./head"
 import Grid from "#components/utils/grid"
 import Transition from "#components/global/transition"
 
@@ -34,6 +36,11 @@ const Layout = ({ children, location }) => {
   return (
     <>
       {/* <Grid /> */}
+      <IntlContextConsumer>
+        {({ languages, language, originalPath, defaultLanguage }) => 
+          <Head language={language} languages={languages} location={location} noLangPath={originalPath} defaultLanguage={defaultLanguage}/>
+        }
+      </IntlContextConsumer>
       <GlobalStyle />
       <Header isPageInfos={isPageInfos} />
       <LangSelector />

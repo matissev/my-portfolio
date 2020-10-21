@@ -3,12 +3,16 @@ import { graphql } from "gatsby"
 
 import ProjectsGallery from "#components/index/projects-gallery"
 import FilterLocale from "#utils/FilterLocale"
+import SEO from "../components/global/seo"
 
 const IndexPage = ({ data, pageContext }) => {
   const projects = FilterLocale(data.strapi.projects, pageContext.locale, pageContext.intl.languages)
 
   return (
-    <ProjectsGallery projects={projects} />
+    <>
+      <SEO language={pageContext.locale} languages={pageContext.intl.languages}/>
+      <ProjectsGallery projects={projects} />
+    </>
   )
 }
 

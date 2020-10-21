@@ -24,6 +24,12 @@
     "job_fr": {
       "type": "string",
       "required": true
+    },
+    "metadatas": {
+      "type": "component",
+      "repeatable": false,
+      "component": "website.metadatas",
+      "required": true
     }
   }
 }
