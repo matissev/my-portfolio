@@ -13,19 +13,19 @@ const MuteButton = ({ className }) => {
     const i18n = useContext(i18nContext)
     const dispatch = useContext(GlobalDispatchContext)
     const state = useContext(GlobalStateContext)
-    
+
     const audioButton = useRef(null);
     const [buttonState, setButtonState] = useState("start");
-    
+
     const unmute = () => {
-        if(!state.mute) {
+        if (!state.mute) {
             setButtonState("off")
             audioButton.current.classList.add('off')
             audioButton.current.classList.remove('on')
         } else {
             setButtonState("on")
             audioButton.current.classList.add('on')
-            audioButton.current.classList.remove('off')      
+            audioButton.current.classList.remove('off')
         }
         dispatch({ type: "CHANGE_AUDIO_STATUS", mute: !state.mute })
         state.audioContext.resume()

@@ -10,10 +10,6 @@ const $Job = styled.p`
   padding: 0 var(--l-rh0_5);
   color: var(--c-txt2);
   transition: color 0.2s ease;
-
-  &.hideJob {
-    color: transparent;
-  }
 `
 
 
@@ -23,10 +19,10 @@ const Job = ({ className, children }) => {
   const job = useRef();
 
   const handleScroll = () => {
-    if(window.scrollY > 50) {
-      job.current.classList.add("hideJob");
+    if(window.scrollY > 20) {
+      job.current.classList.add("hide");
     } else {
-      job.current.classList.remove("hideJob");
+      job.current.classList.remove("hide");
     }
   }
   

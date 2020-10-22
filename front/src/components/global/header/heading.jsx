@@ -22,6 +22,7 @@ const $Heading = styled(Heading)`
   padding: 0 var(--l-rh0_5);
   font-weight: 500;
   display: block;
+  overflow: hidden;
 `
 
 export default $Heading

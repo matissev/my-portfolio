@@ -39,6 +39,8 @@ const Header = ({ className }) => {
 // ============================================================================================================ Styles
 
 const $Header = styled(Header)`
+  display: flex;
+  justify-content: space-between;
   height: var(--l-rh2);
   position: fixed;
   z-index: 3;
@@ -47,10 +49,10 @@ const $Header = styled(Header)`
   left: 0;
   width: 100%;
   font-size: var(--fs-m);
-`
 
-const MuteButtonWrapper = styled.div`
-  
+  @media (max-width: 540px) {
+    position: absolute;
+  }
 `
 
 const cssHeaderElements = `
@@ -60,13 +62,27 @@ const cssHeaderElements = `
 const $Heading = styled(Heading)`
   ${cssHeaderElements}
   margin-left: calc(var(--l-m) - var(--l-rh0_5));
-  margin-right: var(--l-m);
-  float: left;;
 `
 
 const $Job = styled(Job)`
   ${cssHeaderElements}
-  float: left;
+  margin-left: var(--l-m);
+
+  @media (max-width: 850px) {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    margin-left: 0;
+    top: calc(var(--l-rh4) + var(--l-rh0_5));
+    left: 0;
+    padding: 0;
+  }
+
+  @media (min-width: 540px) {
+    &.hide {
+      color: transparent;
+    }
+  }
 `
 
 const $MuteButton = styled(MuteButton)`
@@ -74,11 +90,21 @@ const $MuteButton = styled(MuteButton)`
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+
+  @media (max-width: 540px) {
+    position: static;
+    transform: none;
+    margin-left: auto;
+  }
+
+  @media (max-width: 280px) {
+    font-size: var(--fs-xs);
+  }
 `
 
 const $Nav = styled(Nav)`
   ${cssHeaderElements}
-  float: right;
+  margin-left: auto;
   margin-right: calc(var(--l-m) - var(--l-rh0_5));
 `
 

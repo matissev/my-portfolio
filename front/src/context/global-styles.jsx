@@ -81,6 +81,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
+        min-width: 250px;
         font-family: var(--ff-body);
         margin: 0 var(--l-m);
         display: grid;
