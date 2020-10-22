@@ -50,13 +50,13 @@ const $LangSelector = styled(LangSelector)`
     z-index: 3;
     bottom: var(--l-m);
     right: var(--l-m);
+    transition: background 0.2s ease-out, color 0.2s ease-out;
 
     @media (max-width: 540px) {      
       &.hide button {
         background: transparent;
         color: transparent;
         height: 0;
-        transition: background 0.2s ease-out, color 0.2s ease-out, height 0.05s ease 0.2s;
       }
     }
 
@@ -68,11 +68,9 @@ const $LangSelector = styled(LangSelector)`
       padding: 0;
       margin: 0 0 0 10px;
       transition: background 0.2s ease-out, color 0.2s ease-out;
-      text-decoration: underline;
       cursor: pointer;
 
       &.active {
-        text-decoration: none;
         cursor: default;
         &:before {
           display: inline-block;
