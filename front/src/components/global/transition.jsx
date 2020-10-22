@@ -29,7 +29,6 @@ function Transition({ children }) {
 
 const TransitionWrapper = styled.div`
     ${props => {
-        console.log(props.status)
         switch (props.status) {
             case "entering":
                 return css`

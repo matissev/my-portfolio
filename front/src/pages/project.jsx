@@ -1,5 +1,6 @@
 // Library
-import React, { useEffect } from "react"
+import React from "react"
+import Helmet from 'react-helmet'
 import styled, { createGlobalStyle, css } from "styled-components"
 import { graphql } from "gatsby"
 
@@ -24,12 +25,9 @@ const ProjectPage = ({ data, pageContext }) => {
   const project = useFilterLocale(data.strapi.projects[0])
   const infos = useFilterLocale(data.strapi.info)
 
-  useEffect(() => {
-    document.body.classList.add('openProject')
-  }, [])
-
   return (
     <>
+      <Helmet bodyAttributes={{class: 'openProject'}}/>
       <SEO
         title={project.title}
         description={project.brief}

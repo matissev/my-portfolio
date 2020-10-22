@@ -16,16 +16,21 @@ const Email = React.lazy(() =>
 // ============================================================================================================ Logic
 
 function ContactButton({ className }) {
+  const isSSR = typeof window === "undefined"
   const i18n = useContext(i18nContext)
   const [showingEmail, setShowingEmail] = useState(false);
 
   return (
-      <React.Suspense fallback={<Button className={className}>{i18n.format({ id: "loading" })}</Button>}>
-        {showingEmail
-          ? <Email className={className}/>
-          : <Button className={className} onClick={() => setShowingEmail(true)}>{i18n.format({ id: "infos.contactButtonLabel" })}</Button>
-        }
-      </React.Suspense>
+    <>
+      {!isSSR && (
+        <React.Suspense fallback={<Button className={className}>{i18n.format({ id: "loading" })}</Button>}>
+          {showingEmail
+            ? <Email className={className}/>
+            : <Button className={className} onClick={() => setShowingEmail(true)}>{i18n.format({ id: "infos.contactButtonLabel" })}</Button>
+          }
+        </React.Suspense>
+      )}
+    </>
   )
 }
 

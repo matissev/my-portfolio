@@ -33,10 +33,12 @@ const StyledButton = styled(Button)`
     cursor: pointer;
     transition: all 0.2s ease;
 
-    &:hover {
-        text-decoration: none;
-        background: var(--c-txt1);
-        color: var(--c-bg);
+    @media (hover: hover) {
+        &:hover {
+            text-decoration: none;
+            background: var(--c-txt1);
+            color: var(--c-bg);
+        }
     }
 
     &:active {

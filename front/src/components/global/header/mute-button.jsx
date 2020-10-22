@@ -64,9 +64,11 @@ const $MuteButton = styled(MuteButton)`
         color: var(--c-txt2);
     }
 
-    &:hover {
-        background: var(--c-txt1);
-        color: var(--c-bg);
+    @media (hover: hover) {
+        &:hover {
+            background: var(--c-txt1);
+            color: var(--c-bg);
+        }
     }
 `
 

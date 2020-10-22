@@ -1,16 +1,26 @@
 // Libraries
 import React from 'react'
 import styled, { css } from 'styled-components'
-import Plyr from 'plyr-react'
 import 'plyr-react/dist/plyr.css'
+
+// Lazy
+const Plyr = React.lazy(() =>
+  import("plyr-react")
+)
 
 
 // ============================================================================================================ Logic
 
 function Video({ className, video, size }) {
+    const isSSR = typeof window === "undefined"
+
     return (
         <figure className={className} size={size}>
-            <Plyr source={{ type: "video", sources: [{provider: "youtube", src: video.url}]}}/>
+            {!isSSR && (
+                <React.Suspense fallback={<div />}>
+                    <Plyr source={{ type: "video", sources: [{provider: "youtube", src: video.url}]}}/>
+                </React.Suspense>
+            )}
             {video.caption &&
                 <figcaption>{video.caption}</figcaption>
             }

@@ -12,7 +12,6 @@ const initialState = {
 function reducer(state, action) {
   switch (action.type) {
     case "CHANGE_INFOS_RETURN_PAGE": {
-      console.log(action.returnPage)
       return {
         ...state,
         infosReturnPage: action.returnPage
@@ -25,7 +24,6 @@ function reducer(state, action) {
       }
     }
     case "LOAD_AUDIO_CONTEXT": {
-      console.log(action.audioContext)
       return {
         ...state,
         audioContext: action.audioContext

@@ -26,8 +26,10 @@ const $Email = styled(Email)`
   color: var(--c-bg);
   font-size: var(--fs-m);
 
-  &:hover {
-    opacity: 0.8;
+  @media (hover: hover) {
+    &:hover {
+      opacity: 0.8;
+    }
   }
 
   &:active {

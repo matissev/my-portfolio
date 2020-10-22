@@ -1,5 +1,6 @@
 // Libraries
-import React, { useContext, useEffect } from "react"
+import React, { useContext } from "react"
+import Helmet from 'react-helmet'
 import styled from "styled-components"
 import { Link, navigate } from "gatsby-plugin-react-intl";
 
@@ -19,16 +20,12 @@ const InfosLink = () => {
   
     const closeInfos = (e, returnPage) => {
       e.preventDefault()
-      console.log(returnPage)
       navigate(returnPage)
     }
 
-    useEffect(() => {
-        isPageInfos ? document.body.classList.add('openInfos') : document.body.classList.remove('openInfos');
-    })
-
     return (
         <>
+            <Helmet bodyAttributes={{class: isPageInfos ? 'openInfos' : ""}}/>
             {isPageInfos === true
                 ? <CloseButton to="/" onClick={(e) => closeInfos(e, state.infosReturnPage)}><span>Close</span></CloseButton>
                 : <Link to="/infos" onClick={() => {
