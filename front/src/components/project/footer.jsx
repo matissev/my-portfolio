@@ -1,9 +1,13 @@
+// Libraries
 import React from "react"
 import styled from "styled-components"
 import ReactMarkdown from 'react-markdown'
 
+// Components
 import Tags from "#components/project/tags"
 
+
+// ============================================================================================================ Logic
 
 const Footer = ({ className, tags, description }) => {
     return (
@@ -16,7 +20,10 @@ const Footer = ({ className, tags, description }) => {
     )
 }
 
-const StyledFooter = styled(Footer)`
+
+// ============================================================================================================ Styles
+
+const $Footer = styled(Footer)`
   margin-top: calc(var(--l-brh) + var(--l-rh) + var(--l-rh0_25) + var(--l-rh0_125));
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -59,4 +66,4 @@ const MarkDown = styled.div`
   }
 `
 
-export default StyledFooter
+export default $Footer

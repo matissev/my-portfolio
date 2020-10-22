@@ -90,6 +90,11 @@ const GlobalStyle = createGlobalStyle`
         line-height: var(--l-rh);
         font-size: var(--fs-m);
         transition: background 0.3s ease-out, color 0.5s ease-out;
+
+        @media (max-width: 450px) {
+            --layout-margin: 0.6rem;
+            --l-m: var(--layout-margin);
+        }
     }
 
     a {

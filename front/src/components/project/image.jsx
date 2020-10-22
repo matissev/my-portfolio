@@ -1,8 +1,25 @@
+// Libraries
 import React from 'react'
 import Img from "gatsby-image"
 import styled, { css } from 'styled-components'
 
-const ImageFigure = styled.figure`
+
+// ============================================================================================================ Logic
+
+function Image({ className, image, size }) {
+    return (
+        <figure className={className} size={size}>
+            <Img fluid={image.file.imageFile.childImageSharp.fluid} alt={image.alt}/>
+            {image.caption &&
+                <figcaption>{image.caption}</figcaption>
+            }
+        </figure>
+    )
+}
+
+// ============================================================================================================ Styles
+
+const $Image = styled(Image)`
     margin: 0;
     margin-top: calc(var(--l-brh) + var(--l-rh) + var(--l-rh0_25) + var(--l-rh0_125));
     z-index: 2;
@@ -17,17 +34,14 @@ const ImageFigure = styled.figure`
         margin-top: calc(var(--l-rh) + var(--l-rh0_125));
     }
 
-    ${props => {
-        switch (props.size) {
+    ${({ size }) => {
+        switch (size) {
             case "full":
                 return css`
                     display: grid;
                     grid-template-columns: repeat(var(--l-c), minmax(0, 1fr));
                     grid-gap: var(--l-gw);
-                    /* position: relative; */
-                    /* top: calc(-1 * (var(--l-brh) + var(--l-rh2))); */
                     grid-column: 1 / span 12;
-                    /* margin-top: 65vh; */
                     margin-top: calc(var(--l-brh) + var(--l-rh) + var(--l-rh0_5));
                     .gatsby-image-wrapper {
                         grid-column: 1 / span 12;
@@ -68,16 +82,4 @@ const ImageFigure = styled.figure`
     }}
 `
 
-function Image({ image, size }) {
-    console.log(size);
-    return (
-        <ImageFigure size={size}>
-            <Img fluid={image.file.imageFile.childImageSharp.fluid} alt={image.alt}/>
-            {image.caption &&
-                <figcaption>{image.caption}</figcaption>
-            }
-        </ImageFigure>
-    )
-}
-
-export default Image
+export default $Image

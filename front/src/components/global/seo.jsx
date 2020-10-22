@@ -1,18 +1,16 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
+// Libraries
 import React from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-import FilterLocale from "#utils/FilterLocale"
+// Hooks
+import useFilterLocale from "#hooks/useFilterLocale"
 
-const SEO = ({ description, title, image, isProject, language, languages }) => {
-  const metadatas = FilterLocale(useMetadatas(), language, languages)
+
+// ============================================================================================================ Logic
+
+const SEO = ({ description, title, image, isProject }) => {
+  const metadatas = useMetadatas()
 
   const socialImage = {}
   if(image && image.url) {
@@ -49,6 +47,9 @@ const SEO = ({ description, title, image, isProject, language, languages }) => {
   )
 }
 
+
+// ============================================================================================================ Data
+
 const useMetadatas = () => {
   const metadatas = useStaticQuery(
     graphql`
@@ -77,7 +78,7 @@ const useMetadatas = () => {
       }
     `
   )
-  return metadatas.strapi.website.metadatas
+  return useFilterLocale(metadatas.strapi.website.metadatas)
 }
 
 export default SEO

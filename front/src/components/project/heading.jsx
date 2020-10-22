@@ -1,5 +1,9 @@
+// Libraries
 import React from "react"
 import styled from "styled-components"
+
+
+// ============================================================================================================ Logic
 
 const Heading = ({ title, className }) => {
     return (
@@ -7,7 +11,10 @@ const Heading = ({ title, className }) => {
     )
 }
 
-const StyledHeading = styled(Heading)`
+
+// ============================================================================================================ Styles
+
+const $Heading = styled(Heading)`
   grid-column: 1 / span 12;
   text-align: center;
   font-size: var(--fs-xl);
@@ -20,4 +27,4 @@ const StyledHeading = styled(Heading)`
   animation: popin 1s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
 `
 
-export default StyledHeading
+export default $Heading

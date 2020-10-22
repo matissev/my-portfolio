@@ -1,7 +1,12 @@
+// Libraries
 import React from "react"
 
+// Components
 import Layout from "#components/global/layout"
 import SEO from "#components/global/seo"
+
+
+// ============================================================================================================ Logic
 
 const NotFoundPage = () => (
   <Layout>

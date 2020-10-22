@@ -1,6 +1,33 @@
-import React from "react"
-import { IntlContextConsumer, changeLocale, useIntl } from "gatsby-plugin-react-intl"
+// Libraries
+import React, { useContext } from "react"
 import styled from 'styled-components'
+
+// Context
+import i18nContext from "#context/i18n-context"
+
+
+// ============================================================================================================ Logic
+
+const LangSelector = ({ className }) => {
+  const i18n = useContext(i18nContext)
+
+  return (
+    <StyledLangSelector className={className}>
+      {i18n.locales.map(thisLocale =>
+        <button
+          key={thisLocale}
+          onClick={() => i18n.changeLocale(thisLocale)}
+          className={i18n.locale !== thisLocale ? `active` : ``}
+        >
+          <abbr title={i18n.format({ id: "localesAbbr." + thisLocale })}>{thisLocale.toUpperCase()}</abbr>
+        </button>
+      )}
+    </StyledLangSelector>
+  )
+}
+
+
+// ============================================================================================================ Styles
 
 const StyledLangSelector = styled.nav`
     position: fixed;
@@ -22,27 +49,5 @@ const StyledLangSelector = styled.nav`
       }
     }
 `
-
-const LangSelector = ({ className }) => {
-  const intlFormat = useIntl().formatMessage
-
-  return (
-    <StyledLangSelector className={className}>
-      <IntlContextConsumer>
-        {({ languages, language: currentLocale }) =>
-          languages.map((language) => (
-            <button
-              key={language}
-              onClick={() => changeLocale(language)}
-              className={currentLocale !== language ? `active` : ``}
-            >
-              <abbr title={intlFormat({ id: "localesAbbr." + language })}>{language.toUpperCase()}</abbr>
-            </button>
-          ))
-        }
-      </IntlContextConsumer>
-    </StyledLangSelector>
-  )
-}
 
 export default LangSelector

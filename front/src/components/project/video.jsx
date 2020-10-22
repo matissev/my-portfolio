@@ -1,12 +1,27 @@
+// Libraries
 import React from 'react'
 import styled, { css } from 'styled-components'
-// import Plyr from 'plyr'
-// import 'plyr/dist/plyr.css'
-
 import Plyr from 'plyr-react'
 import 'plyr-react/dist/plyr.css'
 
-const VideoFigure = styled.figure`
+
+// ============================================================================================================ Logic
+
+function Video({ className, video, size }) {
+    return (
+        <figure className={className} size={size}>
+            <Plyr source={{ type: "video", sources: [{provider: "youtube", src: video.url}]}}/>
+            {video.caption &&
+                <figcaption>{video.caption}</figcaption>
+            }
+        </figure>
+    )
+}
+
+
+// ============================================================================================================ Styles
+
+const $Video = styled(Video)`
     margin: 0;
     margin-top: calc(var(--l-brh) + var(--l-rh) + var(--l-rh0_25) + var(--l-rh0_125));
 
@@ -14,8 +29,8 @@ const VideoFigure = styled.figure`
         margin-top: calc(var(--l-rh) + var(--l-rh0_125));
     }
 
-    ${props => {
-        switch (props.size) {
+    ${({ size }) => {
+        switch (size) {
             case "full":
                 return css`
                     position: relative;
@@ -51,25 +66,4 @@ const VideoFigure = styled.figure`
     }}
 `
 
-
-function Video({ video, size }) {
-    // const player = new Plyr('#player')
-    return (
-        <VideoFigure size={size}>
-            <Plyr source={{ type: "video", sources: [{provider: "youtube", src: "https://www.youtube.com/watch?v=bTqVqk7FSmY"}]}}/>
-            {video.caption &&
-                <figcaption>{video.caption}</figcaption>
-            }
-        </VideoFigure>
-        // <div class="plyr__video-embed" id="player">
-        //     <iframe
-        //         src={video.url}
-        //         allowfullscreen
-        //         allowtransparency
-        //         allow="autoplay"
-        //     ></iframe>
-        // </div>
-    )
-}
-
-export default Video
+export default $Video

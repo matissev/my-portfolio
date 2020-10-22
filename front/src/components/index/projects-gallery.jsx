@@ -1,5 +1,9 @@
+// Libraries
 import React from "react"
 import ProjectPreview from "./project-preview"
+
+
+// ============================================================================================================ Logic
 
 const ProjectsGallery = ({ projects }) => {
   return (

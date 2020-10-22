@@ -1,8 +1,39 @@
+// Libraries
 import React from 'react'
 import styled from 'styled-components'
 
 
-const StyledSocial = styled.div`
+// ============================================================================================================ Logic
+
+function Social({ className, social, children }) {
+    return (
+        <div className={className}>
+            {
+                social.map((link) => {
+                    return (
+                        <p key={link.media_name}>
+                            {link.intro.length > 0 &&
+                                link.intro + ` `
+                            }
+                            <a href={link.url} target="_blank" rel="noreferrer">
+                                {link.media_name}
+                            </a>
+                            {link.outro != null &&
+                                ` ` + link.outro
+                            }
+                        </p>
+                    )
+                })
+            }
+            {children}
+        </div>
+    )
+}
+
+
+// ============================================================================================================ Styles
+
+const $Social = styled(Social)`
     display: grid;
     grid-template-columns: repeat(10, minmax(0, 1fr));
     grid-gap: var(--l-gw);
@@ -32,29 +63,4 @@ const StyledSocial = styled.div`
     }
 `
 
-function Social({ social, children }) {
-    return (
-        <StyledSocial>
-            {
-                social.map((link) => {
-                    return (
-                        <p key={link.media_name}>
-                            {link.intro.length > 0 &&
-                                link.intro + ` `
-                            }
-                            <a href={link.url} target="_blank" rel="noreferrer">
-                                {link.media_name}
-                            </a>
-                            {link.outro != null &&
-                                ` ` + link.outro
-                            }
-                        </p>
-                    )
-                })
-            }
-            {children}
-        </StyledSocial>
-    )
-}
-
-export default Social
+export default $Social

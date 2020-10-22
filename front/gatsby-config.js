@@ -9,10 +9,6 @@ module.exports = {
     description: "Gatsby blog with Strapi",
     author: "Strapi team",
   },
-  proxy: {
-    prefix: '/uploads',
-    url: process.env.API_URL || "http://localhost:1337"
-  },
   plugins: [
     "gatsby-plugin-react-helmet",
     `gatsby-plugin-styled-components`,
@@ -35,7 +31,7 @@ module.exports = {
         alias: {
           "#components": path.resolve(__dirname, 'src/components'),
           "#context": path.resolve(__dirname, 'src/context'),
-          "#utils": path.resolve(__dirname, 'src/utils'),
+          "#hooks": path.resolve(__dirname, 'src/hooks'),
           "#static": path.resolve(__dirname, 'static')
         },
         extensions: ["jsx"]

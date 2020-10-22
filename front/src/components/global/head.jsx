@@ -1,52 +1,55 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
-import React from "react"
+// Libraries
+import React, { useContext } from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-import FilterLocale from "#utils/FilterLocale"
+// Context
+import i18nContext from '#context/i18n-context'
+import LocationContext from '#context/location-context'
 
-const Head = ({ language, languages, noLangPath, defaultLanguage }) => {
-  const metadatas = FilterLocale(useMetadatas(), language, languages)
+// Hooks
+import useFilterLocale from "#hooks/useFilterLocale"
 
-  const location = process.env.GATSBY_HOST_NAME + (language === defaultLanguage ? "" : "/" + language) + noLangPath
 
-  const alternateLanguages = languages.filter((locale) =>
-    language !== locale
-  ).map((locale) => {
+// ============================================================================================================ Logic
+
+const Head = () => {
+  const i18n = useContext(i18nContext)
+  const location = useContext(LocationContext)
+  const metadatas = useMetadatas()
+
+  const currentUrl = location.hostname + (i18n.locale === i18n.defaultLocale ? "" : "/" + i18n.locale) + location.noLocalePath
+
+  const altLanguages = i18n.altLocales.map((locale) => {
     return {
       locale: locale,
-      route: locale === defaultLanguage ? "" : "/" + locale
+      route: locale === i18n.defaultLocale ? "" : "/" + locale
     }
   })
 
   return (
-    <Helmet htmlAttributes={{language}}>
-      {/* Languages */}
-      <meta name="og:locale" content={language}/>
-      {alternateLanguages.map((language) =>
-        <meta property="og:locale:alternate" key={language.locale} content={language.locale}/>
+    <Helmet htmlAttributes={{ language: i18n.locale }}>
+
+      <meta name="og:locale" content={i18n.locale}/>
+      {altLanguages.map(lng =>
+        <meta property="og:locale:alternate" key={lng.locale} content={lng.locale}/>
       )}
-      {alternateLanguages.map((language) =>
-        <link rel="alternate" key={language.locale} href={process.env.GATSBY_HOST_NAME + language.route + noLangPath} hreflang={language.locale}/>
+      {altLanguages.map(lng =>
+        <link rel="alternate" key={lng.locale} href={location.hostname + lng.route + location.noLocalePath} hreflang={lng.locale}/>
       )}
 
-      {/* Author */}
       <meta name="author" content={metadatas.author}/>
       <meta name="twitter:creator" content={metadatas.author}/>
 
-      {/* Href */}
-      <meta property="og:url" content={location}/>
-      <meta name="twitter:url" content={location}/>
+      <meta property="og:url" content={currentUrl}/>
+      <meta name="twitter:url" content={currentUrl}/>
 
     </Helmet>
   )
 }
+
+
+// ============================================================================================================ Data
 
 const useMetadatas = () => {
   const metadatas = useStaticQuery(
@@ -62,7 +65,7 @@ const useMetadatas = () => {
       }
     `
   )
-  return metadatas.strapi.website.metadatas
+  return useFilterLocale(metadatas.strapi.website.metadatas)
 }
 
 export default Head

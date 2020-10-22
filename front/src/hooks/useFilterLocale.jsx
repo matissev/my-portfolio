@@ -1,9 +1,16 @@
+// Libraries
+import { useContext } from 'react'
+import i18nContext from '#context/i18n-context'
 
-const FilterLocale = (toFilter, locale, locales) => {
-    const otherLocales = locales.filter(entry => entry !== locale)
-    const localeRgx = localeToRegex(locale)
-    const otherLocalesRgx = localeToRegex(otherLocales)
-    return FilterSuffixe(toFilter, localeRgx, otherLocalesRgx)
+
+// ============================================================================================================ Logic
+
+const useFilterLocale = (toFilter) => {
+    const i18n = useContext(i18nContext);
+
+    const localeRgx = localeToRegex(i18n.locale)
+    const altLocalesRgx = localeToRegex(i18n.altLocales)
+    return FilterSuffixe(toFilter, localeRgx, altLocalesRgx)
 }
 
 const FilterSuffixe = (suffixed, inSuffixe, outSuffixes) => {
@@ -42,13 +49,13 @@ const FilterSuffixe = (suffixed, inSuffixe, outSuffixes) => {
 const localeToRegex = (input) => {
     let output = []
     if (Array.isArray(input)) {
-        for (let i = 0; i < input.length; i++) {
-            output[i] = "_" + input[i] + "$"
-        }
+        output = input.map((locale) => {
+            return "_" + locale + "$"
+        })
     } else {
         output = "_" + input + "$"
     }
     return output
 }
 
-export default FilterLocale
+export default useFilterLocale

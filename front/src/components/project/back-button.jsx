@@ -1,6 +1,10 @@
+// Libraries
 import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby-plugin-react-intl"
+
+
+// ============================================================================================================ Logic
 
 const BackButton = ({ route, className }) => {
     return (
@@ -8,7 +12,10 @@ const BackButton = ({ route, className }) => {
     )
 }
 
-const StyledBackButton = styled(BackButton)`
+
+// ============================================================================================================ Styles
+
+const $BackButton = styled(BackButton)`
     padding: 0 var(--l-rh0_5);
     box-sizing: border-box;
     position: fixed;
@@ -23,4 +30,4 @@ const StyledBackButton = styled(BackButton)`
     }
 `
 
-export default StyledBackButton
+export default $BackButton

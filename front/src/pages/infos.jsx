@@ -1,24 +1,34 @@
+// Libraries
 import React from "react"
 import { graphql } from "gatsby"
 
+// Hooks
+import useFilterLocale from "#hooks/useFilterLocale"
+
+// Components
 import Bio from "#components/infos/bio"
 import Social from "#components/infos/social"
 import ContactButton from "#components/infos/contact-button"
 import SEO from "#components/global/seo"
-import FilterLocale from "#utils/FilterLocale"
 
-const InfosPage = ({ data, pageContext }) => {
-  const infos = FilterLocale(data.strapi.info, pageContext.locale, pageContext.intl.languages)
+
+// ============================================================================================================ Logic
+
+const InfosPage = ({ data }) => {
+  const infos = useFilterLocale(data.strapi.info)
 
   return (
     <>
-      <SEO title="Infos" language={pageContext.locale} languages={pageContext.intl.languages}/>
+      <SEO title="Infos"/>
       <Bio bio={infos.bio}/>
       <ContactButton />
       <Social social={infos.social}/>
     </>
   )
 }
+
+
+// ============================================================================================================ Data
 
 export const query = graphql`
   query Infos {

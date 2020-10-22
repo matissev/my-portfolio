@@ -1,8 +1,37 @@
+// Libraries
 import React, { useEffect, useRef } from "react"
 import styled from 'styled-components'
 import ReactMarkdown from 'react-markdown'
 
-const StyledBio = styled.div`
+
+// ============================================================================================================ Logic
+
+const Bio = ({ bio, className }) => {
+    const parentEl = useRef();
+    const childEl = useRef();
+
+    useEffect(() => {
+        function handleResize() {
+            childEl.current.style.height = parentEl.current.offsetHeight + "px";
+        }
+        childEl.current.style.height = parentEl.current.offsetHeight + "px";
+        window.setTimeout(handleResize, 200); // Ugly fix to rerender after CSS paint but works...
+    }, [])
+
+    return (
+        <div className={className}>
+            <Shape ref={childEl}/>
+            <MarkdownWrapper ref={parentEl}>
+                <ReactMarkdown source={bio} />
+            </MarkdownWrapper>
+        </div>
+    )
+}
+
+
+// ============================================================================================================ Styles
+
+const $Bio = styled(Bio)`
     grid-column: 2 / span 10;
     font-size: var(--fs-l);
 `
@@ -25,26 +54,4 @@ const Shape = styled.div`
     clip-path: polygon(100% 0, 0% 100%, 100% 100%);
 `
 
-const Bio = ({ bio }) => {
-    const parentEl = useRef();
-    const childEl = useRef();
-
-    useEffect(() => {
-        function handleResize() {
-            childEl.current.style.height = parentEl.current.offsetHeight + "px";
-        }
-        childEl.current.style.height = parentEl.current.offsetHeight + "px";
-        window.setTimeout(handleResize, 200); // Ugly fix to rerender after CSS paint but works...
-    }, [])
-
-    return (
-        <StyledBio>
-            <Shape ref={childEl}/>
-            <MarkdownWrapper ref={parentEl}>
-                <ReactMarkdown source={bio} />
-            </MarkdownWrapper>
-        </StyledBio>
-    )
-}
-
-export default Bio
+export default $Bio

@@ -12,6 +12,7 @@ const initialState = {
 function reducer(state, action) {
   switch (action.type) {
     case "CHANGE_INFOS_RETURN_PAGE": {
+      console.log(action.returnPage)
       return {
         ...state,
         infosReturnPage: action.returnPage

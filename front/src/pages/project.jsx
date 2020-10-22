@@ -1,9 +1,12 @@
+// Library
 import React, { useEffect } from "react"
 import styled, { createGlobalStyle, css } from "styled-components"
 import { graphql } from "gatsby"
 
-import FilterLocale from "#utils/FilterLocale"
+// Hooks
+import useFilterLocale from "#hooks/useFilterLocale"
 
+// Components
 import SEO from "#components/global/seo"
 import Heading from "#components/project/heading"
 import BackButton from "#components/project/back-button"
@@ -13,6 +16,50 @@ import Content from "#components/project/content"
 import Footer from "#components/project/footer"
 import Social from "#components/infos/social"
 import ContactButton from "#components/infos/contact-button"
+
+
+// ============================================================================================================ Logic
+
+const ProjectPage = ({ data, pageContext }) => {
+  const project = useFilterLocale(data.strapi.projects[0])
+  const infos = useFilterLocale(data.strapi.info)
+
+  useEffect(() => {
+    document.body.classList.add('openProject')
+  }, [])
+
+  return (
+    <>
+      <SEO
+        title={project.title}
+        description={project.brief}
+        isProject={true}
+        image={{
+          url: project.preview.social_image.imageFile.publicURL,
+          alt: project.preview.alt
+        }}
+      />
+      <ColorScheme colorscheme={project.color_scheme}/>
+      <Heading title={project.title}/>
+      <BackButton route="/"/>
+      <Brief text={project.brief}/>
+      <MainMedia main_media={project.main_media[0]}/>
+      <Content components={project.content} />
+      <Footer description={project.description} tags={project.tags}/>
+      <Social as={Social} social={infos.social}>
+        <$ContactButton/>
+      </Social>
+    </>
+  )
+}
+
+
+// ============================================================================================================ Styles
+
+const $ContactButton = styled(ContactButton)`
+  margin-top: calc(var(--l-rh4));
+  grid-column: span 2;
+`
 
 const ColorScheme = createGlobalStyle`
   .openProject {
@@ -37,48 +84,8 @@ const ColorScheme = createGlobalStyle`
   }
 `
 
-const StyledContactButton = styled(ContactButton)`
-  margin-top: calc(var(--l-rh4));
-  grid-column: span 2;
-`
 
-const ProjectPage = ({ data, pageContext }) => {
-  const project = FilterLocale(data.strapi.projects[0], pageContext.locale, pageContext.intl.languages)
-  const infos = FilterLocale(data.strapi.info, pageContext.locale, pageContext.intl.languages)
-
-  console.log(pageContext);
-
-  useEffect(() => {
-    document.body.classList.add('openProject')
-  }, [])
-
-  return (
-    <>
-      <SEO
-        title={project.title}
-        description={project.brief}
-        isProject={true}
-        languages={pageContext.intl.languages}
-        language={pageContext.locale}
-        image={{
-          url: project.preview.social_image.imageFile.publicURL,
-          alt: project.preview.alt
-        }}
-      />
-
-      <ColorScheme colorscheme={project.color_scheme}/>
-      <Heading title={project.title}/>
-      <BackButton route="/"/>
-      <Brief text={project.brief}/>
-      <MainMedia main_media={project.main_media[0]}/>
-      <Content components={project.content} />
-      <Footer description={project.description} tags={project.tags}/>
-      <Social as={Social} social={infos.social}>
-        <StyledContactButton/>
-      </Social>
-    </>
-  )
-}
+// ============================================================================================================ Data
 
 export const query = graphql`
   query Project($slug: String) {

@@ -1,5 +1,9 @@
+// Libraries
 import React from 'react'
 import styled from 'styled-components'
+
+
+// ============================================================================================================ Logic
 
 function Button({ className, children, onClick }) {
     return (
@@ -8,6 +12,9 @@ function Button({ className, children, onClick }) {
         </button>
     )
 }
+
+
+// ============================================================================================================ Styles
 
 const StyledButton = styled(Button)`
     background: rgba(255,255,255,0.2);

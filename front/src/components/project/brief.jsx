@@ -1,6 +1,9 @@
+// Libraries
 import React from "react"
 import styled from "styled-components"
 
+
+// ============================================================================================================ Logic
 
 const Brief = ({ className, text }) => {
     return (
@@ -8,7 +11,10 @@ const Brief = ({ className, text }) => {
     )
 }
 
-const StyledBrief = styled(Brief)`
+
+// ============================================================================================================ Styles
+
+const $Brief = styled(Brief)`
     margin-top: calc(var(--l-rh5) + var(--l-rh0_125) - var(--l-rh0_25));
     transform: translateY(15px);
     display: grid;
@@ -38,4 +44,4 @@ const StyledBrief = styled(Brief)`
     }
 `
 
-export default StyledBrief
+export default $Brief

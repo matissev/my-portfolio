@@ -1,8 +1,14 @@
+// Libraries
 import React from 'react'
+
+// Components
 import Video from './video'
 import Image from './image'
 import Animation from './animation'
 import Text from './text'
+
+
+// ============================================================================================================ Logic
 
 const Content = ({ components }) => {
     return components.map((c) => {

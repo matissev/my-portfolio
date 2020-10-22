@@ -1,20 +1,30 @@
+// Libraries
 import React from "react"
 import { graphql } from "gatsby"
 
-import ProjectsGallery from "#components/index/projects-gallery"
-import FilterLocale from "#utils/FilterLocale"
+// Hooks
+import useFilterLocale from "#hooks/useFilterLocale"
+
+// Components
 import SEO from "#components/global/seo"
+import ProjectsGallery from "#components/index/projects-gallery"
+
+
+// ============================================================================================================ Logic
 
 const IndexPage = ({ data, pageContext }) => {
-  const projects = FilterLocale(data.strapi.projects, pageContext.locale, pageContext.intl.languages)
+  const projects = useFilterLocale(data.strapi.projects)
 
   return (
     <>
-      <SEO language={pageContext.locale} languages={pageContext.intl.languages}/>
+      <SEO/>
       <ProjectsGallery projects={projects} />
     </>
   )
 }
+
+
+// ============================================================================================================ Data
 
 export const query = graphql`
   query Projects {

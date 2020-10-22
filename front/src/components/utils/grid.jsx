@@ -1,7 +1,50 @@
+// Libraries
 import React from 'react'
 import styled from 'styled-components'
 
-const StyledGrid = styled.div`
+
+// ============================================================================================================ Logic
+
+const Grid = ({ className }) => {
+    const numCols = 12;
+    const numBigRows = 55;
+    const numRows = numBigRows * 8;
+
+    const cols = []
+    const rows = []
+    const bigRows = []
+
+    for(let i = 0; i < numCols; i++) {
+        cols.push(<Col key={i}></Col>)
+    }
+
+    for(let j = 0; j < numRows + 1; j++) {
+        rows.push(<Row key={j}></Row>)
+    }
+
+    for(let k = 0; k < numBigRows; k++) {
+        bigRows.push(<BigRow key={k}></BigRow>)
+    }
+
+    return (
+        <div className={className}>
+            <Cols>
+                {cols}
+            </Cols>
+            <Rows>
+                {rows}
+            </Rows>
+            <BigRows>
+                {bigRows}
+            </BigRows>
+        </div>
+    )
+}
+
+
+// ============================================================================================================ Styles
+
+const $Grid = styled(Grid)`
     pointer-events: none;
     z-index: 3;
     position: absolute;
@@ -51,40 +94,4 @@ const BigRow = styled.div`
     margin-top: var(--l-rh);
 `
 
-const Grid = () => {
-    const numCols = 12;
-    const numBigRows = 55;
-    const numRows = numBigRows * 8;
-
-    const cols = []
-    const rows = []
-    const bigRows = []
-
-    for(let i = 0; i < numCols; i++) {
-        cols.push(<Col key={i}></Col>)
-    }
-
-    for(let j = 0; j < numRows + 1; j++) {
-        rows.push(<Row key={j}></Row>)
-    }
-
-    for(let k = 0; k < numBigRows; k++) {
-        bigRows.push(<BigRow key={k}></BigRow>)
-    }
-
-    return (
-        <StyledGrid>
-            <Cols>
-                {cols}
-            </Cols>
-            <Rows>
-                {rows}
-            </Rows>
-            <BigRows>
-                {bigRows}
-            </BigRows>
-        </StyledGrid>
-    )
-}
-
-export default Grid
+export default $Grid

@@ -1,8 +1,23 @@
+// Libraries
 import React from 'react'
 import styled from "styled-components"
 import ReactMarkdown from 'react-markdown'
 
-const StyledText = styled.div`
+
+// ============================================================================================================ Logic
+
+function Text({ className, text }) {
+    return (
+        <div className={className}>
+            <ReactMarkdown source={text.content} />
+        </div>
+    )
+}
+
+
+// ============================================================================================================ Styles
+
+const $Text = styled(Text)`
     margin-top: calc(var(--l-brh) + var(--l-rh) + var(--l-rh0_25) + var(--l-rh0_125));
     grid-column: 2 / span 5;
     font-size: var(--fs-l);
@@ -17,12 +32,4 @@ const StyledText = styled.div`
     }
 `
 
-function Text({ text }) {
-    return (
-        <StyledText>
-            <ReactMarkdown source={text.content} />
-        </StyledText>
-    )
-}
-
-export default Text
+export default $Text
