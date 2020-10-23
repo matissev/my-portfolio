@@ -53,6 +53,10 @@ const $Header = styled(Header)`
   @media (max-width: 540px) {
     position: absolute;
   }
+
+  @media (max-width: 450px) {
+    padding-top: var(--l-rh);
+  }
 `
 
 const cssHeaderElements = `
@@ -62,6 +66,9 @@ const cssHeaderElements = `
 const $Heading = styled(Heading)`
   ${cssHeaderElements}
   margin-left: calc(var(--l-m) - var(--l-rh0_5));
+  @media (max-width: 450px) {
+    margin-left: calc(var(--l-m) + var(--l-rh0_5));
+  }
 `
 
 const $Job = styled(Job)`
@@ -76,12 +83,20 @@ const $Job = styled(Job)`
     top: calc(var(--l-rh4) + var(--l-rh0_5));
     left: 0;
     padding: 0;
+
+    .openInfos &, .openProject & {
+      display: none;
+    }
   }
 
   @media (min-width: 540px) {
     &.hide {
       color: transparent;
     }
+  }
+
+  @media (max-width: 450px) {
+    top: calc(var(--l-rh3) + var(--l-rh0_5));
   }
 `
 
@@ -97,8 +112,22 @@ const $MuteButton = styled(MuteButton)`
     margin-left: auto;
   }
 
-  @media (max-width: 280px) {
+  @media (max-width: 450px) {
     font-size: var(--fs-xs);
+
+    &.on, &.off {
+      font-size: var(--fs-m);
+    }
+  }
+
+  @media (max-width: 300px) {
+    font-size: var(--fs-xxs);
+
+    &.on, &.off {
+      font-size: var(--fs-m);
+    }
+    padding: 0;
+    content: "Audio Off";
   }
 `
 
@@ -106,6 +135,10 @@ const $Nav = styled(Nav)`
   ${cssHeaderElements}
   margin-left: auto;
   margin-right: calc(var(--l-m) - var(--l-rh0_5));
+
+  @media (max-width: 450px) {
+    margin-right: calc(var(--l-m) + var(--l-rh0_5));
+  }
 `
 
 

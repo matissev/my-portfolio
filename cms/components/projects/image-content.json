@@ -12,7 +12,7 @@
       "component": "projects.image",
       "required": true
     },
-    "image_size": {
+    "size": {
       "type": "enumeration",
       "enum": [
         "XS",

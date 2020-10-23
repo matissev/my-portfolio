@@ -40,7 +40,7 @@ const $ProjectPreview = styled(ProjectPreview)`
     `
   }}
 
-  @media (max-width: 768px) {
+  @media (max-width: 750px) {
     margin-top: 0;
   }
 `
@@ -52,7 +52,7 @@ const $Link = styled(Link)`
     `
   }}
 
-  @media (max-width: 768px) {
+  @media (max-width: 750px) {
     grid-column: 1 / span 12;
   }
 `

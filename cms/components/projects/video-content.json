@@ -11,7 +11,7 @@
       "repeatable": false,
       "component": "projects.video"
     },
-    "video_size": {
+    "size": {
       "type": "enumeration",
       "enum": [
         "XS",

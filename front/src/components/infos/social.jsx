@@ -35,21 +35,12 @@ function Social({ className, social, children }) {
 
 const $Social = styled(Social)`
     display: grid;
-    grid-template-columns: repeat(10, minmax(0, 1fr));
     grid-gap: var(--l-gw);
     margin: 0;
     font-size: var(--fs-l);
-    grid-column: 2 / span 10;
     line-height: var(--l-rh2);
 
-    p {
-        grid-column: span 2;
-        margin-top: var(--l-rh4);
-        margin-bottom: calc(var(--l-rh4) + var(--l-rh0_5) - var(--l-rh0_125));
-
-        &:first-of-type {
-        }
-        
+    p { 
         a {
             font-weight: 500;
             text-decoration: underline;

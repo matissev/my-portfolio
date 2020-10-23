@@ -12,7 +12,7 @@
       "component": "projects.animation",
       "required": true
     },
-    "animation_size": {
+    "size": {
       "type": "enumeration",
       "enum": [
         "XS",

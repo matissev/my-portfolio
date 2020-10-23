@@ -152,7 +152,7 @@ export const query = graphql`
                 url
               }
             }
-            animation_size
+            animation_size: size
           }
           ... on Strapi_ComponentProjectsImageContent {
             image {
@@ -172,7 +172,7 @@ export const query = graphql`
                 }
               }
             }
-            image_size
+            image_size: size
           }
           ... on Strapi_ComponentProjectsVideoContent {
             video {
@@ -181,7 +181,7 @@ export const query = graphql`
               caption_fr
               url
             }
-            video_size
+            video_size: size
           }
           ... on Strapi_ComponentProjectsTextContent {
             id

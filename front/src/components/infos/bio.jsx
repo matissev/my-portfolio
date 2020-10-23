@@ -8,20 +8,20 @@ import ReactMarkdown from 'react-markdown'
 
 const Bio = ({ bio, className }) => {
     const parentEl = useRef();
-    const childEl = useRef();
+    const shapeEl = useRef();
 
     useEffect(() => {
         function handleResize() {
-            childEl.current.style.height = parentEl.current.offsetHeight + "px";
+            shapeEl.current.style.height = parentEl.current.offsetHeight + "px";
         }
-        childEl.current.style.height = parentEl.current.offsetHeight + "px";
+        shapeEl.current.style.height = parentEl.current.offsetHeight + "px";
         window.setTimeout(handleResize, 200); // Ugly fix to rerender after CSS paint but works...
     }, [])
 
     return (
         <div className={className}>
-            <Shape ref={childEl}/>
-            <MarkdownWrapper ref={parentEl}>
+            <Shape className="shape" ref={shapeEl}/>
+            <MarkdownWrapper className="markdownWrapper" ref={parentEl}>
                 <ReactMarkdown source={bio} />
             </MarkdownWrapper>
         </div>
@@ -32,18 +32,17 @@ const Bio = ({ bio, className }) => {
 // ============================================================================================================ Styles
 
 const $Bio = styled(Bio)`
-    grid-column: 2 / span 10;
     font-size: var(--fs-l);
 `
 
 const MarkdownWrapper = styled.div`
     p {
         margin: 0;
+        line-height: var(--l-rh4);
     }
 
     p:first-of-type {
         margin-top: calc(-1 * (var(--l-rh) + var(--l-rh0_5)));
-        line-height: var(--l-rh4);
     }
 `
 

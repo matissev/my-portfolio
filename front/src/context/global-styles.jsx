@@ -24,6 +24,7 @@ const GlobalStyle = createGlobalStyle`
 
         // Fonts
         --font-family-body: "Basier Circle", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+        --fs-xxs: 0.5rem;
         --fs-xs: 0.8rem;
         --fs-s: 0.9rem;
         --fs-m: 1rem;
@@ -93,7 +94,8 @@ const GlobalStyle = createGlobalStyle`
         transition: background 0.3s ease-out, color 0.5s ease-out;
 
         @media (max-width: 450px) {
-            --layout-margin: 0.6rem;
+            padding-top: calc(var(--l-brh));
+            --layout-margin: var(--l-rh0_5);
             --l-m: var(--layout-margin);
         }
     }
