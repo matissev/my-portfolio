@@ -34,23 +34,13 @@ function Social({ className, social, children }) {
 // ============================================================================================================ Styles
 
 const $Social = styled(Social)`
-    display: grid;
-    grid-gap: var(--l-gw);
     margin: 0;
     font-size: var(--fs-l);
     line-height: var(--l-rh2);
 
-    p { 
-        a {
-            font-weight: 500;
-            text-decoration: underline;
-
-            &:before, &:after {
-                content:' ';
-                display: block;
-                height: 0;
-            }
-        }
+    p a {
+        font-weight: 500;
+        text-decoration: underline;
     }
 `
 

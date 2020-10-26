@@ -12,8 +12,8 @@ import Tags from "#components/project/tags"
 const Footer = ({ className, tags, description }) => {
     return (
         <div className={className}>
-            <MarkDown>
-                <ReactMarkdown source={description} />
+            <MarkDown className="markdown">
+              <ReactMarkdown source={description} />
             </MarkDown>
             <Tags tags={tags}/>
         </div>
@@ -32,7 +32,6 @@ const $Footer = styled(Footer)`
   grid-column: 1 / span 12;
   color: var(--c-stxt1);
   background: var(--c-sbg);
-  transform: translateY(5px);
 
   &:before, &:after {
     position: absolute;

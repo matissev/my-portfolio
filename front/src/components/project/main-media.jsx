@@ -31,7 +31,6 @@ const MainMedia = ({ className, main_media }) => {
 const $MainMedia = styled(MainMedia)`
     z-index: 2;
     margin: 0;
-    margin-top: calc(var(--l-brh) + var(--l-rh) + var(--l-rh0_25) + var(--l-rh0_125));
 
     display: grid;
     grid-template-columns: repeat(var(--l-c), minmax(0, 1fr));
@@ -40,6 +39,7 @@ const $MainMedia = styled(MainMedia)`
     margin-top: calc(var(--l-brh) + var(--l-rh) + var(--l-rh0_5));
 
     .gatsby-image-wrapper {
+        min-height: 400px;
         grid-column: 1 / span 12;
         position: relative;
         right: var(--l-m);

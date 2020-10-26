@@ -38,15 +38,14 @@ const ProjectPage = ({ data, pageContext }) => {
         }}
       />
       <ColorScheme colorscheme={project.color_scheme}/>
-      <Heading title={project.title}/>
       <BackButton route="/"/>
-      <Brief text={project.brief}/>
-      <MainMedia main_media={project.main_media[0]}/>
+      <$Heading title={project.title}/>
+      <$Brief text={project.brief}/>
+      <$MainMedia main_media={project.main_media[0]}/>
       <Content components={project.content} />
-      <Footer description={project.description} tags={project.tags}/>
-      <Social as={Social} social={infos.social}>
-        <$ContactButton/>
-      </Social>
+      <$Footer description={project.description} tags={project.tags}/>
+      <$ContactButton/>
+      <$Social social={infos.social}/>
     </>
   )
 }
@@ -55,8 +54,174 @@ const ProjectPage = ({ data, pageContext }) => {
 // ============================================================================================================ Styles
 
 const $ContactButton = styled(ContactButton)`
-  margin-top: calc(var(--l-rh4));
-  grid-column: span 2;
+  grid-column: 6 / span 2;
+  margin-top: calc(var(--l-rh3));
+
+  @media(max-width: 1300px) {
+    grid-column: 5 / span 4;
+  }
+
+  @media(max-width: 800px) {
+    grid-column: 4 / span 6;
+  }
+
+  @media(max-width: 550px) {
+    grid-column: 3 / span 8;
+  }
+`
+
+const $Social = styled(Social)`
+  grid-column: 1 / span 12;
+  display: flex;
+  justify-content: space-evenly;
+  margin: calc(var(--l-rh4)) 0 calc(var(--l-rh5)) 0;
+  flex-wrap: wrap;
+  
+  p {
+    text-align: center;
+    margin: 0 calc(2 * var(--l-gw));
+    margin-bottom: var(--l-rh2);
+  }
+`
+
+const $Heading = styled(Heading)`
+  grid-column: 1 / span 12;
+  margin-bottom: var(--l-rh2);
+  margin-top: var(--l-brh2);
+
+  @media(max-width: 1000px) {
+    margin-top: var(--l-rh3);
+  }
+
+  @media(max-width: 600px) {
+    margin-top: var(--l-rh4);
+  }
+`
+
+const $MainMedia = styled(MainMedia)`
+  margin-top: calc(var(--l-brh) + var(--l-rh) + var(--l-rh0_25) + var(--l-rh0_125));
+
+  @media(max-width: 600px) {
+    margin-top: calc(var(--l-rh4) + var(--l-rh0_25) + var(--l-rh0_125));
+  }
+`
+
+const $Brief = styled(Brief)`
+  margin-top: calc(var(--l-rh5) + var(--l-rh0_125) - var(--l-rh0_25));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-column: 2 / span 4;
+
+  &:before {
+    grid-column: 1 / span 3;
+  }
+
+  p {
+    grid-column: 1 / span 4;
+    margin-top: calc(var(--l-rh2) + var(--l-rh0_5));
+  }
+
+  @media(max-width: 1300px) {
+    grid-column: 2 / span 6;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    
+    &:before {
+      grid-column: 1 / span 4;
+    }
+
+    p {
+      grid-column: 1 / span 6;
+    }
+  }
+
+  @media(max-width: 1000px) {
+    grid-column: 2 / span 8;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    
+    &:before {
+      grid-column: 1 / span 6;
+    }
+
+    p {
+      grid-column: 1 / span 8;
+    }
+  }
+
+  @media(max-width: 750px) {
+    grid-column: 2 / span 10;
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+    
+    &:before {
+      grid-column: 1 / span 8;
+    }
+
+    p {
+      grid-column: 1 / span 10;
+    }
+  }
+
+  @media(max-width: 600px) {
+    grid-column: 1 / span 12;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-row-start: 3;
+    
+    &:before {
+      display: none;
+    }
+
+    p {
+      grid-column: 1 / span 12;
+    }
+  }
+`
+
+const $Footer = styled(Footer)`
+  @media(max-width: 1300px) {
+    .markdown {
+      grid-column: 3 / span 8;
+    }
+    
+    dl {
+      display: block;
+      grid-column: 3 / span 8;
+
+      dt, dd {
+        text-align: left;
+        float: left;
+      }
+
+      dt {
+        margin-bottom: var(--l-rh);
+        clear: left;
+      }
+
+      dd {
+        margin-left: var(--l-gw);
+      }
+    }
+  }
+
+  @media(max-width: 1000px) {
+    .markdown {
+      grid-column: 2 / span 10;
+    }
+
+    dl {
+      margin-top: calc(var(--l-rh4));
+      font-size: var(--fs-l);
+      grid-column: 2 / span 10;
+    }
+  }
+
+  @media(max-width: 850px) {
+    .markdown {
+      margin-top: calc(var(--l-rh4) + var(--l-rh0_5) + var(--l-rh0_125));
+      grid-column: 1 / span 12;
+    }
+
+    dl {
+      grid-column: 2 / span 10;
+    }
+  }
 `
 
 const ColorScheme = createGlobalStyle`

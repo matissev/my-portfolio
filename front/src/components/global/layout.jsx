@@ -47,7 +47,7 @@ const Layout = ({ children, location }) => {
 const Main = styled.main`
   display: grid;
   grid-template-columns: repeat(var(--l-c), minmax(0, 1fr));
-  grid-gap: var(--l-gw);
+  grid-column-gap: var(--l-gw);
   right: var(--l-m);
   left: var(--l-m);
 `

@@ -101,6 +101,8 @@ const $ContactButton = styled(ContactButton)`
 `
 
 const $Social = styled(Social)`
+  display: grid;
+  grid-gap: var(--l-gw);
   grid-column: 2 / span 10;
   grid-template-columns: repeat(10, minmax(0, 1fr));
 
@@ -108,6 +110,12 @@ const $Social = styled(Social)`
     grid-column: span 2;
     margin-top: var(--l-rh4);
     margin-bottom: calc(var(--l-rh4) + var(--l-rh0_5) - var(--l-rh0_125));
+
+    a:before, a:after {
+      content:' ';
+      display: block;
+      height: 0;
+    }
   }
 
   @media (max-width: 1500px) {

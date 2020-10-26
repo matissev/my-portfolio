@@ -75,6 +75,166 @@ const $ContentComponent = styled(ContentComponent)`
                 `
         }
     }}
+
+    @media (max-width: 1400px) {
+        ${({ component }) => {
+            const size = component.image_size || component.video_size || component.animation_size
+            switch (size) {
+                case "XL":
+                    return css`
+                        grid-column: 2 / span 10;
+                    `
+                case "L":
+                    return css`
+                        grid-column: 2 / span 8;
+                    `
+                case "M":
+                    return css`
+                        grid-column: 2 / span 6;
+                    `
+                case "S":
+                    return css`
+                        grid-column: 2 / span 4;
+                    `
+                case "XS":
+                    return css`
+                        grid-column: 2 / span 3;
+                    `
+                default:
+                    return css`
+                        grid-column: 2 / span 6;
+                    `
+            }
+        }}
+    }
+
+    @media (max-width: 1100px) {
+        ${({ component }) => {
+            const size = component.image_size || component.video_size || component.animation_size
+            switch (size) {
+                case "XL":
+                    return css`
+                        grid-column: 2 / span 10;
+                    `
+                case "L":
+                    return css`
+                        grid-column: 2 / span 9;
+                    `
+                case "M":
+                    return css`
+                        grid-column: 2 / span 7;
+                    `
+                case "S":
+                    return css`
+                        grid-column: 2 / span 5;
+                    `
+                case "XS":
+                    return css`
+                        grid-column: 2 / span 4;
+                    `
+                default:
+                    return css`
+                        grid-column: 2 / span 7;
+                    `
+            }
+        }}
+    }
+
+    @media (max-width: 900px) {
+        ${({ component }) => {
+            const size = component.image_size || component.video_size || component.animation_size
+            switch (size) {
+                case "XL":
+                    return css`
+                        grid-column: 2 / span 10;
+                    `
+                case "L":
+                    return css`
+                        grid-column: 2 / span 10;
+                    `
+                case "M":
+                    return css`
+                        grid-column: 2 / span 8;
+                    `
+                case "S":
+                    return css`
+                        grid-column: 2 / span 6;
+                    `
+                case "XS":
+                    return css`
+                        grid-column: 2 / span 5;
+                    `
+                default:
+                    return css`
+                        grid-column: 2 / span 8;
+                    `
+            }
+        }}
+    }
+
+    @media (max-width: 700px) {
+        ${({ component }) => {
+            const size = component.image_size || component.video_size || component.animation_size
+            switch (size) {
+                case "XL":
+                    return css`
+                        grid-column: 2 / span 10;
+                    `
+                case "L":
+                    return css`
+                        grid-column: 2 / span 10;
+                    `
+                case "M":
+                    return css`
+                        grid-column: 2 / span 9;
+                    `
+                case "S":
+                    return css`
+                        grid-column: 2 / span 8;
+                    `
+                case "XS":
+                    return css`
+                        grid-column: 2 / span 7;
+                    `
+                default:
+                    return css`
+                        grid-column: 2 / span 8;
+                    `
+            }
+        }}
+    }
+
+    @media (max-width: 600px) {
+        ${({ component }) => {
+            const size = component.image_size || component.video_size || component.animation_size
+            switch (size) {
+                case "XL":
+                    return css`
+                        grid-column: 1 / span 12;
+                    `
+                case "L":
+                    return css`
+                        grid-column: 1 / span 12;
+                    `
+                case "M":
+                    return css`
+                        grid-column: 1 / span 12;
+                    `
+                case "S":
+                    return css`
+                        grid-column: 1 / span 12;
+                    `
+                case "XS":
+                    return css`
+                        grid-column: 2 / span 10;
+                    `
+                default:
+                    return css`
+                        grid-column: 1 / span 12;
+                    `
+            }
+        }}
+    }
 `
 
 export default Content
