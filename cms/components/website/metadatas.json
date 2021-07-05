@@ -2,29 +2,20 @@
   "collectionName": "components_website_metadatas",
   "info": {
     "name": "metadatas",
-    "icon": "audio-description"
+    "icon": "audio-description",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "title_fr": {
+    "title": {
       "type": "string",
       "required": true,
       "maxLength": 65
     },
-    "title_en": {
-      "type": "string",
-      "required": true,
-      "maxLength": 65
-    },
-    "description_fr": {
+    "description": {
       "type": "text",
       "maxLength": 158,
       "required": true
-    },
-    "description_en": {
-      "type": "text",
-      "required": true,
-      "maxLength": 158
     },
     "author": {
       "type": "string",

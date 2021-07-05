@@ -2,11 +2,12 @@
   "collectionName": "components_projects_previews",
   "info": {
     "name": "preview",
-    "icon": "eye"
+    "icon": "eye",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "alt_fr": {
+    "alt": {
       "type": "string",
       "required": true,
       "maxLength": 125
@@ -19,12 +20,8 @@
         "videos"
       ],
       "plugin": "upload",
-      "required": true
-    },
-    "alt_en": {
-      "type": "string",
       "required": true,
-      "maxLength": 125
+      "pluginOptions": {}
     },
     "social_image": {
       "model": "file",
@@ -33,7 +30,8 @@
         "images"
       ],
       "plugin": "upload",
-      "required": true
+      "required": true,
+      "pluginOptions": {}
     }
   }
 }

@@ -2,16 +2,28 @@
   "kind": "collectionType",
   "collectionName": "projects",
   "info": {
-    "name": "project"
+    "name": "project",
+    "description": ""
   },
   "options": {
     "increments": true,
-    "timestamps": true
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
   },
   "attributes": {
-    "title_fr": {
+    "title": {
       "type": "string",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "slug": {
       "type": "uid",
@@ -20,11 +32,21 @@
     "published": {
       "type": "boolean",
       "required": true,
-      "default": true
+      "default": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
-    "description_fr": {
+    "description": {
       "type": "richtext",
-      "required": false
+      "required": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "main_media": {
       "type": "dynamiczone",
@@ -35,25 +57,22 @@
       ],
       "required": true,
       "max": 1,
-      "min": 1
+      "min": 1,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
-    "description_en": {
-      "type": "richtext",
-      "required": false
-    },
-    "title_en": {
-      "type": "string",
-      "required": true
-    },
-    "brief_fr": {
+    "brief": {
       "type": "text",
       "maxLength": 158,
-      "required": true
-    },
-    "brief_en": {
-      "type": "text",
-      "maxLength": 158,
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "content": {
       "type": "dynamiczone",
@@ -62,32 +81,62 @@
         "projects.image-content",
         "projects.text-content",
         "projects.video-content"
-      ]
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "tags": {
       "type": "component",
       "repeatable": false,
-      "component": "projects.tags"
+      "component": "projects.tags",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "preview": {
       "type": "component",
       "repeatable": false,
       "component": "projects.preview",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "layout": {
       "type": "component",
       "repeatable": false,
-      "component": "projects.layout"
+      "component": "projects.layout",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "position": {
-      "type": "integer"
+      "type": "integer",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "color_scheme": {
       "type": "component",
       "repeatable": false,
       "component": "projects.color-scheme",
-      "required": false
+      "required": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
