@@ -8,7 +8,7 @@ import { GlobalStateContext } from '#context/global-context'
 
 // ============================================================================================================ Logic
 
-function Animation({ className, animation }) {
+function Animation({ className, animation, size }) {
     // const state = useContext(GlobalStateContext)
     // const dispatch = useContext(GlobalDispatchContext)
     const videoRef = useRef()
@@ -36,7 +36,7 @@ function Animation({ className, animation }) {
     }
 
     return (
-        <figure className={className}>
+        <figure className={className} size={size}>
             <video
                     crossOrigin="anonymous"
                     onMouseEnter={() => playAnimation(true)}
