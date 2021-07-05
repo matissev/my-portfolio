@@ -7,7 +7,7 @@
 import React from "react"
 import GlobalContextProvider from "./src/context/global-context"
 
-const transitionDelay = 250;
+const transitionDelay = 400;
 
 export const shouldUpdateScroll = ({
   routerProps: { location },

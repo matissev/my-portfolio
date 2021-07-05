@@ -6,9 +6,9 @@ import styled from 'styled-components'
 
 // ============================================================================================================ Logic
 
-function Image({ className, image, size }) {
+function Image({ className, image }) {
     return (
-        <figure className={className} size={size}>
+        <figure className={className}>
             <Img fluid={image.file.imageFile.childImageSharp.fluid} alt={image.alt}/>
             {image.caption &&
                 <figcaption>{image.caption}</figcaption>

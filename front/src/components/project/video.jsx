@@ -11,11 +11,11 @@ const Plyr = React.lazy(() =>
 
 // ============================================================================================================ Logic
 
-function Video({ className, video, size }) {
+function Video({ className, video }) {
     const isSSR = typeof window === "undefined"
 
     return (
-        <figure className={className} size={size}>
+        <figure className={className}>
             {!isSSR && (
                 <React.Suspense fallback={<div />}>
                     <Plyr source={{ type: "video", sources: [{provider: "youtube", src: video.url}]}}/>

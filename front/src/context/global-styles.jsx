@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
         // Layout
         --layout-margin: 2rem;
         --layout-columns: 12;
-        --layout-gutter-width: 1rem;
+        --layout-gutter-width: 2rem;
         --layout-row-height: 1rem; //0.9rem
         --layout-n-of-rows-in-bigrow: 7;
 
@@ -98,6 +98,10 @@ const GlobalStyle = createGlobalStyle`
             --layout-margin: var(--l-rh0_5);
             --l-m: var(--layout-margin);
         }
+    }
+
+    button {
+        font-family: var(--ff-body);
     }
 
     a {
