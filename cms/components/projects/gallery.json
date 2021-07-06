@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_projects_galleries",
+  "info": {
+    "name": "gallery",
+    "icon": "grip-horizontal"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "component",
+      "repeatable": true,
+      "component": "projects.image"
+    }
+  }
+}

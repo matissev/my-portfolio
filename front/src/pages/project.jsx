@@ -40,8 +40,8 @@ const ProjectPage = ({ data, pageContext }) => {
       <ColorScheme colorscheme={project.color_scheme}/>
       <BackButton route="/"/>
       <$Heading title={project.title}/>
-      <$Brief text={project.brief}/>
       <$MainMedia main_media={project.main_media[0]}/>
+      <$Brief text={project.brief}/>
       <Content components={project.content} />
       <$Footer description={project.description} tags={project.tags}/>
       <$ContactButton/>
@@ -107,9 +107,13 @@ const $MainMedia = styled(MainMedia)`
 `
 
 const $Brief = styled(Brief)`
-  margin-top: calc(var(--l-rh5) + var(--l-rh0_125) - var(--l-rh0_25));
+  margin-top: calc(var(--l-brh) + var(--l-rh5) + var(--l-rh0_125) - var(--l-rh0_25));
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-column: 2 / span 4;
+  grid-column: 2 / span 5;
+
+  & + .project-text {
+    margin-top: var(--l-rh3);
+  }
 
   &:before {
     grid-column: 1 / span 3;

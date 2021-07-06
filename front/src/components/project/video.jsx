@@ -18,7 +18,7 @@ function Video({ className, video }) {
         <figure className={className}>
             {!isSSR && (
                 <React.Suspense fallback={<div />}>
-                    <Plyr source={{ type: "video", sources: [{provider: "youtube", src: video.url}]}}/>
+                    <Plyr source={{ type: "video", sources: [{provider: "vimeo", src: video.url}]}}/>
                 </React.Suspense>
             )}
             {video.caption &&

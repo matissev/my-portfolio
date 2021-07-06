@@ -24,7 +24,6 @@ const $Image = styled(Image)`
     animation: slidein 1.5s cubic-bezier(0.16, 1, 0.3, 1);
 
     img {
-        filter: grayscale();
         width: 100%;
     }
 

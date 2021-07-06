@@ -33,17 +33,17 @@ const $MainMedia = styled(MainMedia)`
     margin: 0;
 
     display: grid;
-    grid-template-columns: repeat(var(--l-c), minmax(0, 1fr));
-    grid-gap: var(--l-gw);
+    /* grid-template-columns: repeat(var(--l-c), minmax(0, 1fr)); */
+    /* grid-gap: var(--l-gw); */
     grid-column: 1 / span 12;
     margin-top: calc(var(--l-brh) + var(--l-rh) + var(--l-rh0_5));
+    position: relative;
+    right: var(--l-m);
+    width: calc((var(--l-m) * 2) + 100% + 1px);
 
-    .gatsby-image-wrapper {
+    .gatsby-image-wrapper, .plyr {
+        width: 100%;
         min-height: 400px;
-        grid-column: 1 / span 12;
-        position: relative;
-        right: var(--l-m);
-        width: calc((var(--l-m) * 2) + 100%);
     }
 
     figcaption {

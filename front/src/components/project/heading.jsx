@@ -16,8 +16,8 @@ const Heading = ({ title, className }) => {
 
 const $Heading = styled(Heading)`
   text-align: center;
-  font-size: var(--fs-xl);
-  font-weight: 600;
+  font-size: 5rem;
+  font-weight: 300;
   margin: 0;
   transform: translate3d(0,-40px,0);
   opacity: 0;
