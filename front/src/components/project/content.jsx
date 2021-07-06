@@ -7,6 +7,7 @@ import Video from './video'
 import Image from './image'
 import Animation from './animation'
 import Text from './text'
+import Gallery from './gallery'
 
 
 // ============================================================================================================ Logic
@@ -18,7 +19,6 @@ const Content = ({ components, className }) => {
 }
 
 const ContentComponent = ({ component, className }) => {
-    console.log(component)
     return (
         <>
             {(() => {
@@ -31,6 +31,8 @@ const ContentComponent = ({ component, className }) => {
                         return <Animation className={className} key={component.id} animation={component.animation} />
                     case "Strapi_ComponentProjectsTextContent":
                         return <Text className={className} key={component.id} text={component}/>
+                    case "Strapi_ComponentProjectsGalleryContent":
+                        return <Gallery className={className} key={component.id} images={component.images}/>
                     default:
                         return null;
                 }
@@ -70,9 +72,7 @@ const $ContentComponent = styled(ContentComponent)`
                     grid-column: 6 / span 2;
                 `
             default:
-                return css`
-                    grid-column: 2 / span 6;
-                `
+                break;
         }
     }}
 

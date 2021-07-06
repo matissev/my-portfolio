@@ -357,6 +357,26 @@ export const query = graphql`
             content_en
             content_fr
           }
+          ... on Strapi_ComponentProjectsGalleryContent {
+            id
+            images {
+              id
+              alt_en
+              alt_fr
+              caption_en
+              caption_fr
+              file {
+                url
+                imageFile {
+                  childImageSharp {
+                    fluid(quality: 70) {
+                      ...GatsbyImageSharpFluid_withWebp_noBase64
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
         description_en
         description_fr

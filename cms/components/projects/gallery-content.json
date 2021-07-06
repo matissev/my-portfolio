@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_projects_gallery_contents",
+  "info": {
+    "name": "gallery content",
+    "icon": "th-large",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "images": {
+      "type": "component",
+      "repeatable": true,
+      "component": "projects.image",
+      "max": 3,
+      "min": 1
+    }
+  }
+}

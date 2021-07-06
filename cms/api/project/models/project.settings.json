@@ -2,11 +2,13 @@
   "kind": "collectionType",
   "collectionName": "projects",
   "info": {
-    "name": "project"
+    "name": "project",
+    "description": ""
   },
   "options": {
     "increments": true,
-    "timestamps": true
+    "timestamps": true,
+    "draftAndPublish": false
   },
   "attributes": {
     "title_fr": {
@@ -61,7 +63,8 @@
         "projects.animation-content",
         "projects.image-content",
         "projects.text-content",
-        "projects.video-content"
+        "projects.video-content",
+        "projects.gallery-content"
       ]
     },
     "tags": {
