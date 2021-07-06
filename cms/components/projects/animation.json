@@ -2,8 +2,7 @@
   "collectionName": "components_projects_animations",
   "info": {
     "name": "animation",
-    "icon": "star",
-    "description": ""
+    "icon": "star"
   },
   "options": {},
   "attributes": {
@@ -14,10 +13,12 @@
         "videos"
       ],
       "plugin": "upload",
-      "required": true,
-      "pluginOptions": {}
+      "required": true
     },
-    "caption": {
+    "caption_fr": {
+      "type": "string"
+    },
+    "caption_en": {
       "type": "string"
     }
   }

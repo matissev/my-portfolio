@@ -2,27 +2,38 @@
   "collectionName": "components_projects_tags",
   "info": {
     "name": "tags",
-    "icon": "tags",
-    "description": ""
+    "icon": "tags"
   },
   "options": {},
   "attributes": {
-    "type": {
+    "type_fr": {
       "type": "string"
     },
-    "location": {
+    "location_fr": {
       "type": "string"
     },
-    "date": {
+    "date_fr": {
       "type": "string"
     },
-    "backer": {
+    "backer_fr": {
       "type": "string"
     },
     "press": {
       "type": "component",
       "repeatable": true,
       "component": "projects.press"
+    },
+    "type_en": {
+      "type": "string"
+    },
+    "location_en": {
+      "type": "string"
+    },
+    "date_en": {
+      "type": "string"
+    },
+    "backer_en": {
+      "type": "string"
     },
     "other": {
       "type": "component",

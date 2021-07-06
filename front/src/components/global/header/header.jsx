@@ -27,7 +27,7 @@ const Header = ({ className }) => {
       <$Job>
         {website.job}
       </$Job>
-      <$MuteButton/>
+      {/* <$MuteButton/> */}
       <$Nav>
         <InfosLink/>
       </$Nav>

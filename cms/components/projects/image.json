@@ -2,8 +2,7 @@
   "collectionName": "components_projects_images",
   "info": {
     "name": "image",
-    "icon": "image",
-    "description": ""
+    "icon": "image"
   },
   "options": {},
   "attributes": {
@@ -14,16 +13,23 @@
         "images"
       ],
       "plugin": "upload",
-      "required": true,
-      "pluginOptions": {}
+      "required": true
     },
-    "alt": {
+    "alt_fr": {
       "type": "string",
       "maxLength": 125,
       "required": true
     },
-    "caption": {
+    "caption_fr": {
       "type": "string"
+    },
+    "caption_en": {
+      "type": "string"
+    },
+    "alt_en": {
+      "type": "string",
+      "maxLength": 125,
+      "required": true
     }
   }
 }

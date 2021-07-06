@@ -20,10 +20,6 @@
     "strapi-plugin-content-type-builder": "3.6.5",
     "strapi-plugin-email": "3.6.5",
     "strapi-plugin-graphql": "^3.6.5",
-<<<<<<< HEAD
-=======
-    "strapi-plugin-i18n": "^3.6.5",
->>>>>>> ca2f3b709dad0c374088e799f4cb16826557daa2
     "strapi-plugin-upload": "3.6.5",
     "strapi-plugin-users-permissions": "3.6.5",
     "strapi-utils": "3.6.5"

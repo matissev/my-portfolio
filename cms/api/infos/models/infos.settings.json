@@ -2,37 +2,23 @@
   "kind": "singleType",
   "collectionName": "infos",
   "info": {
-    "name": "infos",
-    "description": ""
+    "name": "infos"
   },
   "options": {
     "increments": true,
-    "timestamps": true,
-    "draftAndPublish": false
-  },
-  "pluginOptions": {
-    "i18n": {
-      "localized": true
-    }
+    "timestamps": true
   },
   "attributes": {
-    "bio": {
-      "type": "richtext",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+    "bio_en": {
+      "type": "richtext"
     },
     "social": {
       "type": "component",
       "repeatable": true,
-      "component": "infos.social",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "component": "infos.social"
+    },
+    "bio_fr": {
+      "type": "richtext"
     }
   }
 }

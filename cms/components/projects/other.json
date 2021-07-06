@@ -2,16 +2,23 @@
   "collectionName": "components_projects_others",
   "info": {
     "name": "other",
-    "icon": "tag",
-    "description": ""
+    "icon": "tag"
   },
   "options": {},
   "attributes": {
-    "label": {
+    "label_fr": {
       "type": "string",
       "required": true
     },
-    "entry": {
+    "entry_fr": {
+      "type": "string",
+      "required": true
+    },
+    "label_en": {
+      "type": "string",
+      "required": true
+    },
+    "entry_en": {
       "type": "string",
       "required": true
     }

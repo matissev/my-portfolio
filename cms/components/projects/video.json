@@ -2,8 +2,7 @@
   "collectionName": "components_projects_videos",
   "info": {
     "name": "video",
-    "icon": "film",
-    "description": ""
+    "icon": "film"
   },
   "options": {},
   "attributes": {
@@ -12,7 +11,11 @@
       "regex": "(https?:\\/\\/(?:www\\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|www\\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|https?:\\/\\/(?:www\\.|(?!www))[a-zA-Z0-9]+\\.[^\\s]{2,}|www\\.[a-zA-Z0-9]+\\.[^\\s]{2,})",
       "required": true
     },
-    "caption": {
+    "caption_fr": {
+      "type": "string",
+      "maxLength": 125
+    },
+    "caption_en": {
       "type": "string",
       "maxLength": 125
     }
