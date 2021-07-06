@@ -2,7 +2,8 @@
   "collectionName": "components_website_social_images",
   "info": {
     "name": "social_image",
-    "icon": "images"
+    "icon": "images",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -13,14 +14,10 @@
         "images"
       ],
       "plugin": "upload",
-      "required": false
+      "required": false,
+      "pluginOptions": {}
     },
-    "alt_fr": {
-      "type": "string",
-      "required": true,
-      "maxLength": 125
-    },
-    "alt_en": {
+    "alt": {
       "type": "string",
       "required": true,
       "maxLength": 125

@@ -15,7 +15,7 @@ function Transition({ children }) {
 
     return (
         <TransitionGroup>
-            <ReactTransition key={location.path} timeout={{enter: timeout, exit: timeout}}>
+            <ReactTransition key={location ? location.path : "404"} timeout={{enter: timeout, exit: timeout}}>
                 {status => (
                     <TransitionWrapper status={status} timeout={timeout}>{children}</TransitionWrapper>
                 )}

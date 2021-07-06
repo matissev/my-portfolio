@@ -2,38 +2,57 @@
   "kind": "singleType",
   "collectionName": "websites",
   "info": {
-    "name": "website"
+    "name": "website",
+    "description": ""
   },
   "options": {
     "increments": true,
-    "timestamps": true
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
   },
   "attributes": {
-    "heading_en": {
+    "heading": {
       "type": "string",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
-    "job_en": {
+    "job": {
       "type": "string",
-      "required": true
-    },
-    "heading_fr": {
-      "type": "string",
-      "required": true
-    },
-    "job_fr": {
-      "type": "string",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "metadatas": {
       "type": "component",
       "repeatable": false,
       "component": "website.metadatas",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "contact_email": {
       "type": "email",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

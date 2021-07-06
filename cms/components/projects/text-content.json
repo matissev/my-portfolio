@@ -2,15 +2,12 @@
   "collectionName": "components_projects_text_contents",
   "info": {
     "name": "text content",
-    "icon": "align-justify"
+    "icon": "align-justify",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "content_fr": {
-      "type": "richtext",
-      "required": true
-    },
-    "content_en": {
+    "content": {
       "type": "richtext",
       "required": true
     }
