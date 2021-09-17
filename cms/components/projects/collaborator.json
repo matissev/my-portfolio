@@ -1,25 +1,12 @@
 {
-  "collectionName": "components_projects_others",
+  "collectionName": "components_projects_collaborators",
   "info": {
-    "name": "other",
-    "icon": "tag",
-    "description": ""
+    "name": "collaborator",
+    "icon": "people-carry"
   },
   "options": {},
   "attributes": {
-    "label_fr": {
-      "type": "string",
-      "required": true
-    },
-    "entry_fr": {
-      "type": "string",
-      "required": true
-    },
-    "label_en": {
-      "type": "string",
-      "required": true
-    },
-    "entry_en": {
+    "name": {
       "type": "string",
       "required": true
     },

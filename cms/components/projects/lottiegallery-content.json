@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_projects_lottiegallery_contents",
+  "info": {
+    "name": "lottiegallery content",
+    "icon": "qrcode",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "lotties": {
+      "type": "component",
+      "repeatable": true,
+      "component": "projects.lottie",
+      "max": 3,
+      "min": 1,
+      "required": true
+    }
+  }
+}

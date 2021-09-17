@@ -30,6 +30,7 @@ const GlobalStyle = createGlobalStyle`
         --fs-m: 1rem;
         --fs-l: 1.25rem;
         --fs-xl: 1.7rem;
+        --fs-xxl: 3rem;
     }
 
     .openInfos {

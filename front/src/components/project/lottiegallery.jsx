@@ -2,17 +2,17 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 
-import Image from "#components/project/image"
+import Lottie from "#components/project/lottie"
 
 
 // ============================================================================================================ Logic
 
-function Gallery({ className, images }) {
+function LottieGallery({ className, lotties }) {
     return (
         <div className={className + " gallery"}>
             {(() => {
-                return images.map((image) => (
-                    <Image image={image} key={image.id}></Image>
+                return lotties.map((lottie) => (
+                    <Lottie lottie={lottie} key={lottie.id}></Lottie>
                 ))
             })()}
         </div>
@@ -21,17 +21,17 @@ function Gallery({ className, images }) {
 
 // ============================================================================================================ Styles
 
-const $Gallery = styled(Gallery)`
+const $LottieGallery = styled(LottieGallery)`
     grid-column: 2 / span 10;
     display: grid;
     grid-column-gap: var(--l-gw);
 
-    ${({ images }) => {
-        if(images.length === 2) {
+    ${({ lotties }) => {
+        if(lotties.length === 2) {
             return css`
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             `
-        } else if(images.length === 3) {
+        } else if(lotties.length === 3) {
             return css`
                 grid-template-columns: repeat(3, minmax(0, 1fr));
             `   
@@ -44,4 +44,4 @@ const $Gallery = styled(Gallery)`
     }
 `
 
-export default $Gallery
+export default $LottieGallery

@@ -12,8 +12,9 @@ const ProjectPreview = ({ project, className }) => {
     <div className={className} offset={project.layout.top_offset}>
       <$Link to={`/` + project.slug} layout={project.layout}>
         <Preview>
-          <Img className='Img' fluid={project.preview.visual.imageFile.childImageSharp.fluid}/>
           <h2>{project.title}</h2>
+          <strong>{project.subtitle}</strong>
+          <Img className='Img' fluid={project.preview.visual.imageFile.childImageSharp.fluid}/>
         </Preview>
       </$Link>
     </div>
@@ -62,6 +63,7 @@ const Preview = styled.article`
 
   .Img {
     width: 100%;
+    margin-top: var(--l-rh);
   }
 
   h2 {
@@ -70,8 +72,13 @@ const Preview = styled.article`
     font-weight: 600; */
 
     margin-top: calc(var(--l-rh) + var(--l-rh0_125));
-    font-size: var(--fs-m);
-    font-weight: 500;
+    font-size: var(--fs-xl);
+    font-weight: 400;
+  }
+
+  strong {
+    color: var(--c-txt2);
+    font-weight: 400;
   }
 `
 

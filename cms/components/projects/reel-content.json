@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_projects_reel_contents",
+  "info": {
+    "name": "reel content",
+    "icon": "photo-video"
+  },
+  "options": {},
+  "attributes": {
+    "videos": {
+      "type": "component",
+      "repeatable": true,
+      "component": "projects.video"
+    }
+  }
+}

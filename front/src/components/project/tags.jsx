@@ -8,8 +8,7 @@ import i18nContext from "#context/i18n-context"
 
 // ============================================================================================================ Logic
 
-const Tag = ({ label, entry }) => {
-    const entries = Array.isArray(entry) ? entry : [entry]
+const Tag = ({ label, entries }) => {
     return (
         <>
             {entries &&
@@ -31,17 +30,38 @@ const Tags = ({ className, tags }) => {
         <>
             {tags &&
                 <dl className={className}>
-                    <Tag label={i18n.format({ id: "project.tags.type" })} entry={tags.type} />
-                    <Tag label={i18n.format({ id: "project.tags.location" })} entry={tags.location} />
-                    <Tag label={i18n.format({ id: "project.tags.date" })} entry={tags.date} />
-                    <Tag label={i18n.format({ id: "project.tags.backer" })} entry={tags.backer} />
-                    <Tag label={i18n.format({ id: "project.tags.press" })} entry={
-                        tags.press.map(link =>
-                            <a href={link.url} target="_blank" rel="noreferrer">{link.media_name}</a>
+                    <Tag label={i18n.format({ id: "project.tags.type" })} entries={[tags.type]} />
+                    <Tag label={i18n.format({ id: "project.tags.location" })} entries={[tags.location]} />
+                    <Tag label={i18n.format({ id: "project.tags.date" })} entries={[tags.date]} />
+                    <Tag label={i18n.format({ id: "project.tags.backer" })} entries={[tags.backer]} />
+                    <Tag 
+                        label={tags.collaborators.length === 1 ?
+                            i18n.format({ id: "project.tags.collaborator" }) :
+                            i18n.format({ id: "project.tags.collaborators" })
+                        }
+                        entries={
+                            tags.collaborators.map(item => {
+                                if(item.url) {
+                                    return <a href={item.url} target="_blank" rel="noreferrer">{item.name}</a>
+                                } else {
+                                    return item.name
+                                }
+                            })
+                        }
+                    />
+                    <Tag label={i18n.format({ id: "project.tags.press" })} entries={
+                        tags.press.map(item =>
+                            <a href={item.url} target="_blank" rel="noreferrer">{item.media_name}</a>
                         )
                     } />
                     {tags.other.map(item =>
-                        <Tag key={item.label} label={item.label} entry={item.entry} />
+                        <Tag key={item.label} label={item.label} entries={() => {
+                            if(item.url) {
+                                return <a href={item.url} target="_blank" rel="noreferrer">{item.entry}</a>
+                            } else {
+                                return item.entry
+                            }
+                        }}/>
                     )}
                 </dl>
             }

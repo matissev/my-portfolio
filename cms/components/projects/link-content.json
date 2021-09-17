@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_projects_link_contents",
+  "info": {
+    "name": "link_content",
+    "icon": "external-link-alt"
+  },
+  "options": {},
+  "attributes": {
+    "link": {
+      "type": "component",
+      "repeatable": false,
+      "component": "projects.link"
+    }
+  }
+}

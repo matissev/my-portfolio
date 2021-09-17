@@ -2,7 +2,8 @@
   "collectionName": "components_projects_tags",
   "info": {
     "name": "tags",
-    "icon": "tags"
+    "icon": "tags",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -39,6 +40,11 @@
       "type": "component",
       "repeatable": true,
       "component": "projects.other"
+    },
+    "collaborators": {
+      "type": "component",
+      "repeatable": true,
+      "component": "projects.collaborator"
     }
   }
 }

@@ -17,5 +17,6 @@
   "bugs": {
     "url": "https://github.com/matissev/my-portfolio/issues"
   },
-  "homepage": "https://github.com/matissev/my-portfolio#readme"
+  "homepage": "https://github.com/matissev/my-portfolio#readme",
+  "dependencies": {}
 }

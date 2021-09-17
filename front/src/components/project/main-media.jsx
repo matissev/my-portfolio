@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import Video from './video'
 import Image from './image'
 import Animation from './animation'
+import Lottie from './lottie'
 
 
 // ============================================================================================================ Logic
@@ -20,6 +21,9 @@ const MainMedia = ({ className, main_media }) => {
 
         case "Strapi_ComponentProjectsAnimation":
             return <Animation className={className} animation={main_media} />
+
+        case "Strapi_ComponentProjectsLottie":
+            return <Lottie className={className} lottie={main_media} />
         default:
             return null
     }
@@ -38,8 +42,13 @@ const $MainMedia = styled(MainMedia)`
     grid-column: 1 / span 12;
     margin-top: calc(var(--l-brh) + var(--l-rh) + var(--l-rh0_5));
     position: relative;
+
+    // FULL PAGE
     right: var(--l-m);
     width: calc((var(--l-m) * 2) + 100% + 1px);
+
+    // WITH MARGINS
+    /* width: 100%; */
 
     .gatsby-image-wrapper, .plyr {
         width: 100%;

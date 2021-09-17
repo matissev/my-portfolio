@@ -33,7 +33,8 @@
       "components": [
         "projects.video",
         "projects.image",
-        "projects.animation"
+        "projects.animation",
+        "projects.lottie"
       ],
       "required": true,
       "max": 1,
@@ -64,7 +65,12 @@
         "projects.image-content",
         "projects.text-content",
         "projects.video-content",
-        "projects.gallery-content"
+        "projects.gallery-content",
+        "projects.reel-content",
+        "projects.audio-content",
+        "projects.lottie-content",
+        "projects.lottiegallery-content",
+        "projects.link-content"
       ]
     },
     "tags": {
@@ -91,6 +97,14 @@
       "repeatable": false,
       "component": "projects.color-scheme",
       "required": false
+    },
+    "subtitle_en": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle_fr": {
+      "type": "string",
+      "required": true
     }
   }
 }

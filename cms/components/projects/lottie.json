@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_projects_lotties",
+  "info": {
+    "name": "lottie",
+    "icon": "space-shuttle",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "caption_en": {
+      "type": "string",
+      "required": false
+    },
+    "caption_fr": {
+      "type": "string"
+    },
+    "file": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    }
+  }
+}

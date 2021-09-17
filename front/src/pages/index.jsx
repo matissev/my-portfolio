@@ -33,6 +33,8 @@ export const query = graphql`
         id
         title_fr
         title_en
+        subtitle_fr
+        subtitle_en
         slug
         layout {
           first_column

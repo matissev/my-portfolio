@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_projects_audio",
+  "info": {
+    "name": "audio",
+    "icon": "file-audio"
+  },
+  "options": {},
+  "attributes": {
+    "file": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "caption_fr": {
+      "type": "string",
+      "required": true
+    },
+    "caption_en": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

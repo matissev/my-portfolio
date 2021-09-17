@@ -30,7 +30,7 @@ const ProjectPage = ({ data, pageContext }) => {
       <Helmet bodyAttributes={{class: 'openProject'}}/>
       <SEO
         title={project.title}
-        description={project.brief}
+        description={project.description}
         isProject={true}
         image={{
           url: project.preview.social_image.imageFile.publicURL,
@@ -39,7 +39,7 @@ const ProjectPage = ({ data, pageContext }) => {
       />
       <ColorScheme colorscheme={project.color_scheme}/>
       <BackButton route="/"/>
-      <$Heading title={project.title}/>
+      <$Heading title={project.title} subtitle={project.subtitle} tags={project.tags}/>
       <$MainMedia main_media={project.main_media[0]}/>
       <$Brief text={project.brief}/>
       <Content components={project.content} />
@@ -56,6 +56,8 @@ const ProjectPage = ({ data, pageContext }) => {
 const $ContactButton = styled(ContactButton)`
   grid-column: 6 / span 2;
   margin-top: calc(var(--l-rh3));
+  background: var(--c-txt1);
+  color: var(--c-bg);
 
   @media(max-width: 1300px) {
     grid-column: 5 / span 4;
@@ -87,7 +89,7 @@ const $Social = styled(Social)`
 const $Heading = styled(Heading)`
   grid-column: 1 / span 12;
   margin-bottom: var(--l-rh2);
-  margin-top: var(--l-brh2);
+  margin-top: var(--l-brh);
 
   @media(max-width: 1000px) {
     margin-top: var(--l-rh3);
@@ -99,7 +101,7 @@ const $Heading = styled(Heading)`
 `
 
 const $MainMedia = styled(MainMedia)`
-  margin-top: calc(var(--l-brh) + var(--l-rh) + var(--l-rh0_25) + var(--l-rh0_125));
+  margin-top: calc(var(--l-rh4));
 
   @media(max-width: 600px) {
     margin-top: calc(var(--l-rh4) + var(--l-rh0_25) + var(--l-rh0_125));
@@ -261,6 +263,8 @@ export const query = graphql`
         id
         title_en
         title_fr
+        subtitle_en
+        subtitle_fr
         color_scheme {
           background
           primary_text
@@ -291,10 +295,11 @@ export const query = graphql`
             caption_en
             caption_fr
             file {
+              ext
               url
               imageFile {
                 childImageSharp {
-                  fluid(quality: 70) {
+                  fluid(quality: 100) {
                     ...GatsbyImageSharpFluid_withWebp_noBase64
                   }
                 }
@@ -302,6 +307,13 @@ export const query = graphql`
             }
           }
           ... on Strapi_ComponentProjectsAnimation {
+            caption_en
+            caption_fr
+            file {
+              url
+            }
+          }
+          ... on Strapi_ComponentProjectsLottie {
             caption_en
             caption_fr
             file {
@@ -323,6 +335,17 @@ export const query = graphql`
             }
             animation_size: size
           }
+          ... on Strapi_ComponentProjectsLottieContent {
+            lottie {
+              id
+              caption_en
+              caption_fr
+              file {
+                url
+              }
+            }
+            lottie_size: size
+          }
           ... on Strapi_ComponentProjectsImageContent {
             image {
               id
@@ -331,10 +354,11 @@ export const query = graphql`
               caption_en
               caption_fr
               file {
+                ext
                 url
                 imageFile {
                   childImageSharp {
-                    fluid(quality: 70) {
+                    fluid(quality: 100) {
                       ...GatsbyImageSharpFluid_withWebp_noBase64
                     }
                   }
@@ -351,6 +375,16 @@ export const query = graphql`
               url
             }
             video_size: size
+          }
+          ... on Strapi_ComponentProjectsAudioContent {
+            audio {
+              id
+              caption_en
+              caption_fr
+              file {
+                url
+              }
+            }
           }
           ... on Strapi_ComponentProjectsTextContent {
             id
@@ -377,6 +411,34 @@ export const query = graphql`
               }
             }
           }
+          ... on Strapi_ComponentProjectsLottiegalleryContent {
+            id
+            lotties {
+              id
+              caption_en
+              caption_fr
+              file {
+                url
+              }
+            }
+          }
+          ... on Strapi_ComponentProjectsReelContent {
+            id
+            videos {
+              id
+              caption_en
+              caption_fr
+              url
+            }
+          }
+          ... on Strapi_ComponentProjectsLinkContent {
+            link {
+              id
+              text_en
+              text_fr
+              url
+            }
+          }
         }
         description_en
         description_fr
@@ -395,6 +457,10 @@ export const query = graphql`
           }
           press {
             media_name
+            url
+          }
+          collaborators {
+            name
             url
           }
           type_en

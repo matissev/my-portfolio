@@ -21,7 +21,9 @@
             "location": "Location",
             "date": "Date",
             "backer": "Backer",
-            "press": "Press"
+            "press": "Press",
+            "collaborator": "Collaborator",
+            "collaborators": "Collaborators"
         }
     }
 }

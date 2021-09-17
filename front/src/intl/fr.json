@@ -21,7 +21,9 @@
             "location": "Lieu",
             "date": "Date",
             "backer": "Commanditaire",
-            "press": "Presse"
+            "press": "Presse",
+            "collaborator": "Collaborateur",
+            "collaborators": "Collaborateurs"
         }
     }
 }

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_projects_audio_contents",
+  "info": {
+    "name": "audio content",
+    "icon": "music"
+  },
+  "options": {},
+  "attributes": {
+    "audio": {
+      "type": "component",
+      "repeatable": false,
+      "component": "projects.audio"
+    }
+  }
+}
