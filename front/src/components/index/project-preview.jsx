@@ -60,6 +60,12 @@ const $Link = styled(Link)`
 
 const Preview = styled.article`
   width: 100%;
+  transition: opacity 0.5s ease;
+
+  &:hover {
+    opacity: 0.93;
+    transition: opacity 0.5s ease;
+  }
 
   .Img {
     width: 100%;

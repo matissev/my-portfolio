@@ -2,7 +2,8 @@
   "collectionName": "components_projects_images",
   "info": {
     "name": "image",
-    "icon": "image"
+    "icon": "image",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -13,11 +14,12 @@
         "images"
       ],
       "plugin": "upload",
-      "required": true
+      "required": true,
+      "pluginOptions": {}
     },
     "alt_fr": {
       "type": "string",
-      "maxLength": 125,
+      "maxLength": 200,
       "required": true
     },
     "caption_fr": {
@@ -28,7 +30,7 @@
     },
     "alt_en": {
       "type": "string",
-      "maxLength": 125,
+      "maxLength": 200,
       "required": true
     }
   }

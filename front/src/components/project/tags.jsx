@@ -34,21 +34,23 @@ const Tags = ({ className, tags }) => {
                     <Tag label={i18n.format({ id: "project.tags.location" })} entries={[tags.location]} />
                     <Tag label={i18n.format({ id: "project.tags.date" })} entries={[tags.date]} />
                     <Tag label={i18n.format({ id: "project.tags.backer" })} entries={[tags.backer]} />
-                    <Tag 
-                        label={tags.collaborators.length === 1 ?
-                            i18n.format({ id: "project.tags.collaborator" }) :
-                            i18n.format({ id: "project.tags.collaborators" })
-                        }
-                        entries={
-                            tags.collaborators.map(item => {
-                                if(item.url) {
-                                    return <a href={item.url} target="_blank" rel="noreferrer">{item.name}</a>
-                                } else {
-                                    return item.name
-                                }
-                            })
-                        }
-                    />
+                    { tags.collaborators.length !== 0 &&
+                        <Tag 
+                            label={tags.collaborators.length === 1 ?
+                                i18n.format({ id: "project.tags.collaborator" }) :
+                                i18n.format({ id: "project.tags.collaborators" })
+                            }
+                            entries={
+                                tags.collaborators.map(item => {
+                                    if(item.url) {
+                                        return <a href={item.url} target="_blank" rel="noreferrer">{item.name}</a>
+                                    } else {
+                                        return item.name
+                                    }
+                                })
+                            }
+                        />
+                    }
                     { tags.press.length !== 0 &&
                         <Tag label={i18n.format({ id: "project.tags.press" })} entries={
                             tags.press.map(item =>
