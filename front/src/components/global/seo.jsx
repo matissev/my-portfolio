@@ -34,12 +34,12 @@ const SEO = ({ description, title, image, isProject }) => {
       {isProject &&
         <meta property="article:author" content={metadatas.author}/>
       }
-      <meta property="og:image" content={process.env.GATSBY_HOST_NAME + socialImage.url}/>
+      <meta property="og:image" content={process.env.GATSBY_PUBLIC_API_URL + socialImage.url}/>
 
       <meta name="twitter:card" content="summary"/>
       <meta name="twitter:title" content={pageTitle}/>
       <meta name="twitter:description" content={description || metadatas.description}/>
-      <meta name="twitter:image" content={process.env.GATSBY_HOST_NAME + socialImage.url}/>
+      <meta name="twitter:image" content={process.env.GATSBY_PUBLIC_API_URL + socialImage.url}/>
       {socialImage.alt &&
         <meta name="twitter:image:alt" content={socialImage.alt}/>
       }

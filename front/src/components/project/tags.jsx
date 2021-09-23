@@ -49,11 +49,13 @@ const Tags = ({ className, tags }) => {
                             })
                         }
                     />
-                    <Tag label={i18n.format({ id: "project.tags.press" })} entries={
-                        tags.press.map(item =>
-                            <a href={item.url} target="_blank" rel="noreferrer">{item.media_name}</a>
-                        )
-                    } />
+                    { tags.press.length !== 0 &&
+                        <Tag label={i18n.format({ id: "project.tags.press" })} entries={
+                            tags.press.map(item =>
+                                <a href={item.url} target="_blank" rel="noreferrer">{item.media_name}</a>
+                            )
+                        } />
+                    }
                     {tags.other.map(item =>
                         <Tag key={item.label} label={item.label} entries={() => {
                             if(item.url) {
