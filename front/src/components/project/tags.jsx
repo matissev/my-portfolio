@@ -30,10 +30,18 @@ const Tags = ({ className, tags }) => {
         <>
             {tags &&
                 <dl className={className}>
-                    <Tag label={i18n.format({ id: "project.tags.type" })} entries={[tags.type]} />
-                    <Tag label={i18n.format({ id: "project.tags.location" })} entries={[tags.location]} />
-                    <Tag label={i18n.format({ id: "project.tags.date" })} entries={[tags.date]} />
-                    <Tag label={i18n.format({ id: "project.tags.backer" })} entries={[tags.backer]} />
+                    { tags.type.length !== 0 &&
+                        <Tag label={i18n.format({ id: "project.tags.type" })} entries={[tags.type]} />
+                    }
+                    { tags.location.length !== 0 &&
+                        <Tag label={i18n.format({ id: "project.tags.location" })} entries={[tags.location]} />
+                    }
+                    { tags.date.length !== 0 &&
+                        <Tag label={i18n.format({ id: "project.tags.date" })} entries={[tags.date]} />
+                    }
+                    { tags.backer.length !== 0 &&
+                        <Tag label={i18n.format({ id: "project.tags.backer" })} entries={[tags.backer]} />
+                    }
                     { tags.collaborators.length !== 0 &&
                         <Tag 
                             label={tags.collaborators.length === 1 ?
