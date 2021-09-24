@@ -299,7 +299,7 @@ export const query = graphql`
               url
               imageFile {
                 childImageSharp {
-                  fluid(quality: 100) {
+                  fluid(quality: 70) {
                     ...GatsbyImageSharpFluid_withWebp_noBase64
                   }
                 }
