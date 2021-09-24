@@ -30,19 +30,19 @@ const Tags = ({ className, tags }) => {
         <>
             {tags &&
                 <dl className={className}>
-                    { tags.type.length != null &&
+                    { tags.type != null &&
                         <Tag label={i18n.format({ id: "project.tags.type" })} entries={[tags.type]} />
                     }
-                    { tags.location.length != null &&
+                    { tags.location != null &&
                         <Tag label={i18n.format({ id: "project.tags.location" })} entries={[tags.location]} />
                     }
-                    { tags.date.length != null &&
+                    { tags.date != null &&
                         <Tag label={i18n.format({ id: "project.tags.date" })} entries={[tags.date]} />
                     }
-                    { tags.backer.length != null &&
+                    { tags.backer != null &&
                         <Tag label={i18n.format({ id: "project.tags.backer" })} entries={[tags.backer]} />
                     }
-                    { tags.collaborators.length != null &&
+                    { tags.collaborators.length != 0 &&
                         <Tag 
                             label={tags.collaborators.length === 1 ?
                                 i18n.format({ id: "project.tags.collaborator" }) :
@@ -59,7 +59,7 @@ const Tags = ({ className, tags }) => {
                             }
                         />
                     }
-                    { tags.press.length != null &&
+                    { tags.press.length != 0 &&
                         <Tag label={i18n.format({ id: "project.tags.press" })} entries={
                             tags.press.map(item =>
                                 <a href={item.url} target="_blank" rel="noreferrer">{item.media_name}</a>
