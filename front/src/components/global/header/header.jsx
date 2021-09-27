@@ -49,6 +49,7 @@ const $Header = styled(Header)`
   left: 0;
   width: 100%;
   font-size: var(--fs-m);
+  min-width: 250px;
 
   @media (max-width: 540px) {
     position: absolute;
@@ -67,7 +68,7 @@ const $Heading = styled(Heading)`
   ${cssHeaderElements}
   margin-left: calc(var(--l-m) - var(--l-rh0_5));
   @media (max-width: 450px) {
-    margin-left: calc(var(--l-m) + var(--l-rh0_5));
+    margin-left: 0;
   }
 `
 
@@ -137,7 +138,8 @@ const $Nav = styled(Nav)`
   margin-right: calc(var(--l-m) - var(--l-rh0_5));
 
   @media (max-width: 450px) {
-    margin-right: calc(var(--l-m) + var(--l-rh0_5));
+    /* margin-right: calc(var(--l-m) + var(--l-rh0_5)); */
+    margin-right: 0;
   }
 `
 

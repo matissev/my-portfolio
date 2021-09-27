@@ -23,12 +23,13 @@ const $Heading = styled(Heading)`
   animation: popin 1s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
   
   h1 {
+    line-height: 5rem;
     padding-top: var(--l-rh);
+    padding-bottom: var(--l-rh);
     text-align: center;
     font-size: 5rem;
     font-weight: 300;
     margin: 0;
-    height: 5rem;
   }
 
   strong {

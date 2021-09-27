@@ -27,6 +27,7 @@ const $Link = styled(Link)`
 
     a {
         font-size: var(--fs-xxl);
+        line-height: 4rem;
         border-bottom: 1px solid var(--c-txt1);
 
         svg{
@@ -34,6 +35,10 @@ const $Link = styled(Link)`
             margin-left: 1rem;
             fill: var(--c-txt1);
         }
+    }
+
+    @media (max-width: 600px) {
+        grid-column: 1 / span 12;
     }
 `
 

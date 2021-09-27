@@ -97,6 +97,8 @@ const $ContentComponent = styled(ContentComponent)`
     }}
 
     @media (max-width: 1400px) {
+        margin-top: calc(var(--l-rh5) + var(--l-rh0_25) + var(--l-rh0_125));
+        
         ${({ component }) => {
             const size = component.image_size || component.video_size || component.animation_size || component.lottie_size
             switch (size) {
@@ -127,6 +129,8 @@ const $ContentComponent = styled(ContentComponent)`
     }
 
     @media (max-width: 1100px) {
+        margin-top: calc(var(--l-rh3) + var(--l-rh0_25) + var(--l-rh0_125));
+
         ${({ component }) => {
             const size = component.image_size || component.video_size || component.animation_size || component.lottie_size
             switch (size) {

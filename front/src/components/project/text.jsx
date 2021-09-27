@@ -31,6 +31,18 @@ const $Text = styled(Text)`
     p:last-of-type {
         margin-bottom: 0;
     }
+
+    @media (max-width: 1200px) {
+        grid-column: 2 / span 8;
+    }
+
+    @media (max-width: 750px) {
+        grid-column: 2 / span 10;
+    }
+
+    @media(max-width: 600px) {
+        grid-column: 1 / span 12;
+    }
 `
 
 export default $Text

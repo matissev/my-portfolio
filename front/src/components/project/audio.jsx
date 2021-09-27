@@ -72,6 +72,10 @@ const $Audio = styled(Audio)`
     figcaption {
         margin-top: calc(var(--l-rh) + var(--l-rh0_125));
     }
+
+    @media (max-width: 600px) {
+        grid-column: 1 / span 12;
+    }
 `
 
 // --c-txt1: var(--color-primary-text);

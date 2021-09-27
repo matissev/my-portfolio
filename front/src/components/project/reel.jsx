@@ -47,6 +47,19 @@ const $Gallery = styled(Gallery)`
         grid-column: span 1;
         margin-bottom: var(--l-rh3);
     }
+
+    @media(max-width: 900px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: calc(var(--l-rh3) + var(--l-rh0_25) + var(--l-rh0_125));
+    }
+
+    @media(max-width: 600px) {
+        grid-column: 1 / span 12;
+    }
+
+    @media(max-width: 450px) {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
 `
 
 export default $Gallery

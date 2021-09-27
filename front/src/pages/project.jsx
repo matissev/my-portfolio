@@ -98,6 +98,13 @@ const $Heading = styled(Heading)`
   @media(max-width: 600px) {
     margin-top: var(--l-rh4);
   }
+
+  @media(max-width: 600px) {
+    h1 {
+      font-size: 3rem;
+      line-height: 3rem;
+    }
+  }
 `
 
 const $MainMedia = styled(MainMedia)`
@@ -129,6 +136,7 @@ const $Brief = styled(Brief)`
   @media(max-width: 1300px) {
     grid-column: 2 / span 6;
     grid-template-columns: repeat(6, minmax(0, 1fr));
+    margin-top: calc(var(--l-brh) + var(--l-rh0_125) - var(--l-rh0_25));
     
     &:before {
       grid-column: 1 / span 4;
@@ -142,6 +150,7 @@ const $Brief = styled(Brief)`
   @media(max-width: 1000px) {
     grid-column: 2 / span 8;
     grid-template-columns: repeat(8, minmax(0, 1fr));
+    margin-top: calc(var(--l-rh5) + var(--l-rh0_125) - var(--l-rh0_25));
     
     &:before {
       grid-column: 1 / span 6;
@@ -169,6 +178,7 @@ const $Brief = styled(Brief)`
     grid-column: 1 / span 12;
     grid-template-columns: repeat(12, minmax(0, 1fr));
     grid-row-start: 3;
+    margin-top: calc(var(--l-rh) + var(--l-rh0_125) - var(--l-rh0_25));
     
     &:before {
       display: none;

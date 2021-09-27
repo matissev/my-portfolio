@@ -31,6 +31,14 @@ const GlobalStyle = createGlobalStyle`
         --fs-l: 1.25rem;
         --fs-xl: 1.7rem;
         --fs-xxl: 3rem;
+
+        @media(max-width: 550px) {
+            --layout-gutter-width: 1rem;
+        }
+
+        @media(max-width: 400px) {
+            --layout-gutter-width: 0.5rem;
+        }
     }
 
     .openInfos {
