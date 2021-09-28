@@ -22,7 +22,7 @@ const Bio = ({ bio, className }) => {
         <div className={className}>
             <Shape className="shape" ref={shapeEl}/>
             <MarkdownWrapper className="markdownWrapper" ref={parentEl}>
-                <ReactMarkdown source={bio} />
+                <ReactMarkdown children={bio} />
             </MarkdownWrapper>
         </div>
     )

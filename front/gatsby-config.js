@@ -68,7 +68,6 @@ module.exports = {
     `gatsby-transformer-ffmpeg`,
     "gatsby-plugin-sitemap",
     "gatsby-plugin-robots-txt",
-    "gatsby-plugin-uninline-styles",
     "gatsby-plugin-minify-html",
     // {
     //   resolve: 'gatsby-plugin-brotli',
