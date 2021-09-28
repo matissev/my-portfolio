@@ -301,6 +301,7 @@ export const query = graphql`
           }
         }
         main_media {
+          __typename
           ... on Strapi_ComponentProjectsVideo {
             caption_en
             caption_fr
@@ -341,6 +342,7 @@ export const query = graphql`
         brief_fr
         brief_en
         content {
+          __typename
           ... on Strapi_ComponentProjectsAnimationContent {
             animation {
               id

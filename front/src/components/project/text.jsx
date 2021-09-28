@@ -9,7 +9,7 @@ import ReactMarkdown from 'react-markdown'
 function Text({ className, text }) {
     return (
         <div className={className + ' project-text'}>
-            <ReactMarkdown source={text.content} />
+            <ReactMarkdown children={text.content} />
         </div>
     )
 }
@@ -18,8 +18,8 @@ function Text({ className, text }) {
 // ============================================================================================================ Styles
 
 const $Text = styled(Text)`
-    /* margin-top: calc(var(--l-brh) + var(--l-rh) + var(--l-rh0_25) + var(--l-rh0_125)); */
-    margin-top: 0;
+    margin-top: calc(var(--l-brh) + var(--l-rh) + var(--l-rh0_25) + var(--l-rh0_125));
+    /* margin-top: 0; */
     grid-column: 2 / span 5;
     font-size: var(--fs-m);
     line-height: var(--l-rh2);

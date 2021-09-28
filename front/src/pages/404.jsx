@@ -1,5 +1,6 @@
 // Libraries
 import React from "react"
+import { graphql } from 'gatsby'
 
 // Hooks
 import useFilterLocale from "#hooks/useFilterLocale"

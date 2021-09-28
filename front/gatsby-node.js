@@ -87,3 +87,16 @@ exports.createResolvers = async ({
     }
   })
 }
+
+
+// react-markdown vfile fix
+// https://github.com/vfile/vfile/issues/38#issuecomment-683198538
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+   resolve: {
+      fallback: {
+        "assert": require.resolve("assert/")
+      },
+    },
+  })
+}
