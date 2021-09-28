@@ -14,7 +14,7 @@ const ProjectPreview = ({ project, className }) => {
         <Preview>
           <h2>{project.title}</h2>
           <strong>{project.subtitle}</strong>
-          <Img className='Img' fluid={project.preview.visual.imageFile.childImageSharp.fluid}/>
+          <Img className='Img' fluid={project.preview.visual.imageFile.childImageSharp.fluid} alt={project.preview.alt}/>
         </Preview>
       </$Link>
     </div>

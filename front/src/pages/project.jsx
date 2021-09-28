@@ -100,9 +100,16 @@ const $Heading = styled(Heading)`
   }
 
   @media(max-width: 600px) {
-    h1 {
+    margin-bottom: 0;
+
+    h2 {
       font-size: 3rem;
       line-height: 3rem;
+    }
+
+    strong {
+      font-size: var(--fs-l);
+      line-height: 2rem;
     }
   }
 `
@@ -111,7 +118,7 @@ const $MainMedia = styled(MainMedia)`
   margin-top: calc(var(--l-rh4));
 
   @media(max-width: 600px) {
-    margin-top: calc(var(--l-rh4) + var(--l-rh0_25) + var(--l-rh0_125));
+    margin-top: calc(var(--l-rh3) + var(--l-rh0_25) + var(--l-rh0_125));
   }
 `
 

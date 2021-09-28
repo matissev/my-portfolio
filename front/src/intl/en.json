@@ -25,5 +25,9 @@
             "collaborator": "Collaborator",
             "collaborators": "Collaborators"
         }
+    },
+    "404": {
+        "title": "This page does not exist, but…",
+        "text": "...maybe the project you are looking for is below?"
     }
 }

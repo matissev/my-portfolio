@@ -10,8 +10,8 @@ function Image({ className, image, size }) {
     return (
         <figure className={className} size={size}>
             {image.file.ext !== ".svg" && image.file.imageFile.childImageSharp ?
-                <Img fluid={image.file.imageFile.childImageSharp.fluid}/> :
-                <img src={process.env.GATSBY_PUBLIC_API_URL + image.file.url}/>
+                <Img fluid={image.file.imageFile.childImageSharp.fluid} alt={image.alt}/> :
+                <img src={process.env.GATSBY_PUBLIC_API_URL + image.file.url} alt={image.alt}/>
             }
             {image.caption &&
                 <figcaption>{image.caption}</figcaption>

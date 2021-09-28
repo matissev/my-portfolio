@@ -7,10 +7,10 @@ import styled from "styled-components"
 
 const Heading = ({ title, subtitle, tags, className }) => {
   return (
-    <div className={className}>
-      <h1 className={className}>{title}</h1>
+    <p className={className}>
+      <h2 className={className}>{title}</h2>
       <strong>{subtitle}{tags && tags.location ? " — " + tags.location : ""}</strong>
-    </div>
+    </p>
   )
 }
 
@@ -22,7 +22,7 @@ const $Heading = styled(Heading)`
   opacity: 0;
   animation: popin 1s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
   
-  h1 {
+  h2 {
     line-height: 5rem;
     padding-top: var(--l-rh);
     padding-bottom: var(--l-rh);
@@ -38,6 +38,7 @@ const $Heading = styled(Heading)`
     font-weight: 300;
     color: var(--c-txt2);
     text-align: center;
+    line-height: 3rem;
     
     /* &:first-of-type {
       margin-bottom: var(--l-rh);

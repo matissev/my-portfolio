@@ -8,6 +8,7 @@ module.exports = {
     title: "My super blog",
     description: "Gatsby blog with Strapi",
     author: "Strapi team",
+    siteUrl: "https://matissev.com"
   },
   plugins: [
     "gatsby-plugin-react-helmet",
@@ -65,15 +66,35 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     `gatsby-transformer-ffmpeg`,
+    "gatsby-plugin-sitemap",
+    "gatsby-plugin-robots-txt",
+    "gatsby-plugin-uninline-styles",
+    "gatsby-plugin-minify-html",
+    // {
+    //   resolve: 'gatsby-plugin-brotli',
+    //   options: {
+    //     extensions: ['css', 'html', 'js', 'svg']
+    //   }
+    // },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: "gatsby-starter-default",
-        short_name: "starter",
+        name: "Matisse Vrignaud",
+        short_name: "Matisse V",
         start_url: "/",
-        background_color: "#663399",
-        theme_color: "#663399",
+        background_color: "#FFFFFF",
+        theme_color: "#000000",
         display: "minimal-ui",
+        lang: "fr",
+        icon: "src/images/favicon-black.svg",
+        localize: [
+          {
+            start_url: "/en/",
+            lang: `en`,
+            name: "Matisse Vrignaud",
+            short_name: "Matisse V"
+          },
+        ],
       },
     },
     "gatsby-plugin-offline",

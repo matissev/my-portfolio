@@ -25,5 +25,9 @@
             "collaborator": "Collaborateur",
             "collaborators": "Collaborateurs"
         }
+    },
+    "404": {
+        "title": "Cette page n'existe pas, mais…",
+        "text": "…peut-être que le projet que vous cherchez ce trouve ci-dessous ?"
     }
 }

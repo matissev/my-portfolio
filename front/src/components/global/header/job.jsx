@@ -5,10 +5,11 @@ import styled from 'styled-components'
 
 // ============================================================================================================ Styles
 
-const $Job = styled.p`
+const $Job = styled.strong`
   margin: 0;
   padding: 0 var(--l-rh0_5);
   color: var(--c-txt2);
+  font-weight: normal;
   transition: color 0.2s ease;
 `
 

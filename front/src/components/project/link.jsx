@@ -39,6 +39,17 @@ const $Link = styled(Link)`
 
     @media (max-width: 600px) {
         grid-column: 1 / span 12;
+
+        a {
+            font-size: var(--fs-xl);
+            line-height: 3rem;
+
+            svg {
+                width: 1.5rem;
+                margin-left: 0.6rem;
+                fill: var(--c-txt1);
+            }
+        }
     }
 `
 

@@ -68,7 +68,8 @@ const $Heading = styled(Heading)`
   ${cssHeaderElements}
   margin-left: calc(var(--l-m) - var(--l-rh0_5));
   @media (max-width: 450px) {
-    margin-left: 0;
+    margin-left: calc(var(--l-m) + var(--l-rh0_5));
+    /* margin-left: 0; */
   }
 `
 
@@ -138,8 +139,8 @@ const $Nav = styled(Nav)`
   margin-right: calc(var(--l-m) - var(--l-rh0_5));
 
   @media (max-width: 450px) {
-    /* margin-right: calc(var(--l-m) + var(--l-rh0_5)); */
-    margin-right: 0;
+    margin-right: calc(var(--l-m) + var(--l-rh0_5));
+    /* margin-right: 0; */
   }
 `
 

@@ -9,7 +9,9 @@ import { Link } from "gatsby-plugin-react-intl";
 const Heading = ({ className, children }) => {
   return (
     <Link to="/" className={className}>
-      {children}
+      <h1>
+        {children}
+      </h1>
     </Link>
   )
 }
@@ -18,11 +20,13 @@ const Heading = ({ className, children }) => {
 // ============================================================================================================ Styles
 
 const $Heading = styled(Heading)`
-  margin: 0;
-  padding: 0 var(--l-rh0_5);
-  font-weight: 500;
-  display: block;
-  overflow: hidden;
+  h1 {
+    font-size: var(--fs-m);
+    font-weight: 500;
+    margin: 0;
+    padding: 0 var(--l-rh0_5);
+    overflow: hidden;
+  }
 `
 
 export default $Heading

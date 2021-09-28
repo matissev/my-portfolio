@@ -91,6 +91,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
+        overflow-x: hidden;
         min-width: 250px;
         font-family: var(--ff-body);
         margin: 0 var(--l-m);

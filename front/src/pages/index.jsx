@@ -17,7 +17,7 @@ const IndexPage = ({ data, pageContext }) => {
   const projects = useFilterLocale(data.strapi.projects)
   return (
     <>
-      <SEO/>
+      <SEO mainPage={true}/>
       <ProjectsGallery projects={projects} />
     </>
   )
