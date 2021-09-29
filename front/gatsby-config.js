@@ -65,10 +65,10 @@ module.exports = {
     },
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
-    `gatsby-transformer-ffmpeg`,
+    "gatsby-transformer-ffmpeg",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-robots-txt",
-    "gatsby-plugin-minify-html",
+    // "gatsby-plugin-minify-html",
     {
       resolve: 'gatsby-plugin-brotli',
       options: {
@@ -89,7 +89,7 @@ module.exports = {
         localize: [
           {
             start_url: "/en/",
-            lang: `en`,
+            lang: "en",
             name: "Matisse Vrignaud",
             short_name: "Matisse V"
           },
