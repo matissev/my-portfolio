@@ -50,17 +50,17 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-react-intl`,
+      resolve: `gatsby-plugin-intl`,
       options: {
         // language JSON resource path
         path: `${__dirname}/src/intl`,
         // supported language
-        languages: [`fr`, `en`],
+        languages: ["fr", "en"],
         // language file path
-        defaultLanguage: `fr`,
+        defaultLanguage: "fr",
         // option to redirect to `/ko` when connecting `/`
         redirect: true,
-        redirectDefaultLanguageToRoot: true
+        //redirectDefaultLanguageToRoot: true
       },
     },
     "gatsby-transformer-sharp",
@@ -68,7 +68,6 @@ module.exports = {
     "gatsby-transformer-ffmpeg",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-robots-txt",
-    // "gatsby-plugin-minify-html",
     {
       resolve: 'gatsby-plugin-brotli',
       options: {
@@ -80,7 +79,7 @@ module.exports = {
       options: {
         name: "Matisse Vrignaud",
         short_name: "Matisse V",
-        start_url: "/",
+        start_url: "/fr/",
         background_color: "#FFFFFF",
         theme_color: "#000000",
         display: "minimal-ui",

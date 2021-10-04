@@ -95,7 +95,8 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
    resolve: {
       fallback: {
-        "assert": require.resolve("assert/")
+        "assert": require.resolve("assert/"),
+        "path": require.resolve("path-browserify")
       },
     },
   })

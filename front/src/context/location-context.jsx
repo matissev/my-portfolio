@@ -2,7 +2,7 @@
 import React from "react"
 
 // Contexts
-import { IntlContextConsumer } from "gatsby-plugin-react-intl"
+import { IntlContextConsumer } from "gatsby-plugin-intl"
 
 
 // ============================================================================================================ Logic

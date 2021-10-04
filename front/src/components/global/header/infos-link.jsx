@@ -2,7 +2,7 @@
 import React, { useContext } from "react"
 import Helmet from 'react-helmet'
 import styled from "styled-components"
-import { Link, navigate } from "gatsby-plugin-react-intl";
+import { Link, navigate } from "gatsby-plugin-intl";
 
 // Context
 import { GlobalDispatchContext, GlobalStateContext } from '#context/global-context'

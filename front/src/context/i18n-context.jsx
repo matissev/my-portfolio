@@ -2,7 +2,7 @@
 import React from "react"
 
 // Contexts
-import { IntlContextConsumer, useIntl, changeLocale } from "gatsby-plugin-react-intl"
+import { IntlContextConsumer, useIntl, changeLocale } from "gatsby-plugin-intl"
 
 
 // ============================================================================================================ Logic

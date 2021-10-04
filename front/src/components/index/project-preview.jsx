@@ -1,6 +1,6 @@
 // Libraries
 import React from "react"
-import { Link } from "gatsby-plugin-react-intl";
+import { Link } from "gatsby-plugin-intl";
 import styled, { css } from "styled-components"
 import Img from "gatsby-image"
 
