@@ -45,12 +45,12 @@ const SEO = ({ description, title, image, isProject, mainPage }) => {
       {isProject &&
         <meta property="article:author" content={website.metadatas.author}/>
       }
-      <meta property="og:image" content={location.hostname + socialImage.url}/>
+      <meta property="og:image" content={process.env.GATSBY_PUBLIC_API_URL + socialImage.url}/>
 
       <meta name="twitter:card" content="summary"/>
       <meta name="twitter:title" content={pageTitle}/>
       <meta name="twitter:description" content={description || website.metadatas.description}/>
-      <meta name="twitter:image" content={location.hostname + socialImage.url}/>
+      <meta name="twitter:image" content={process.env.GATSBY_PUBLIC_API_URL + socialImage.url}/>
       {socialImage.alt &&
         <meta name="twitter:image:alt" content={socialImage.alt}/>
       }
