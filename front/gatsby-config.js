@@ -59,7 +59,7 @@ module.exports = {
         // language file path
         defaultLanguage: "fr",
         // option to redirect to `/ko` when connecting `/`
-        redirect: false
+        redirect: true
         //redirectDefaultLanguageToRoot: true
       },
     },
@@ -95,6 +95,6 @@ module.exports = {
         ],
       },
     },
-    "gatsby-plugin-offline",
-  ],
+    "gatsby-plugin-offline"
+  ]
 }
