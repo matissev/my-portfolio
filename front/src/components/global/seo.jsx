@@ -1,7 +1,10 @@
 // Libraries
-import React from "react"
+import React, { useContext }  from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+
+// Context
+import LocationContext from '#context/location-context'
 
 // Hooks
 import useFilterLocale from "#hooks/useFilterLocale"
@@ -11,6 +14,7 @@ import useFilterLocale from "#hooks/useFilterLocale"
 
 const SEO = ({ description, title, image, isProject, mainPage }) => {
   const website = useWebsite()
+  const location = useContext(LocationContext)
 
   const socialImage = {}
   if(image && image.url) {
@@ -40,12 +44,12 @@ const SEO = ({ description, title, image, isProject, mainPage }) => {
       {isProject &&
         <meta property="article:author" content={website.metadatas.author}/>
       }
-      <meta property="og:image" content={socialImage.url}/>
+      <meta property="og:image" content={location.hostname + socialImage.url}/>
 
       <meta name="twitter:card" content="summary"/>
       <meta name="twitter:title" content={pageTitle}/>
       <meta name="twitter:description" content={description || website.metadatas.description}/>
-      <meta name="twitter:image" content={socialImage.url}/>
+      <meta name="twitter:image" content={location.hostname + socialImage.url}/>
       {socialImage.alt &&
         <meta name="twitter:image:alt" content={socialImage.alt}/>
       }
