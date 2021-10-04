@@ -15,6 +15,7 @@ import useFilterLocale from "#hooks/useFilterLocale"
 const SEO = ({ description, title, image, isProject, mainPage }) => {
   const website = useWebsite()
   const location = useContext(LocationContext)
+  console.log(location.hostname)
 
   const socialImage = {}
   if(image && image.url) {

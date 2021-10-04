@@ -14,7 +14,6 @@ import Splash404 from "#components/global/404"
 // ============================================================================================================ Logic
 
 const NotFoundPage = ({ data, pageContext }) => {
-  console.log(pageContext);
   const projects = useFilterLocale(data.strapi.projects)
   return (
     <>

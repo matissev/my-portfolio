@@ -13,7 +13,6 @@ import ProjectsGallery from "#components/index/projects-gallery"
 // ============================================================================================================ Logic
 
 const IndexPage = ({ data, pageContext }) => {
-  console.log(pageContext);
   const projects = useFilterLocale(data.strapi.projects)
   return (
     <>

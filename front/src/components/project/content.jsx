@@ -24,7 +24,6 @@ const Content = ({ components, className }) => {
 }
 
 const ContentComponent = ({ component, className }) => {
-    console.log(component.__typename);
     return (
         <>
             {(() => {
