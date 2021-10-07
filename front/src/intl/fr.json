@@ -12,8 +12,7 @@
         "en": "Anglais"
     },
     "infos": {
-        "contactHeader": "Me contacter",
-        "contactButtonLabel": "M’envoyer un email"
+        "contactButtonLabel": "Me contacter"
     },
     "project": {
         "tags": {
