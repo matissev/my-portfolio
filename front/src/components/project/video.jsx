@@ -19,7 +19,7 @@ function Video({ className, video, size }) {
     const i18n = useContext(i18nContext)
 
     // let videoUrl = video.url + "?portrait=0&byline=0&title=0";
-    let videoUrl = video.url + "?portrait=0&byline=0&title=0&color=AAAAAA";
+    let videoUrl = "https://player.vimeo.com/video/" + video.url + "?portrait=0&byline=0&title=0&color=AAAAAA";
     
     if(i18n.locale === "en") {
         videoUrl += "&texttrack=en";
