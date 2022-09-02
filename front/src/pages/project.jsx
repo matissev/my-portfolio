@@ -473,6 +473,7 @@ export const query = graphql`
             entry_fr
             label_en
             label_fr
+            url
           }
           press {
             media_name

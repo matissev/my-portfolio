@@ -35,3 +35,13 @@ https://dev.to/louisbertin/multilingual-website-with-gatsby-and-contentful-part-
 
 - Redirect /fr to / with the new version of "gatsby-plugin-intl"
 - True data localization with the upcoming strapi feature : right now query both languages and interpolate locale variable names in the javascript part OR conditional queries based on locale.
+
+
+## Launching PM2
+
+from the /portfolio folder
+
+cd front
+pm2 start npm --name "front" -- run serve
+cd ../cms
+pm2 start npm --name "cms" -- run start

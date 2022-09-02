@@ -26,6 +26,8 @@ const Tag = ({ label, entries }) => {
 const Tags = ({ className, tags }) => {
     const i18n = useContext(i18nContext)
 
+    console.log(tags);
+
     return (
         <>
             {tags &&
@@ -67,13 +69,12 @@ const Tags = ({ className, tags }) => {
                         } />
                     }
                     {tags.other.map(item =>
-                        <Tag key={item.label} label={item.label} entries={() => {
-                            if(item.url) {
-                                return <a href={item.url} target="_blank" rel="noreferrer">{item.entry}</a>
-                            } else {
-                                return item.entry
+                        <Tag key={item.label} label={item.label}
+                            entries={1 ?
+                                [<a href={item.url} target="_blank" rel="noreferrer">{item.entry}</a>] :
+                                [item.entry]
                             }
-                        }}/>
+                        />
                     )}
                 </dl>
             }
