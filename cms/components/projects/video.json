@@ -19,6 +19,16 @@
     "caption_en": {
       "type": "string",
       "maxLength": 125
+    },
+    "subtitles": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
     }
   }
 }

@@ -305,7 +305,10 @@ export const query = graphql`
           ... on Strapi_ComponentProjectsVideo {
             caption_en
             caption_fr
-            url
+            url,
+            subtitles {
+              url
+            }
           }
           ... on Strapi_ComponentProjectsImage {
             alt_en
