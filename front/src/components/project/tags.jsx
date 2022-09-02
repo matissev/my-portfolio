@@ -70,7 +70,7 @@ const Tags = ({ className, tags }) => {
                     }
                     {tags.other.map(item =>
                         <Tag key={item.label} label={item.label}
-                            entries={1 ?
+                            entries={item.url ?
                                 [<a href={item.url} target="_blank" rel="noreferrer">{item.entry}</a>] :
                                 [item.entry]
                             }
