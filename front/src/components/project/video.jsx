@@ -17,10 +17,9 @@ import i18nContext from "#context/i18n-context"
 function Video({ className, video, size }) {
     const isSSR = typeof window === "undefined"
     const i18n = useContext(i18nContext)
-    console.log(process.env.GATSBY_PUBLIC_API_URL + video.subtitles.url)
 
     // let videoUrl = video.url + "?portrait=0&byline=0&title=0";
-    let videoUrl = "https://player.vimeo.com/video/745031542" + "?portrait=0&byline=0&title=0&color=AAAAAA";
+    let videoUrl = video.url + "?portrait=0&byline=0&title=0&color=AAAAAA";
     
     if(i18n.locale === "en") {
         videoUrl += "&texttrack=en";
