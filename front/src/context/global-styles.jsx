@@ -89,6 +89,10 @@ const GlobalStyle = createGlobalStyle`
         // Fonts
         --ff-body: var(--font-family-body);
     }
+    
+    html {
+        overflow-x: hidden;
+    }
 
     body {
         min-width: 250px;
