@@ -49,10 +49,10 @@
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop -p 8030 -H 0.0.0.0",
+    "develop": "gatsby develop -p 8000 -H 0.0.0.0",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
-    "serve": "gatsby serve -p 8030 -H 0.0.0.0",
+    "serve": "gatsby serve -p 8000 -H 0.0.0.0",
     "clean": "gatsby clean",
     "cleanprod": "npm run clean && npm run build && npm run serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"

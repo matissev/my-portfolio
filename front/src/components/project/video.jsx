@@ -28,7 +28,7 @@ function Video({ className, video, size }) {
     return (
         <figure className={className} size={size}>
             <div className="embed-container">
-                <iframe title="vimeo-player" src={videoUrl} frameborder="0" allowfullscreen></iframe>
+                <iframe title="vimeo-player" src={videoUrl} frameborder="0" allowfullscreen mozallowfullscreen webkitallowfullscreen></iframe>
             </div>
 
 

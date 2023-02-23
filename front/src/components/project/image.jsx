@@ -1,12 +1,25 @@
 // Libraries
-import React from 'react'
+import React from "react"
 import Img from "gatsby-image"
 import styled from 'styled-components'
 
+// Context
+// import i18nContext from "#context/i18n-context"
 
 // ============================================================================================================ Logic
 
 function Image({ className, image, size }) {
+    // const i18n = useContext(i18nContext)
+
+    // let file
+
+    // if(image.txt_image) {
+    //     if(i18n.locale !== "fr") {
+    //         let fileLng = "fileTxt" + i18n.locale
+    //         file = image[fileLng]
+    //     }
+    // }
+
     return (
         <figure className={className} size={size}>
             {image.file.ext !== ".svg" && image.file.imageFile.childImageSharp ?
