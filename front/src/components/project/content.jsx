@@ -8,6 +8,7 @@ import Audio from './audio'
 import Image from './image'
 import Animation from './animation'
 import Lottie from './lottie'
+import Bandcamp from './bandcamp'
 import Text from './text'
 import Gallery from './gallery'
 import LottieGallery from './lottiegallery'
@@ -38,6 +39,8 @@ const ContentComponent = ({ component, className }) => {
                         return <Animation className={className} key={component.id} animation={component.animation} />
                     case "Strapi_ComponentProjectsLottieContent":
                         return <Lottie className={className} key={component.id} lottie={component.lottie} />
+                    case "Strapi_ComponentProjectsBandcampContent":
+                        return <Bandcamp className={className} key={component.id} bandcamp={component.bandcamp} />
                     case "Strapi_ComponentProjectsTextContent":
                         return <Text className={className} key={component.id} text={component}/>
                     case "Strapi_ComponentProjectsGalleryContent":

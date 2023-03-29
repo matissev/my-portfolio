@@ -45,3 +45,17 @@ cd front
 pm2 start npm --name "front" -- run serve
 cd ../cms
 pm2 start npm --name "cms" -- run start
+
+## Troubles
+
+- Make sure you use node 14
+
+## List apps running on port
+
+`lsof -i:8000`
+
+then use
+
+`kill 8698`
+
+"8698" being the PID

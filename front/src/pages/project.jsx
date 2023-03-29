@@ -354,6 +354,15 @@ export const query = graphql`
             }
             animation_size: size
           }
+          ... on Strapi_ComponentProjectsBandcampContent {
+            bandcamp {
+              bandcamp_id
+              alt
+              url
+              theme
+              links_color
+            }
+          }
           ... on Strapi_ComponentProjectsLottieContent {
             lottie {
               id

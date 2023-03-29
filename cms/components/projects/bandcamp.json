@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_projects_bandcamps",
+  "info": {
+    "name": "bandcamp",
+    "icon": "broadcast-tower",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "alt": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200
+    },
+    "url": {
+      "type": "string",
+      "regex": "(https?:\\/\\/(?:www\\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|www\\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|https?:\\/\\/(?:www\\.|(?!www))[a-zA-Z0-9]+\\.[^\\s]{2,}|www\\.[a-zA-Z0-9]+\\.[^\\s]{2,})",
+      "required": true
+    },
+    "bandcamp_id": {
+      "type": "string",
+      "required": true,
+      "regex": "\\d{10}"
+    },
+    "links_color": {
+      "type": "string",
+      "regex": "#\\b[0-9A-F]{6}\\b"
+    },
+    "theme": {
+      "type": "enumeration",
+      "enum": [
+        "bright",
+        "dark"
+      ],
+      "default": "bright"
+    }
+  }
+}

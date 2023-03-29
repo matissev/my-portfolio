@@ -60,7 +60,8 @@
         "projects.audio-content",
         "projects.lottie-content",
         "projects.lottiegallery-content",
-        "projects.link-content"
+        "projects.link-content",
+        "projects.bandcamp-content"
       ]
     },
     "tags": {

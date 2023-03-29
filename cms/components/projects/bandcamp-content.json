@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_projects_bandcamp_contents",
+  "info": {
+    "name": "bandcamp_content",
+    "icon": "headphones-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "bandcamp": {
+      "type": "component",
+      "repeatable": false,
+      "component": "projects.bandcamp",
+      "required": true
+    }
+  }
+}

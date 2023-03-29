@@ -12,11 +12,11 @@ import 'react-h5-audio-player/lib/styles.css';
 
 // ============================================================================================================ Logic
 
-function Audio({ className, audio, size }) {
+function Audio({ className, audio }) {
     const isSSR = typeof window === "undefined"
 
     return (
-        <figure className={className} size={size}>
+        <figure className={className}>
             <AudioPlayer
                 src={process.env.GATSBY_PUBLIC_API_URL + audio.file.url}
                 header={audio.caption}
