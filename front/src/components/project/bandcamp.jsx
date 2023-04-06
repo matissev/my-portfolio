@@ -16,10 +16,11 @@ function Bandcamp({ className, bandcamp }) {
     let background_color = bandcamp.theme === "bright" ? "FFFFFF" : "000000"
 
     let tracklistBool = bandcamp.type === "album" ? "true" : "false"
+    let typeClass = bandcamp.type
 
     let bandcampUrl = "https://bandcamp.com/EmbeddedPlayer/" + bandcamp.type + "=" + bandcamp.bandcamp_id + "/size=large/bgcol=" + background_color + "/linkcol=" + bandcamp.links_color.slice(1) + "/tracklist=" + tracklistBool + "/artwork=small/transparent=true/"
     return (
-        <div className={className}>
+        <div className={className + " " + typeClass}>
             <iframe src={bandcampUrl} seamless><a href={bandcamp.url}>{bandcamp.alt}</a></iframe>
         </div>
     )
@@ -35,11 +36,15 @@ const $Bandcamp = styled(Bandcamp)`
     max-width: none;
 
     position: relative;
-    padding-bottom: 60%;
+    padding-bottom: 420px;
     height: 0;
     overflow: hidden;
     max-width: 100%;
     height: auto;
+
+    &.track {
+        padding-bottom: 120px;
+    }
 
     iframe, object, embed {
         border: none!important;
