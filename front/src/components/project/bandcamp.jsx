@@ -15,7 +15,9 @@ function Bandcamp({ className, bandcamp }) {
 
     let background_color = bandcamp.theme === "bright" ? "FFFFFF" : "000000"
 
-    let bandcampUrl = "https://bandcamp.com/EmbeddedPlayer/" + bandcamp.type + "=" + bandcamp.bandcamp_id + "/size=large/bgcol=" + background_color + "/linkcol=" + bandcamp.links_color.slice(1) + "/artwork=small/transparent=true/"
+    let tracklistBool = bandcamp.type === "album" ? "true" : "false"
+
+    let bandcampUrl = "https://bandcamp.com/EmbeddedPlayer/" + bandcamp.type + "=" + bandcamp.bandcamp_id + "/size=large/bgcol=" + background_color + "/linkcol=" + bandcamp.links_color.slice(1) + "/tracklist=" + tracklistBool + "/artwork=small/transparent=true/"
     return (
         <div className={className}>
             <iframe src={bandcampUrl} seamless><a href={bandcamp.url}>{bandcamp.alt}</a></iframe>
