@@ -33,6 +33,15 @@
         "dark"
       ],
       "default": "bright"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "track",
+        "album"
+      ],
+      "default": "album",
+      "required": true
     }
   }
 }

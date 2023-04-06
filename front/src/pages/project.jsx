@@ -361,6 +361,7 @@ export const query = graphql`
               url
               theme
               links_color
+              type
             }
           }
           ... on Strapi_ComponentProjectsLottieContent {
