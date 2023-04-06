@@ -306,6 +306,7 @@ export const query = graphql`
             caption_en
             caption_fr
             url
+            type
           }
           ... on Strapi_ComponentProjectsImage {
             alt_en
@@ -402,6 +403,7 @@ export const query = graphql`
               caption_en
               caption_fr
               url
+              type
             }
             video_size: size
           }

@@ -18,8 +18,13 @@ function Video({ className, video, size }) {
     const isSSR = typeof window === "undefined"
     const i18n = useContext(i18nContext)
 
-    // let videoUrl = video.url + "?portrait=0&byline=0&title=0";
-    let videoUrl = "https://player.vimeo.com/video/" + video.url + "?portrait=0&byline=0&title=0&color=AAAAAA";
+    let videoUrl
+    
+    if(video.type === "vimeo") {
+        videoUrl = "https://player.vimeo.com/video/" + video.url + "?portrait=0&byline=0&title=0&color=AAAAAA"
+    } else {
+        videoUrl = "https://www.youtube.com/embed/" + video.url + "?modestbranding=1&rel=0&showinfo=0&color=white"
+    }
     
     if(i18n.locale === "en") {
         videoUrl += "&texttrack=en";

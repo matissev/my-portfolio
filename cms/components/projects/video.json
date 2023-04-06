@@ -18,6 +18,15 @@
     "caption_en": {
       "type": "string",
       "maxLength": 125
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "youtube",
+        "vimeo"
+      ],
+      "required": true,
+      "default": "vimeo"
     }
   }
 }
