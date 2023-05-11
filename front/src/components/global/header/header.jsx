@@ -68,6 +68,10 @@ const $Header = styled(Header)`
 
   @media (max-width: 540px) {
     position: absolute;
+
+    .experimental-link {
+      display: none;
+    }
   }
 
   @media (max-width: 450px) {
