@@ -1,10 +1,14 @@
 // Libraries
-import React from "react"
+import React, { useContext } from "react"
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby-plugin-intl";
 
 // Hooks
 import useFilterLocale from '#hooks/useFilterLocale'
+
+// Context
+import LocationContext from '#context/location-context'
 
 // Components
 import Heading from './heading'
@@ -18,6 +22,9 @@ import InfosLink from './infos-link'
 
 const Header = ({ className }) => {
   const website = useWebsiteData()
+  const location = useContext(LocationContext)
+
+  const isPageInfos = location.noLocalePath === "/infos"
 
   return (
     <header className={className}>
@@ -29,6 +36,10 @@ const Header = ({ className }) => {
       </$Job>
       {/* <$MuteButton/> */}
       <$Nav>
+        {!isPageInfos &&
+          <a href="https://matissev.gumroad.com/" target="_blank" className="experimental-link">Experimentals</a>
+          // <Link to="/experimentals">Experimentals</Link>
+        }
         <InfosLink/>
       </$Nav>
     </header>
@@ -50,6 +61,10 @@ const $Header = styled(Header)`
   width: 100%;
   font-size: var(--fs-m);
   min-width: 250px;
+
+  .experimental-link {
+    color: #CC33FF;
+  }
 
   @media (max-width: 540px) {
     position: absolute;
@@ -137,6 +152,14 @@ const $Nav = styled(Nav)`
   ${cssHeaderElements}
   margin-left: auto;
   margin-right: calc(var(--l-m) - var(--l-rh0_5));
+
+  a {
+    display: inline-block;
+    
+    &:last-of-type {
+      margin-left: 80px;
+    }
+  }
 
   @media (max-width: 450px) {
     margin-right: calc(var(--l-m) + var(--l-rh0_5));
