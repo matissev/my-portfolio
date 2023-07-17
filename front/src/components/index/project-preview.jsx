@@ -80,6 +80,7 @@ const Preview = styled.article`
     margin-top: calc(var(--l-rh) + var(--l-rh0_125));
     font-size: var(--fs-xl);
     font-weight: 400;
+    line-height: var(--fs-xl);
   }
 
   strong {
