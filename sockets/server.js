@@ -1,3 +1,5 @@
+import { config } from "dotenv";
+config({ path: process.ENV });
 import { createServer } from "http";                      
 import { Server } from "socket.io";                 
 
@@ -30,7 +32,8 @@ io.on("connection", (socket) => {
 });
 
 // Launch server
-const myPort = 8100; // let Glitch choose port OR use 3000
-httpServer.listen(myPort, () => {
-    console.log(`the server is listening on port: ${myPort}`);
+
+const PORT = process.env.PORT;
+httpServer.listen(PORT, () => {
+    console.log(`the server is listening on port: ${PORT}`);
 });

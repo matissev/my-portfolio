@@ -12,6 +12,7 @@
   },
   "type": "module",
   "dependencies": {
+    "dotenv": "^16.4.1",
     "socket.io": "^4.6.1"
   }
 }
