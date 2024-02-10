@@ -1,21 +1,17 @@
 {
-  "name": "server",
+  "name": "sockets",
   "version": "1.0.0",
   "description": "",
-  "main": "web-server.js",
+  "main": "server.js",
   "engines": {
     "node": ">=16.x",
     "npm": ">=7.x"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node web-server.js"
+    "start": "node server.js"
   },
-  "author": "Ben Johansen",
-  "license": "MIT",
   "type": "module",
   "dependencies": {
-    "express": "^4.18.2",
     "socket.io": "^4.6.1"
   }
 }
