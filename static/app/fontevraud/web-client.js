@@ -1,7 +1,8 @@
 // add CDN for socket.io and link to this file in index.html header
 
 // Variables
-const serverURL = "http://localhost:8100";  // make sure you EDIT THIS!
+const serverURL = "https://io.matissev.com";  // make sure you EDIT THIS!
+// const serverURL = "http://localhost:8100";  // make sure you EDIT THIS!
                                                                // use http://localhost:3000
                                                                // if running server locally
 // Client Initialization

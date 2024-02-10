@@ -9,6 +9,8 @@ const PORT = process.env.PORT;
 // This is the port on which the website is available
 server.listen(PORT);
 
+console.log(`the server is running on port: ${PORT}`);
+
 // This is just to tell the server to use the folder app/ as the public web folder
 // This way, if your index.html asks for the files scripts.js and style.js, this is where the server will search for them
 app.use(express.static(__dirname + '/app'));
