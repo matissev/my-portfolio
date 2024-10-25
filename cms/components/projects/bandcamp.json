@@ -20,7 +20,7 @@
     "bandcamp_id": {
       "type": "string",
       "required": true,
-      "regex": "\\d{10}"
+      "regex": "\\d{5,15}"
     },
     "links_color": {
       "type": "string",

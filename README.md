@@ -45,8 +45,12 @@ cd front
 pm2 start npm --name "front" -- run serve
 cd ../cms
 pm2 start npm --name "cms" -- run start
-cd ../sockets
-pm2 start npm --name "sockets" -- run start
+cd ../io
+pm2 start npm --name "io" -- run start
+cd ../static
+pm2 start npm --name "static" -- run start
+
+pm2 save
 
 ## Troubles
 
