@@ -64,17 +64,7 @@ module.exports = {
       },
     },
     "gatsby-transformer-sharp",
-    {
-      resolve: `gatsby-plugin-sharp`,
-      options: {
-        quality: 80,
-        // Defaults used for gatsbyImageData and StaticImage
-        defaults: {},
-        // Relates to "options.failOn" in https://sharp.pixelplumbing.com/api-constructor#parameters
-        failOn: `warning`,
-      },
-    },
-    // "gatsby-plugin-sharp",
+    "gatsby-plugin-sharp",
     "gatsby-transformer-ffmpeg",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-robots-txt",
